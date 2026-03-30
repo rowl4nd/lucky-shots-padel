@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Shots Padel | Coming Soon</title>
+    <meta name="description" content="Lucky Shots Padel — North Wales' premier indoor padel tennis facility. Coming soon to LL28 5HX.">
+    <meta property="og:title" content="Lucky Shots Padel | Coming Soon">
+    <meta property="og:description" content="North Wales' premier indoor padel tennis facility. Coming soon.">
+    <meta property="og:image" content="hero.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f0e8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            min-height: 100dvh;
+        }
+
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .footer-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1.25rem 2rem;
+            background: rgba(245, 240, 232, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 10;
+        }
+
+        .footer-bar a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #3d3d3d;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease;
+        }
+
+        .footer-bar a:hover {
+            color: #e07070;
+        }
+
+        .footer-bar svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .separator {
+            width: 1px;
+            height: 18px;
+            background: #c0b8a8;
+        }
+
+        .email-text {
+            color: #3d3d3d;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        @media (max-width: 600px) {
+            .footer-bar {
+                flex-direction: column;
+                gap: 0.75rem;
+                padding: 1rem 1.5rem;
+            }
+
+            .separator {
+                display: none;
+            }
+
+            .footer-bar a,
+            .email-text {
+                font-size: 0.82rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <img src="hero.png" alt="Lucky Shots Padel — Coming Soon — LL28 5HX" class="hero-image">
+
+        <div class="footer-bar">
+            <a href="https://www.instagram.com/luckyshotspadel/" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                @luckyshotspadel
+            </a>
+
+            <div class="separator"></div>
+
+            <a href="mailto:hello@luckyshots.co.uk">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                hello@luckyshots.co.uk
+            </a>
+        </div>
+    </div>
+</body>
+</html>
