@@ -48,11 +48,22 @@
         }
 
         .hero-image {
-            max-width: 70%;
-            max-height: 70%;
+            max-width: 52%;
+            max-height: 52%;
             object-fit: contain;
             object-position: center;
             z-index: 1;
+        }
+
+        .location-label {
+            position: absolute;
+            bottom: 5rem;
+            right: 2rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #9a9286;
+            letter-spacing: 0.05em;
+            z-index: 10;
         }
 
         .footer-bar {
@@ -127,6 +138,8 @@
 <body>
     <div class="hero">
         <img src="hero.png" alt="Lucky Shots Padel — Coming Soon — LL28 5HX" class="hero-image">
+
+        <div class="location-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" style="vertical-align: -2px; margin-right: 4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Conwy</div>
 
         <div class="footer-bar">
             <a href="https://www.instagram.com/luckyshotspadel/" target="_blank" rel="noopener noreferrer">
