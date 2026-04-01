@@ -56,6 +56,53 @@
             z-index: 1;
         }
 
+        .signup-form {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 2;
+            margin-top: 1.5rem;
+        }
+
+        .signup-form input[type="email"] {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            padding: 0.6rem 1rem;
+            border: 1px solid #c0b8a8;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.6);
+            color: #3d3d3d;
+            outline: none;
+            width: 220px;
+            letter-spacing: 0.02em;
+        }
+
+        .signup-form input[type="email"]::placeholder {
+            color: #9a9286;
+        }
+
+        .signup-form input[type="email"]:focus {
+            border-color: #3d3d3d;
+        }
+
+        .signup-form button {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 6px;
+            background: #3d3d3d;
+            color: #f5f0e8;
+            cursor: pointer;
+            letter-spacing: 0.02em;
+            transition: background 0.2s ease;
+        }
+
+        .signup-form button:hover {
+            background: #2a2a2a;
+        }
+
         .location-label {
             display: flex;
             align-items: center;
@@ -118,6 +165,20 @@
         }
 
         @media (max-width: 600px) {
+            .hero-image {
+                max-width: 75%;
+                max-height: 45%;
+            }
+
+            .signup-form input[type="email"] {
+                width: 180px;
+                font-size: 0.8rem;
+            }
+
+            .signup-form button {
+                font-size: 0.8rem;
+            }
+
             .footer-bar {
                 flex-direction: column;
                 gap: 0.75rem;
@@ -139,6 +200,14 @@
 <body>
     <div class="hero">
         <img src="hero.png" alt="Lucky Shots Padel — Coming Soon" class="hero-image">
+
+        <form class="signup-form" action="https://luckyshots.us16.list-manage.com/subscribe/post?u=faa076cbe7d22dc5c5e611aa2&amp;id=4faceff9e5&amp;f_id=008d06e0f0" method="post" target="_blank">
+            <input type="email" name="EMAIL" placeholder="Enter your email" required>
+            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                <input type="text" name="b_faa076cbe7d22dc5c5e611aa2_4faceff9e5" tabindex="-1" value="">
+            </div>
+            <button type="submit">For Updates</button>
+        </form>
 
         <div class="footer-bar">
             <span class="location-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Conwy County</span>
