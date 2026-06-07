@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Members — Lucky Shots Padel</title>
+  <link rel="canonical" href="https://luckyshots.co.uk/members.html">
+  <meta name="description" content="Be a founding member of Lucky Shots Padel. Priority courts, locked-in rates, member events. Register your interest now.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Yellowtail&family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── MEMBERS-SPECIFIC STYLES ── */
+
+    .members-hero { background:var(--green-dark); color:var(--cream); padding:calc(var(--nav-h) + 4rem) var(--pad) 6rem; text-align:center; }
+    .members-hero h1 { font-family:var(--fd); font-size:clamp(3.2rem,9vw,10rem); line-height:.83; margin-bottom:2rem; opacity:.9; }
+    .members-hero p  { font-size:1.1rem; line-height:1.75; color:rgba(255,249,193,.6); max-width:520px; margin:0 auto 3rem; }
+    .members-hero-img { max-width:var(--max-w); margin:3rem auto 0; aspect-ratio:21/9; border-radius:20px; }
+
+    .founding { background:var(--cream); color:var(--green); padding:8rem var(--pad); }
+    .founding-grid { max-width:var(--max-w); margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:start; }
+    .founding-left h2 { font-family:var(--fd); font-size:clamp(2.3rem,4.5vw,4.5rem); line-height:.95; margin-bottom:1.25rem; opacity:.9; }
+    .founding-left p  { font-size:1rem; line-height:1.8; color:rgba(0,40,19,.6); margin-bottom:2rem; }
+    .benefits { list-style:none; display:flex; flex-direction:column; gap:1rem; }
+    .benefits li { display:flex; gap:1rem; font-size:.95rem; line-height:1.6; color:rgba(0,40,19,.75); }
+    .benefits li::before { content:'→'; font-family:var(--fh); color:var(--green); flex-shrink:0; }
+
+    /* Sign-up card */
+    .signup-card { background:var(--green); border-radius:20px; padding:2.75rem; }
+    .signup-card h3  { font-family:var(--fd); font-size:2rem; color:var(--cream); margin-bottom:.5rem; opacity:.92; }
+    .signup-card .sc-sub { font-size:.9rem; color:rgba(255,249,193,.5); margin-bottom:2rem; line-height:1.6; }
+    .field-group { display:flex; flex-direction:column; gap:.75rem; margin-bottom:1rem; }
+    .field-group input {
+      font-family:var(--fb); font-size:.9rem; padding:.8rem 1.25rem;
+      border:1px solid rgba(255,249,193,.2); border-radius:8px;
+      background:rgba(255,249,193,.07); color:var(--cream); outline:none;
+    }
+    .field-group input::placeholder { color:rgba(255,249,193,.3); }
+    .field-group input:focus { border-color:rgba(255,249,193,.5); }
+    .form-note { font-size:.75rem; color:rgba(255,249,193,.28); margin-top:1rem; line-height:1.6; }
+
+    /* What membership includes */
+    .membership-info { background:var(--green); color:var(--cream); padding:7rem var(--pad); }
+    .membership-info-inner { max-width:var(--max-w); margin:0 auto; text-align:center; }
+    .membership-info h2 { font-family:var(--fd); font-size:clamp(2rem,4vw,3.5rem); margin-bottom:1rem; opacity:.92; }
+    .membership-info p  { font-size:1rem; line-height:1.8; color:rgba(255,249,193,.6); max-width:560px; margin:0 auto 3rem; }
+    .tiers-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; text-align:left; }
+    .tier-card { border:1px solid rgba(255,249,193,.12); border-radius:16px; padding:2rem; }
+    .tier-name  { font-family:var(--fh); font-size:1.4rem; letter-spacing:.06em; margin-bottom:.5rem; }
+    .tier-label { font-family:var(--fh); font-size:.7rem; letter-spacing:.18em; color:rgba(255,249,193,.35); margin-bottom:1rem; }
+    .tier-desc  { font-size:.88rem; line-height:1.7; color:rgba(255,249,193,.55); }
+    .tier-tbc   { font-family:var(--fh); font-size:.65rem; letter-spacing:.2em; color:rgba(255,249,193,.3); margin-top:1.25rem; }
+
+    @media (max-width:768px) {
+      .founding-grid { grid-template-columns:1fr; gap:3rem; }
+      .tiers-grid    { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav solid" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="Lucky Shots Padel" class="nav-logo-img" id="navImg">
+      <span class="nav-logo-text" id="navText" style="display:none">Lucky Shots</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="play.html">Play</a></li>
+      <li><a href="club.html">The Club</a></li>
+      <li><a href="academy.html">Academy</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="members.html">Members</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <a href="members.html" class="nav-cta">Join Early Access</a>
+    <button class="burger" id="burger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="play.html"    class="mm">Play</a>
+  <a href="club.html"    class="mm">The Club</a>
+  <a href="academy.html" class="mm">Academy</a>
+  <a href="events.html"  class="mm">Events</a>
+  <a href="members.html" class="mm">Members</a>
+  <a href="about.html"   class="mm">About</a>
+</div>
+
+<!-- HERO -->
+<div class="members-hero cut-b">
+  <div class="container">
+    <span class="eyebrow">05 — MEMBERS</span>
+    <h1>Be a founding<br>member.</h1>
+    <p>Lucky Shots membership isn't open yet. But founding members — the people who sign up before we open — will lock in the best rates, get first access to courts and coaching, and be part of building this from the start.</p>
+    <div class="btn-row" style="justify-content:center">
+      <a href="#founding-form" class="btn btn-cream">Register your interest →</a>
+    </div>
+    <div class="ph members-hero-img" data-label="IMG: Atmospheric court shot — lone player or empty courts, premium feel"></div>
+  </div>
+</div>
+
+<!-- FOUNDING MEMBER FORM -->
+<div class="founding cut-t reveal" id="founding-form">
+  <div class="founding-grid container">
+    <div class="founding-left">
+      <span class="eyebrow" style="color:rgba(0,40,19,.4)">WHAT YOU GET</span>
+      <h2>Founding member benefits.</h2>
+      <div class="divider" style="background:var(--green)"></div>
+      <p>Full membership structure and pricing will be confirmed before opening. Here's what founding members can expect:</p>
+      <ul class="benefits">
+        <li>Priority court booking ahead of general availability</li>
+        <li>Discounted court hire rates, locked in for your first year</li>
+        <li>Reduced fees across all Academy programmes</li>
+        <li>Access to member-only events and social leagues</li>
+        <li>First invite to the October 2026 launch party</li>
+        <li>Input into the club — we'll ask what you want</li>
+      </ul>
+    </div>
+    <div class="signup-card reveal d2">
+      <h3>Register interest</h3>
+      <p class="sc-sub">No commitment. Just your email and we'll be in touch when founding membership opens.</p>
+      <form action="https://luckyshots.us16.list-manage.com/subscribe/post?u=faa076cbe7d22dc5c5e611aa2&amp;id=4faceff9e5&amp;f_id=008d06e0f0" method="post" target="_blank" style="position:relative">
+        <div class="field-group">
+          <input type="text"  name="FNAME" placeholder="Your first name">
+          <input type="email" name="EMAIL" placeholder="Your email address" required>
+        </div>
+        <div style="position:absolute;left:-5000px;" aria-hidden="true">
+          <input type="text" name="b_faa076cbe7d22dc5c5e611aa2_4faceff9e5" tabindex="-1" value="">
+        </div>
+        <button type="submit" class="btn btn-cream" style="width:100%;margin-top:.5rem">Register my interest</button>
+      </form>
+      <p class="form-note">No spam. No commitment. We'll only contact you about Lucky Shots membership.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MEMBERSHIP TIERS (placeholder) -->
+<div class="membership-info reveal">
+  <div class="membership-info-inner container">
+    <span class="eyebrow">MEMBERSHIP TIERS</span>
+    <h2>Something for everyone.</h2>
+    <p>Membership tiers and pricing will be confirmed ahead of opening. Here's the broad shape of what we're planning.</p>
+    <div class="tiers-grid">
+      <div class="tier-card reveal d1">
+        <div class="tier-label">ENTRY</div>
+        <div class="tier-name">Social</div>
+        <p class="tier-desc">Discounted court hire, early booking access and member-only social events.</p>
+        <div class="tier-tbc">PRICING TBC</div>
+      </div>
+      <div class="tier-card reveal d2">
+        <div class="tier-label">STANDARD</div>
+        <div class="tier-name">Club</div>
+        <p class="tier-desc">Everything in Social, plus reduced Academy fees and access to member leagues.</p>
+        <div class="tier-tbc">PRICING TBC</div>
+      </div>
+      <div class="tier-card reveal d3">
+        <div class="tier-label">PREMIUM</div>
+        <div class="tier-name">Pro</div>
+        <p class="tier-desc">Priority booking, maximum discounts across all arms, and exclusive Pro member events.</p>
+        <div class="tier-tbc">PRICING TBC</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-name">Lucky Shots</div>
+      <p>North Wales' premier indoor padel facility. Four courts, bar, café, coaching and events.</p>
+      <p style="margin-top:.75rem">Opening Colwyn Bay, October 2026.</p>
+      <p style="margin-top:.75rem">NW Sports Ventures Limited</p>
+    </div>
+    <div class="footer-col">
+      <h4>THE VENUE</h4>
+      <ul>
+        <li><a href="play.html">Play</a></li>
+        <li><a href="club.html">The Club</a></li>
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="members.html">Members</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>INFORMATION</h4>
+      <ul>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="about.html">Find Us</a></li>
+        <li><a href="mailto:padel@luckyshots.co.uk">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>CONNECT</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/luckyshotspadel/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="mailto:padel@luckyshots.co.uk">Email us</a></li>
+        <li><a href="members.html">Early Access</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 NW Sports Ventures Limited · Lucky Shots Padel · luckyshots.co.uk</p>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/luckyshotspadel/" target="_blank" rel="noopener">INSTAGRAM</a>
+      <a href="mailto:padel@luckyshots.co.uk">EMAIL</a>
+    </div>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>
