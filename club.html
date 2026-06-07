@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Club — Lucky Shots Padel</title>
+  <link rel="canonical" href="https://luckyshots.co.uk/club.html">
+  <meta name="description" content="Bar, coffee, food and great company. The social arm of Lucky Shots Padel — opening Colwyn Bay, October 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Yellowtail&family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── CLUB-SPECIFIC STYLES ── */
+
+    .club-hero { background:var(--green-dark); color:var(--cream); padding:calc(var(--nav-h) + 4rem) var(--pad) 5rem; }
+    .club-wide-img { aspect-ratio:21/9; border-radius:20px; max-width:var(--max-w); margin:0 auto 4rem; }
+    .club-hero-text {
+      max-width:var(--max-w); margin:0 auto;
+      display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start;
+    }
+    .club-hero-text h1 { font-family:var(--fd); font-size:clamp(2.8rem,6.5vw,6.5rem); line-height:.9; opacity:.92; }
+    .club-hero-text p  { font-size:1.05rem; line-height:1.85; color:rgba(255,249,193,.65); padding-top:1.5rem; }
+
+    /* Partners placeholder section */
+    .partners-sec { background:var(--off-white); color:var(--green); padding:7rem var(--pad); }
+    .partners-hdr { max-width:var(--max-w); margin:0 auto 3.5rem; }
+    .partners-hdr h2 { font-family:var(--fd); font-size:clamp(1.9rem,3.8vw,3.5rem); opacity:.9; }
+    .partners-hdr p  { font-size:1rem; line-height:1.8; color:rgba(0,40,19,.6); max-width:560px; margin-top:.75rem; }
+
+    /* Partner card grid — ready for real logos/images */
+    .partners-grid {
+      max-width:var(--max-w); margin:0 auto;
+      display:grid; grid-template-columns:repeat(3,1fr); gap:2rem;
+    }
+    .partner-card { background:var(--white); border-radius:20px; overflow:hidden; transition:transform .3s; }
+    .partner-card:hover { transform:translateY(-5px); }
+    .partner-img  { aspect-ratio:16/10; }
+    .partner-body { padding:1.75rem 2rem; }
+    .partner-name { font-family:var(--fh); font-size:1.4rem; letter-spacing:.04em; color:var(--green); margin-bottom:.5rem; }
+    .partner-desc { font-size:.88rem; line-height:1.7; color:rgba(0,40,19,.55); }
+    /* TBC badge */
+    .partner-tbc {
+      display:inline-block; font-family:var(--fh); font-size:.65rem;
+      letter-spacing:.2em; padding:.3rem .8rem; border:1px solid rgba(0,40,19,.2);
+      border-radius:100px; color:rgba(0,40,19,.4); margin-bottom:.75rem;
+    }
+
+    .club-atmos { background:var(--green); color:var(--cream); padding:7rem var(--pad); }
+    .club-atmos-inner { max-width:var(--max-w); margin:0 auto; }
+    .club-atmos h2 { font-family:var(--fd); font-size:clamp(2.2rem,5.5vw,5.5rem); line-height:.9; max-width:700px; margin-bottom:1.25rem; opacity:.92; }
+    .club-atmos p  { font-size:1.05rem; line-height:1.8; color:rgba(255,249,193,.6); max-width:540px; }
+    .club-atmos-img { aspect-ratio:21/9; border-radius:16px; margin-top:3.5rem; }
+
+    /* The experience features */
+    .experience { background:var(--cream); color:var(--green); padding:7rem var(--pad); }
+    .exp-inner  { max-width:var(--max-w); margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+    .exp-inner h2 { font-family:var(--fd); font-size:clamp(2rem,4vw,4rem); line-height:.95; margin-bottom:1.5rem; opacity:.9; }
+    .exp-inner p  { font-size:1.05rem; line-height:1.8; color:rgba(0,40,19,.6); margin-bottom:1.25rem; }
+    .exp-img { aspect-ratio:4/3; border-radius:200px 16px 16px 16px; }
+
+    @media (max-width:768px) {
+      .club-hero-text, .exp-inner { grid-template-columns:1fr; gap:2.5rem; }
+      .partners-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav solid" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="Lucky Shots Padel" class="nav-logo-img" id="navImg">
+      <span class="nav-logo-text" id="navText" style="display:none">Lucky Shots</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="play.html">Play</a></li>
+      <li><a href="club.html">The Club</a></li>
+      <li><a href="academy.html">Academy</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="members.html">Members</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <a href="members.html" class="nav-cta">Join Early Access</a>
+    <button class="burger" id="burger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="play.html"    class="mm">Play</a>
+  <a href="club.html"    class="mm">The Club</a>
+  <a href="academy.html" class="mm">Academy</a>
+  <a href="events.html"  class="mm">Events</a>
+  <a href="members.html" class="mm">Members</a>
+  <a href="about.html"   class="mm">About</a>
+</div>
+
+<!-- HERO -->
+<div class="club-hero cut-b">
+  <div class="container">
+    <div class="ph club-wide-img" data-label="IMG: Bar and café area — wide establishing shot, warm lighting"></div>
+    <div class="club-hero-text">
+      <h1>The soul of Lucky Shots.</h1>
+      <p>This isn't a sports hall with a vending machine. The social arm is where the brand lives — good coffee, cold beer, fresh bakes, and an atmosphere that makes the post-match hour the best part of your day. Designed to be a destination first, sports facility second.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PARTNERS -->
+<div class="partners-sec cut-t reveal">
+  <div class="container">
+    <div class="partners-hdr">
+      <span class="eyebrow" style="color:rgba(0,40,19,.4)">LOCAL PARTNERS</span>
+      <h2>Proudly North Wales.</h2>
+      <p>We're partnering with the best independent producers in the region. Partners will be announced ahead of opening — get on the list to be first to know.</p>
+    </div>
+    <div class="partners-grid">
+      <div class="partner-card reveal d1">
+        <div class="ph partner-img light" data-label="IMG: Coffee partner — branding or product shot"></div>
+        <div class="partner-body">
+          <span class="partner-tbc">PARTNER TBC</span>
+          <div class="partner-name">Specialty Coffee</div>
+          <p class="partner-desc">Locally roasted specialty coffee served at the Lucky Shots bar, every day we're open.</p>
+        </div>
+      </div>
+      <div class="partner-card reveal d2">
+        <div class="ph partner-img light" data-label="IMG: Beer / brewery partner — tap, cans or branding"></div>
+        <div class="partner-body">
+          <span class="partner-tbc">PARTNER TBC</span>
+          <div class="partner-name">Independent Brewery</div>
+          <p class="partner-desc">North Wales independent beer, on tap at Lucky Shots. Post-match pints sorted.</p>
+        </div>
+      </div>
+      <div class="partner-card reveal d3">
+        <div class="ph partner-img light" data-label="IMG: Food / bakery partner — product or branding shot"></div>
+        <div class="partner-body">
+          <span class="partner-tbc">PARTNER TBC</span>
+          <div class="partner-name">Local Bakery</div>
+          <p class="partner-desc">Fresh bakes every session. Because a game and a pastry is always the right call.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ATMOSPHERE -->
+<div class="club-atmos cut-b reveal">
+  <div class="club-atmos-inner container">
+    <span class="eyebrow">THE EXPERIENCE</span>
+    <h2>Play. Eat.<br>Stay longer.</h2>
+    <p>Court-side seating, the bar within reach, and good people to share it with. Lucky Shots is being designed as a destination — not just a facility. Come for the sport. Stay for everything else.</p>
+    <div class="ph club-atmos-img" data-label="IMG: Social area with people — post-game atmosphere, wide shot"></div>
+  </div>
+</div>
+
+<!-- THE EXPERIENCE -->
+<div class="experience cut-t reveal">
+  <div class="exp-inner container">
+    <div>
+      <span class="eyebrow" style="color:rgba(0,40,19,.4)">WHAT TO EXPECT</span>
+      <h2>More than a post-match drink.</h2>
+      <div class="divider" style="background:var(--green)"></div>
+      <p>The Lucky Shots social space is being designed with the same care as the courts. Considered interiors, proper coffee, good beer, food worth eating — and enough room to actually sit down together after a game.</p>
+      <p>We'll also stock a small range of padel equipment and apparel. The kind of place you can kit out and fuel up in one stop.</p>
+      <a href="members.html" class="btn btn-green" style="margin-top:1.5rem">Join the early access list →</a>
+    </div>
+    <div class="ph exp-img light" data-label="IMG: Court-side seating / social area detail shot"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-name">Lucky Shots</div>
+      <p>North Wales' premier indoor padel facility. Four courts, bar, café, coaching and events.</p>
+      <p style="margin-top:.75rem">Opening Colwyn Bay, October 2026.</p>
+      <p style="margin-top:.75rem">NW Sports Ventures Limited</p>
+    </div>
+    <div class="footer-col">
+      <h4>THE VENUE</h4>
+      <ul>
+        <li><a href="play.html">Play</a></li>
+        <li><a href="club.html">The Club</a></li>
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="members.html">Members</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>INFORMATION</h4>
+      <ul>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="about.html">Find Us</a></li>
+        <li><a href="mailto:padel@luckyshots.co.uk">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>CONNECT</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/luckyshotspadel/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="mailto:padel@luckyshots.co.uk">Email us</a></li>
+        <li><a href="members.html">Early Access</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 NW Sports Ventures Limited · Lucky Shots Padel · luckyshots.co.uk</p>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/luckyshotspadel/" target="_blank" rel="noopener">INSTAGRAM</a>
+      <a href="mailto:padel@luckyshots.co.uk">EMAIL</a>
+    </div>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>
