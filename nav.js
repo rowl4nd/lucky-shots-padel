@@ -32,10 +32,11 @@
     /* Apply solid immediately if page has a light background */
     if (nav && needsSolidNav) nav.classList.add('solid');
 
-    /* Solid on scroll for all pages */
+    /* Once solid, stays solid — never toggle back to transparent.
+       Prevents nav becoming unreadable over white/cream sections. */
     if (nav) {
       window.addEventListener('scroll', () => {
-        nav.classList.toggle('solid', window.scrollY > 40);
+        if (window.scrollY > 40) nav.classList.add('solid');
       }, { passive: true });
     }
 
