@@ -4,7 +4,7 @@
 
 (function () {
 
-  /* ── Inject nav and footer from shared snippet files ── */
+  /* ── Inject shared snippet into a placeholder div ── */
   function loadSnippet(url, placeholderId, callback) {
     fetch(url)
       .then(r => r.text())
@@ -17,10 +17,29 @@
       });
   }
 
+  /* ── Pages with light hero backgrounds need a solid nav immediately
+        so the logo and links don't disappear into a white/cream bg.
+        data-nav="light" on <body> triggers this. ── */
+  const needsSolidNav = document.body.dataset.nav === 'light';
+
   loadSnippet('nav.html', 'nav-placeholder', function () {
 
-    /* ── Logo fallback (runs after nav is injected) ── */
+    const nav    = document.getElementById('nav');
+    const burger = document.getElementById('burger');
+    const menu   = document.getElementById('mobileMenu');
     const navImg = document.getElementById('navImg');
+
+    /* Apply solid immediately if page has a light background */
+    if (nav && needsSolidNav) nav.classList.add('solid');
+
+    /* Solid on scroll for all pages */
+    if (nav) {
+      window.addEventListener('scroll', () => {
+        nav.classList.toggle('solid', window.scrollY > 40);
+      }, { passive: true });
+    }
+
+    /* Logo image fallback */
     if (navImg) {
       navImg.addEventListener('error', () => {
         navImg.style.display = 'none';
@@ -29,21 +48,7 @@
       });
     }
 
-    /* ── Nav solid on scroll ── */
-    const nav = document.getElementById('nav');
-    if (nav) {
-      /* Pages that start on a light background need nav solid immediately */
-      if (document.body.dataset.navSolid === 'true') {
-        nav.classList.add('solid');
-      }
-      window.addEventListener('scroll', () => {
-        nav.classList.toggle('solid', window.scrollY > 40);
-      }, { passive: true });
-    }
-
-    /* ── Mobile menu ── */
-    const burger = document.getElementById('burger');
-    const menu   = document.getElementById('mobileMenu');
+    /* Mobile menu */
     if (burger && menu) {
       burger.addEventListener('click', () => {
         const open = menu.classList.toggle('open');
@@ -59,7 +64,7 @@
       });
     }
 
-    /* ── Active nav link (highlight current page) ── */
+    /* Highlight current page in nav */
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-links a').forEach(a => {
       const href = a.getAttribute('href');
@@ -72,7 +77,7 @@
 
   loadSnippet('footer.html', 'footer-placeholder');
 
-  /* ── Scroll reveal (runs immediately, doesn't need nav) ── */
+  /* ── Scroll reveal ── */
   const ro = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -83,7 +88,7 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
-  /* ── Hero logo fallback (homepage only) ── */
+  /* ── Hero logo fallback (homepage) ── */
   const heroImg = document.getElementById('heroImg');
   if (heroImg) {
     heroImg.addEventListener('error', () => {
