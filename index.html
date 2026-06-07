@@ -1,282 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lucky Shots Padel | Coming October 2026</title>
-  <link rel="canonical" href="https://luckyshots.co.uk/">
-  <meta name="description" content="North Wales' first dedicated indoor padel facility. Four courts, bar, café, coaching and events. Opening Colwyn Bay, October 2026.">
-  <meta property="og:title" content="Lucky Shots Padel | Coming October 2026">
-  <meta property="og:description" content="Four indoor courts. Bar. Coaching. Events. Coming to Colwyn Bay, October 2026.">
-  <meta property="og:type" content="website">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Yellowtail&family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* ── HOME-SPECIFIC STYLES ── */
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lucky Shots Padel — North Wales · Opening October 2026</title>
+  <meta name="description" content="Lucky Shots Padel — four indoor panoramic courts, a proper bar and a place worth staying. North Wales' new home for padel. Opening October 2026. Join the early-access list." />
 
-    /* HERO
-       — no hero-title (removed)
-       — logo enlarged
-       — padding-bottom tightened so the next section starts close
-       — cut-b override: shallower clip so no dead whitespace gap
-    */
-    .hero {
-      min-height: 100vh;
-      background: var(--green);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-      /* Reduced bottom padding — was 16%, now 8% — eliminates the gap */
-      padding: calc(var(--nav-h) + 3rem) var(--pad) 8%;
-      position: relative; overflow: hidden;
-    }
-    /* Override the shared cut-b to a shallower diagonal on this page */
-    .hero.cut-b {
-      clip-path: polygon(0 0, 100% 0, 100% 94%, 0 100%);
-      padding-bottom: 8%;
-    }
-    /* Concentric decorative rings */
-    .hero::before, .hero::after {
-      content:''; position:absolute; border-radius:50%;
-      top:50%; left:50%; transform:translate(-50%,-50%);
-      pointer-events:none;
-    }
-    .hero::before {
-      width:72vw; height:72vw; max-width:820px; max-height:820px;
-      border:1px solid rgba(255,249,193,.06);
-    }
-    .hero::after {
-      width:44vw; height:44vw; max-width:520px; max-height:520px;
-      border:1px solid rgba(255,249,193,.1);
-    }
-    .hero-badge {
-      display:inline-flex; align-items:center; gap:.6rem;
-      font-family:var(--fh); font-size:.78rem; letter-spacing:.22em;
-      padding:.4rem 1.2rem; border:1px solid rgba(255,249,193,.28);
-      border-radius:100px; color:var(--cream); margin-bottom:2.5rem;
-      position:relative; z-index:1;
-      opacity:0; animation:fadeUp .6s .15s forwards;
-    }
-    .hero-badge::before {
-      content:''; width:6px; height:6px; border-radius:50%;
-      background:var(--cream); flex-shrink:0;
-    }
-    /* Logo: bigger, no title below it */
-    .hero-logo {
-      height: clamp(120px, 22vw, 280px);
-      width: auto; margin: 0 auto 2rem;
-      position: relative; z-index: 1;
-      opacity: 0; animation: fadeUp .7s .3s forwards;
-    }
-    .hero-sub {
-      font-family:var(--fh); font-size:clamp(.9rem,2.2vw,1.8rem);
-      letter-spacing:.3em; color:rgba(255,249,193,.5);
-      position:relative; z-index:1;
-      opacity:0; animation:fadeUp .7s .45s forwards;
-    }
-    .hero-rule {
-      width:72px; height:1px; background:rgba(255,249,193,.25);
-      margin:1.75rem auto; position:relative; z-index:1;
-      opacity:0; animation:fadeUp .7s .55s forwards;
-    }
-    .hero-tagline {
-      font-size:clamp(.95rem,1.6vw,1.15rem); font-weight:300; line-height:1.75;
-      color:rgba(255,249,193,.6); max-width:440px;
-      position:relative; z-index:1;
-      opacity:0; animation:fadeUp .7s .65s forwards;
-    }
-    .hero-form {
-      display:flex; gap:.5rem; margin-top:2.25rem;
-      position:relative; z-index:1;
-      opacity:0; animation:fadeUp .7s .8s forwards;
-    }
-    .hero-form input {
-      font-family:var(--fb); font-size:.9rem;
-      padding:.8rem 1.25rem; width:240px;
-      border:1px solid rgba(255,249,193,.25); border-radius:6px;
-      background:rgba(255,249,193,.07); color:var(--cream); outline:none;
-    }
-    .hero-form input::placeholder { color:rgba(255,249,193,.35); }
-    .hero-form input:focus { border-color:rgba(255,249,193,.6); }
-    .hero-scroll {
-      position:absolute; bottom:4%; left:50%; transform:translateX(-50%);
-      display:flex; flex-direction:column; align-items:center; gap:.4rem;
-      z-index:1; opacity:0; animation:fadeIn 1s 1.5s forwards;
-    }
-    .hero-scroll span { font-family:var(--fh); font-size:.65rem; letter-spacing:.22em; color:rgba(255,249,193,.35); }
-    .scroll-line {
-      width:1px; height:44px;
-      background:linear-gradient(to bottom,rgba(255,249,193,.3),transparent);
-      animation:scrollPulse 2.2s infinite;
-    }
+  <!-- Social share -->
+  <meta property="og:title" content="Lucky Shots Padel — North Wales" />
+  <meta property="og:description" content="Four indoor courts, a proper bar, and a place worth staying. Opening October 2026." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/favicon-512.png" />
+  <meta name="theme-color" content="#012813" />
 
-    /* INTRO */
-    .home-intro { background:var(--white); color:var(--green); padding:7rem var(--pad); }
-    .home-intro-grid {
-      max-width:var(--max-w); margin:0 auto;
-      display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center;
-    }
-    .home-intro h2 {
-      font-family:var(--fd); font-size:clamp(2.2rem,4.5vw,4.2rem);
-      line-height:.95; margin-bottom:1.5rem; opacity:.9;
-    }
-    .home-intro p { font-size:1.05rem; line-height:1.8; color:rgba(0,40,19,.65); margin-bottom:1.25rem; }
+  <!-- Favicons -->
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
-    /* FIVE ARMS */
-    .arms { background:var(--off-white); color:var(--green); padding:6rem var(--pad); }
-    .arms-hdr { max-width:var(--max-w); margin:0 auto 3rem; text-align:center; }
-    .arms-hdr h2 { font-family:var(--fd); font-size:clamp(1.9rem,3.5vw,3.2rem); opacity:.9; }
-    .arms-grid {
-      max-width:var(--max-w); margin:0 auto;
-      display:grid; grid-template-columns:repeat(5,1fr); gap:1.25rem;
-    }
-    .arm-card {
-      background:var(--white); border:1px solid rgba(0,40,19,.09);
-      border-radius:16px; padding:2rem 1.5rem;
-      transition:transform .3s, box-shadow .3s;
-    }
-    .arm-card:hover { transform:translateY(-5px); box-shadow:0 16px 48px rgba(0,40,19,.1); }
-    .arm-n { font-family:var(--fh); font-size:4rem; color:rgba(0,40,19,.07); line-height:1; margin-bottom:1rem; }
-    .arm-t { font-family:var(--fh); font-size:1.2rem; letter-spacing:.07em; color:var(--green); margin-bottom:.75rem; }
-    .arm-d { font-size:.84rem; line-height:1.65; color:rgba(0,40,19,.55); }
-    .arm-more {
-      display:inline-flex; align-items:center; gap:.35rem;
-      font-family:var(--fh); font-size:.75rem; letter-spacing:.12em;
-      color:var(--green); margin-top:1.25rem; opacity:.5; transition:opacity .2s, gap .2s;
-    }
-    .arm-more:hover { opacity:1; gap:.65rem; }
+  <!-- Fonts: Yellowtail (script) · Outfit (headings) · Work Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Work+Sans:wght@300;400;500;600&family=Yellowtail&display=swap" rel="stylesheet" />
 
-    /* SOCIAL TEASE */
-    .social-tease { background:var(--green); color:var(--cream); padding:8rem var(--pad); }
-    .social-tease-grid {
-      max-width:var(--max-w); margin:0 auto;
-      display:grid; grid-template-columns:5fr 4fr; gap:6rem; align-items:center;
-    }
-    .social-tease h2 { font-family:var(--fd); font-size:clamp(2.2rem,4.5vw,4.5rem); line-height:1; margin-bottom:1.5rem; opacity:.92; }
-    .social-tease p  { font-size:1.05rem; line-height:1.8; color:rgba(255,249,193,.65); margin-bottom:1.25rem; }
-    .arch-img { aspect-ratio:3/4; border-radius:200px 200px 16px 16px; }
-
-    /* OPENING CTA */
-    .opening-cta { background:var(--cream); color:var(--green); padding:8rem var(--pad); text-align:center; }
-    .opening-cta h2 {
-      font-family:var(--fd); font-size:clamp(3.5rem,10vw,11rem);
-      line-height:.88; margin-bottom:1.5rem; opacity:.88;
-    }
-    .opening-cta p { font-size:1.1rem; line-height:1.75; color:rgba(0,40,19,.6); max-width:480px; margin:0 auto 3rem; }
-
-    /* RESPONSIVE */
-    @media (max-width:1024px) {
-      .arms-grid { grid-template-columns:repeat(3,1fr); }
-    }
-    @media (max-width:768px) {
-      .home-intro-grid, .social-tease-grid { grid-template-columns:1fr; gap:2.5rem; }
-      .social-tease-grid .arch-img { order:-1; }
-      .arms-grid { grid-template-columns:repeat(2,1fr); }
-    }
-    @media (max-width:480px) {
-      .arms-grid { grid-template-columns:1fr; }
-      .hero-form { flex-direction:column; width:100%; max-width:320px; }
-      .hero-form input { width:100%; }
-    }
-  </style>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="components.js"></script>
 </head>
-<body data-nav="dark">
 
-<div id="nav-placeholder"></div>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
 
-<!-- HERO -->
-<div class="hero cut-b">
-  <span class="hero-badge">Opening October 2026 &nbsp;·&nbsp; Colwyn Bay, North Wales</span>
-  <img src="logo.png" alt="Lucky Shots Padel" class="hero-logo" id="heroImg">
-  <p class="hero-sub">North Wales &nbsp;·&nbsp; Indoor Padel</p>
-  <div class="hero-rule"></div>
-  <p class="hero-tagline">Four premium indoor courts. A proper bar. Local coffee. Coaching for every level. Coming to Colwyn Bay.</p>
-  <form class="hero-form" action="https://luckyshots.us16.list-manage.com/subscribe/post?u=faa076cbe7d22dc5c5e611aa2&amp;id=4faceff9e5&amp;f_id=008d06e0f0" method="post" target="_blank">
-    <input type="email" name="EMAIL" placeholder="Your email address" required>
-    <div style="position:absolute;left:-5000px;" aria-hidden="true">
-      <input type="text" name="b_faa076cbe7d22dc5c5e611aa2_4faceff9e5" tabindex="-1" value="">
-    </div>
-    <button type="submit" class="btn btn-dark">Get early access</button>
-  </form>
-  <div class="hero-scroll">
-    <span>SCROLL</span>
-    <div class="scroll-line"></div>
-  </div>
-</div>
+  <site-header></site-header>
 
+  <main id="main">
 
-<!-- FIVE ARMS -->
-<div class="arms reveal">
-  <div class="arms-hdr">
-    <span class="eyebrow" style="color:rgba(0,40,19,.4)">FIVE REASONS TO BE HERE</span>
-    <h2>Everything under one roof.</h2>
-  </div>
-  <div class="arms-grid container">
-    <div class="arm-card reveal d1">
-      <div class="arm-n">01</div>
-      <div class="arm-t">PLAY</div>
-      <p class="arm-d">Four premium indoor courts, year-round. Peak and off-peak. Book by the hour via Playtomic.</p>
-      <a href="play.html" class="arm-more">Courts →</a>
-    </div>
-    <div class="arm-card reveal d2">
-      <div class="arm-n">02</div>
-      <div class="arm-t">SOCIAL</div>
-      <p class="arm-d">Bar, coffee, food. Considered local partners. The place you stay even after the game.</p>
-      <a href="club.html" class="arm-more">The vibe →</a>
-    </div>
-    <div class="arm-card reveal d3">
-      <div class="arm-n">03</div>
-      <div class="arm-t">ACADEMY</div>
-      <p class="arm-d">Coaching for beginners through to competitors. Adult, junior and ladies formats. Term-by-term timetable.</p>
-      <a href="academy.html" class="arm-more">Coaching →</a>
-    </div>
-    <div class="arm-card reveal">
-      <div class="arm-n">04</div>
-      <div class="arm-t">EVENTS</div>
-      <p class="arm-d">Leagues, Americano mixers, corporate away-days, private hire, seasonal events.</p>
-      <a href="events.html" class="arm-more">Events →</a>
-    </div>
-    <div class="arm-card reveal d1">
-      <div class="arm-n">05</div>
-      <div class="arm-t">MEMBERS</div>
-      <p class="arm-d">Priority booking, reduced fees and member-only events. Be a founding member.</p>
-      <a href="members.html" class="arm-more">Membership →</a>
-    </div>
-  </div>
-</div>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <p class="kicker anim d1">North Wales · Indoor Padel</p>
+        <h1 class="anim d2">Lucky Shots</h1>
+        <p class="padel-tag anim d2">Padel</p>
+        <p class="tagline anim d3">Four indoor courts, a proper bar, and a place worth staying long after the last point.</p>
+        <p class="sub anim d4">All-weather, year-round padel coming to North Wales — for first-timers and frequent flickers alike.</p>
+        <div class="hero-cta anim d5">
+          <a class="btn btn-primary" href="#join">Join the early-access list</a>
+          <span class="open-pill"><span class="dot"></span>Opening October 2026</span>
+        </div>
+      </div>
+    </section>
 
-<!-- SOCIAL TEASE -->
-<div class="social-tease cut-b reveal">
-  <div class="social-tease-grid container">
-    <div>
-      <span class="eyebrow">SOCIAL</span>
-      <h2>The destination, not just the sport.</h2>
-      <div class="divider"></div>
-      <p>The social arm is the soul of Lucky Shots. Local coffee, cold beer, fresh bakes. North Wales at its best, right after your game.</p>
-      <p>Not a vending machine. Not a chain café. Something worth staying for.</p>
-      <a href="club.html" class="btn btn-oc" style="margin-top:1rem">See the full picture →</a>
-    </div>
-    <div class="ph arch-img" data-label="IMG: Bar / café area — warm lighting, atmospheric"></div>
-  </div>
-</div>
+    <!-- ============ INTRO ============ -->
+    <section class="section intro">
+      <div class="wrap reveal">
+        <span class="eyebrow">What we're building</span>
+        <h2>A padel club with a <span class="script">point of view</span> — designed, not just fitted out.</h2>
+        <p class="lede" style="margin-top:1.4rem">
+          Lucky Shots is more than four courts under a roof. It's somewhere to play, learn,
+          compete and linger — good coffee, a proper bar, and the kind of welcome that turns
+          a first visit into a standing fixture. Local at heart. Open to everyone.
+        </p>
+      </div>
+    </section>
 
-<!-- OPENING CTA -->
-<div class="opening-cta cut-t reveal">
-  <div class="container">
-    <span class="eyebrow" style="color:rgba(0,40,19,.35)">NORTH WALES</span>
-    <h2>Opening<br>October<br>2026</h2>
-    <p>The early access list is open. Be first to book courts, secure founding membership, and get the launch party invite.</p>
-    <div class="btn-row" style="justify-content:center">
-      <a href="members.html" class="btn btn-green">Become a founding member</a>
-      <a href="https://www.instagram.com/luckyshotspadel/" target="_blank" rel="noopener" class="btn btn-og">Follow @luckyshotspadel</a>
-    </div>
-  </div>
-</div>
+    <!-- ============ FIVE ARMS ============ -->
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="arms-head reveal">
+          <h2>Five reasons to come</h2>
+          <p class="lede" style="max-width:34ch">One venue, five ways in — whether you're here for the game or just the good company.</p>
+        </div>
 
-<div id="footer-placeholder"></div>
+        <!-- Social = the soul: the visually weighted feature -->
+        <a class="social-feature reveal" href="social.html" aria-label="Explore Social — the bar, café and club feel">
+          <div class="inner">
+            <span class="tag">02 · The soul of it</span>
+            <h3>Social</h3>
+            <p>The heart of Lucky Shots. Bar, coffee and a place to sit a while — where the
+               club happens between, and long after, the points. This is what makes it a
+               destination, not just a sports hall.</p>
+            <span class="btn btn-ghost-cream more">Step inside →</span>
+          </div>
+        </a>
 
-<script src="nav.js"></script>
+        <!-- the other four -->
+        <div class="arm-grid">
+          <a class="arm-card reveal" href="play.html">
+            <span class="num">01</span>
+            <h3>Play</h3>
+            <p>Four indoor panoramic courts. All-weather, year-round. Complete beginners through to competitive players.</p>
+            <span class="go">Pay &amp; play →</span>
+          </a>
+          <a class="arm-card reveal" href="academy.html">
+            <span class="num">03</span>
+            <h3>Academy</h3>
+            <p>Coaching for every level — never held a racket, or ready to compete. Courses, clinics, juniors and camps.</p>
+            <span class="go">Learn &amp; improve →</span>
+          </a>
+          <a class="arm-card reveal" href="events.html">
+            <span class="num">04</span>
+            <h3>Events</h3>
+            <p>Leagues, Americano mixers, tournaments and social nights — plus corporate days and private hire.</p>
+            <span class="go">Get the group in →</span>
+          </a>
+          <a class="arm-card reveal" href="members.html">
+            <span class="num">05</span>
+            <h3>Members</h3>
+            <p>Founding membership across the whole club — priority courts, better rates and member-only nights.</p>
+            <span class="go">Join the club →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PARTNERS (teased, unnamed) ============ -->
+    <section class="section partners">
+      <div class="wrap reveal">
+        <span class="eyebrow">A distinctly North Wales line-up</span>
+        <h2>Brewed, baked &amp; roasted nearby</h2>
+        <p>We're putting the bar and café together with people who do it properly — all close to home. Partners revealed soon.</p>
+        <div class="partners-row" aria-hidden="true">
+          <div class="partner-chip"><span></span></div>
+          <div class="partner-chip"><span></span></div>
+          <div class="partner-chip"><span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STAGE BLOCK (switches with STAGE in components.js) ============ -->
+    <section class="section stage">
+      <div class="wrap reveal">
+        <span class="eyebrow">Where &amp; when</span>
+
+        <!-- TEASER (current) -->
+        <div class="stage-teaser">
+          <h2>Opening October 2026, in North Wales.</h2>
+          <p>We're keeping the exact spot under wraps for now. The full location reveal lands
+             the moment we're ready — join the list and you'll be the first to know.</p>
+        </div>
+
+        <!-- APPROVED — turns on when STAGE = "approved" (edit copy when the time comes) -->
+        <div class="stage-approved">
+          <h2>Find us at Mochdre Commerce Park, Colwyn Bay.</h2>
+          <p>It's official — Lucky Shots is coming to Mochdre Commerce Park. Opening October 2026.
+             Get on the list for first booking access and your launch-night invite.</p>
+        </div>
+
+        <!-- LIVE — turns on when STAGE = "live" -->
+        <div class="stage-live">
+          <h2>We're open. Book a court.</h2>
+          <p>Four indoor courts, live on Playtomic. Grab a slot, bring three friends, stay for a drink.</p>
+        </div>
+
+        <div style="margin-top:1.8rem"><a class="btn btn-primary" href="#join">Join the early-access list</a></div>
+      </div>
+    </section>
+
+    <!-- ============ JOIN / MAILING LIST ============ -->
+    <section class="section join" id="join">
+      <div class="wrap reveal">
+        <div class="join-card">
+          <div class="join-copy">
+            <span class="tag">Founding members</span>
+            <h2>Be first through the door</h2>
+            <p>Join the early-access list for first booking, locked-in founding rates and an
+               invite to launch night. No spam — just the good stuff, now and then.</p>
+          </div>
+
+          <!-- =====================================================
+               MAILCHIMP EMBED FORM
+               Replace the 3 placeholders below with YOUR values from
+               Mailchimp → Audience → Sign-up forms → Embedded forms:
+                 1) the form "action" URL
+                 2) the hidden honeypot field name (b_xxxx_yyyy)
+               Until then the form posts nowhere.
+               ===================================================== -->
+          <form class="mc-form"
+                action="https://luckyshots.us00.list-manage.com/subscribe/post?u=REPLACE_U&amp;id=REPLACE_ID"
+                method="post" target="_blank" novalidate>
+            <div class="mc-field">
+              <label for="mce-EMAIL" class="mc-hp">Email address</label>
+              <input type="email" name="EMAIL" id="mce-EMAIL" placeholder="you@email.com" required />
+              <button type="submit" class="btn btn-primary" name="subscribe">Join the list</button>
+            </div>
+            <!-- honeypot: do not remove -->
+            <div class="mc-hp" aria-hidden="true">
+              <input type="text" name="b_REPLACE_U_REPLACE_ID" tabindex="-1" value="" />
+            </div>
+            <p class="mc-note">We'll only email about Lucky Shots. Unsubscribe any time.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <site-footer></site-footer>
 </body>
 </html>
