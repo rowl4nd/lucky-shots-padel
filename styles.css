@@ -641,7 +641,6 @@ site-footer{ display:block; }
    ============================================================ */
 .eyebrow,
 .spec-item .spec-label,
-.arms-head h2,
 .arm-card .num,
 .arm-card h3,
 .social-feature .tag,
@@ -662,5 +661,17 @@ site-footer{ display:block; }
 /* Eyebrows keep their tighter tracking */
 .eyebrow{ letter-spacing: .2em; }
 
-/* Arms heading — slightly less tracking than an eyebrow */
-.arms-head h2{ letter-spacing: .03em; }
+/* Arms heading — Yellowtail script */
+.arms-head h2{
+  font-family: var(--f-script);
+  font-weight: 400;
+  font-size: clamp(2.2rem,5vw,3.5rem);
+  letter-spacing: 0;
+}
+
+/* Social feature panel heading — Trend Sans */
+.social-feature h3{
+  font-family: var(--f-display);
+  font-size: clamp(2.4rem,6vw,4rem);
+  letter-spacing: .06em;
+}
