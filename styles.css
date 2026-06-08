@@ -129,10 +129,8 @@ p{ margin:0; }
 .hdr-nav a.btn-coral{ color:var(--green); }
 .hdr-nav a.btn-coral:hover{ color:var(--green); background:var(--coral-bright); }
 
-/* Coral flash contexts — stage blocks and opening pill dot */
-.stage .btn-primary{ background:var(--coral); color:var(--green); }
-.stage .btn-primary:hover{ background:var(--coral-bright); }
-.open-pill .dot{ background:var(--coral); box-shadow:0 0 0 4px rgba(240,112,85,.28); }
+/* Coral flash — header button only */
+.open-pill .dot{ background:var(--accent-bright); box-shadow:0 0 0 4px rgba(72,181,108,.25); }
 
 .btn-cream{ background:var(--cream); color:var(--green); }
 .btn-cream:hover{ background:#fff; }
@@ -196,7 +194,7 @@ site-header{ display:block; }
 .hero{
   position:relative; overflow:hidden;
   background:var(--green); color:var(--cream);
-  padding-block:clamp(3.5rem,8vw,6.5rem) clamp(4rem,9vw,7rem);
+  padding-block:clamp(4rem,10vw,8rem) clamp(5rem,11vw,9rem);
 }
 .hero::after{ /* large faint clover motif */
   content:""; position:absolute; right:-6%; bottom:-12%;
@@ -210,7 +208,7 @@ site-header{ display:block; }
   text-transform:uppercase; font-size:.78rem; color:var(--cream-60);
 }
 .hero-logo{
-  width:clamp(280px, 56vw, 580px); height:auto; margin:1.6rem auto .2rem;
+  width:clamp(280px, 56vw, 580px); height:auto; margin:1.6rem auto 1.8rem;
 }
 .hero .tagline{
   font-size:clamp(1.15rem,2vw,1.5rem); max-width:34ch;
@@ -235,7 +233,7 @@ site-header{ display:block; }
   margin-top:1rem;
 }
 .intro h2 b{ font-weight:600; }
-.intro .script{ font-family:var(--f-script); color:var(--accent-deep); font-weight:400; }
+.intro .script{ font-family:var(--f-script); color:var(--accent-deep); font-weight:400; font-size:1.4em; line-height:.85; vertical-align:middle; }
 
 /* ============================================================
    8. ARMS
