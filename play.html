@@ -1,151 +1,210 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Play — Lucky Shots Padel</title>
-  <link rel="canonical" href="https://luckyshots.co.uk/play.html">
-  <meta name="description" content="Four indoor panoramic padel courts in Colwyn Bay. All-weather, year-round. Book via Playtomic. Opening October 2026.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Yellowtail&family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* ── PLAY-SPECIFIC STYLES ── */
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Play — Lucky Shots Padel | Four Indoor Courts · North Wales</title>
+  <meta name="description" content="Four indoor panoramic padel courts in North Wales. All-weather, year-round, beginners to competitive. Opening October 2026 — join the list for first booking access." />
 
-    .play-hero { background:var(--green); color:var(--cream); padding:calc(var(--nav-h) + 4rem) var(--pad) 7rem; }
-    .play-hero-grid {
-      max-width:var(--max-w); margin:0 auto;
-      display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:end;
-    }
-    .play-hero h1 {
-      font-family:var(--fd); font-size:clamp(3.2rem,7.5vw,7.5rem);
-      line-height:.88; margin-bottom:1.75rem; opacity:.92;
-    }
-    .play-hero p  { font-size:1.05rem; line-height:1.8; color:rgba(255,249,193,.65); margin-bottom:2rem; max-width:440px; }
+  <meta property="og:title" content="Play — Lucky Shots Padel" />
+  <meta property="og:description" content="Four indoor panoramic courts, all-weather and year-round. Opening North Wales, October 2026." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/favicon-512.png" />
+  <meta name="theme-color" content="#012813" />
 
-    .play-exp { background:var(--white); color:var(--green); padding:7rem var(--pad); }
-    .play-exp-inner { max-width:var(--max-w); margin:0 auto; }
-    .play-exp h2 {
-      font-family:var(--fd); font-size:clamp(2.2rem,4.5vw,4.5rem);
-      line-height:.95; max-width:680px; margin-bottom:1.25rem; opacity:.9;
-    }
-    .play-exp-body { font-size:1.05rem; line-height:1.8; color:rgba(0,40,19,.6); max-width:580px; }
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
-    .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; padding:3.5rem 0; border-top:1px solid rgba(0,40,19,.1); border-bottom:1px solid rgba(0,40,19,.1); margin:3.5rem 0; }
-    .stat   { text-align:center; }
-    .stat-n { font-family:var(--fd); font-size:clamp(2.5rem,5vw,4.5rem); color:var(--green); line-height:1; opacity:.9; }
-    .stat-l { font-family:var(--fh); font-size:.75rem; letter-spacing:.18em; color:rgba(0,40,19,.4); margin-top:.4rem; }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Work+Sans:wght@300;400;500;600&family=Yellowtail&display=swap" rel="stylesheet" />
 
-    /* Courts mosaic */
-    .mosaic { display:grid; grid-template-columns:2fr 1fr; gap:1.5rem; margin-top:3rem; }
-    .mosaic-col { display:flex; flex-direction:column; gap:1.5rem; }
-    .ph-main { aspect-ratio:16/10; }
-    .ph-sq   { aspect-ratio:1/1; flex:1; min-height:0; }
-
-    /* Court features list */
-    .court-features { background:var(--off-white); color:var(--green); padding:6rem var(--pad); }
-    .court-features-inner { max-width:var(--max-w); margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
-    .court-features h2 { font-family:var(--fd); font-size:clamp(2rem,4vw,3.8rem); line-height:.95; margin-bottom:1.5rem; opacity:.9; }
-    .features-list { list-style:none; display:flex; flex-direction:column; gap:1rem; margin-top:1.5rem; }
-    .features-list li { display:flex; gap:1rem; font-size:.95rem; line-height:1.6; color:rgba(0,40,19,.75); }
-    .features-list li::before { content:'→'; font-family:var(--fh); color:var(--green); flex-shrink:0; }
-
-    /* Booking CTA */
-    .booking-strip { background:var(--green); color:var(--cream); padding:6rem var(--pad); text-align:center; }
-    .booking-strip h2 { font-family:var(--fd); font-size:clamp(2rem,4.5vw,4.5rem); margin-bottom:1rem; opacity:.92; }
-    .booking-strip p  { font-size:1rem; color:rgba(255,249,193,.6); max-width:460px; margin:0 auto 2.5rem; line-height:1.7; }
-
-    @media (max-width:768px) {
-      .play-hero-grid, .court-features-inner { grid-template-columns:1fr; gap:2.5rem; }
-      .stats { grid-template-columns:repeat(2,1fr); }
-      .mosaic { grid-template-columns:1fr; }
-      .mosaic-col { flex-direction:row; }
-    }
-    @media (max-width:480px) { .mosaic-col { flex-direction:column; } }
-  </style>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="components.js"></script>
 </head>
-<body data-nav="dark">
 
-<div id="nav-placeholder"></div>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
 
-<!-- HERO -->
-<div class="play-hero cut-b">
-  <div class="play-hero-grid container">
-    <div>
-      <span class="eyebrow">01 — PLAY</span>
-      <h1>Four courts.<br>All weather.<br>All year.</h1>
-      <p>Indoor panoramic padel at its best. Book by the hour via Playtomic — solo, with friends, or join a social session. Courts opening October 2026.</p>
-      <div class="btn-row">
-        <a href="https://playtomic.io" target="_blank" class="btn btn-cream">Book via Playtomic</a>
-        <a href="members.html" class="btn btn-oc">Early access →</a>
+  <site-header></site-header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="page-hero">
+      <div class="wrap page-hero-inner">
+        <span class="eyebrow">01 · Lucky Shots</span>
+        <h1>Play</h1>
+        <p class="tagline">Four indoor panoramic courts — all-weather, all year, all levels. No excuses for the North Wales weather.</p>
+        <div class="page-hero-pills">
+          <span class="open-pill"><span class="dot"></span>Opening October 2026</span>
+        </div>
       </div>
-    </div>
-    <div class="ph" data-label="IMG: Courts wide angle — panoramic glass walls, full court view" style="aspect-ratio:16/10;border-radius:16px"></div>
-  </div>
-</div>
+    </section>
 
-<!-- EXPLAINER -->
-<div class="play-exp cut-t reveal">
-  <div class="play-exp-inner container">
-    <span class="eyebrow" style="color:rgba(0,40,19,.4)">NEW TO PADEL?</span>
-    <h2>You'll pick it up<br>in twenty minutes.</h2>
-    <p class="play-exp-body" style="margin-top:1.25rem">Padel is the world's fastest-growing racket sport — smaller than a tennis court, walls in play, social by design. You don't need to be athletic. You need four people and a session booked.</p>
-
-    <div class="stats">
-      <div class="stat reveal d1"><div class="stat-n">4</div><div class="stat-l">Indoor Courts</div></div>
-      <div class="stat reveal d2"><div class="stat-n">365</div><div class="stat-l">Days a Year</div></div>
-      <div class="stat reveal d3"><div class="stat-n">60</div><div class="stat-l">Min Sessions</div></div>
-      <div class="stat reveal">  <div class="stat-n">4</div><div class="stat-l">Players Per Court</div></div>
-    </div>
-
-    <div class="mosaic reveal">
-      <div class="ph ph-main light" data-label="IMG: Full court action shot — players mid-rally"></div>
-      <div class="mosaic-col">
-        <div class="ph ph-sq light" data-label="IMG: Court detail — glass wall, surface texture"></div>
-        <div class="ph ph-sq light" data-label="IMG: Court overhead / wide angle"></div>
+    <!-- ============ INTRO ============ -->
+    <section class="section">
+      <div class="wrap reveal">
+        <span class="eyebrow">The courts</span>
+        <h2 style="font-family:var(--f-head);font-weight:300;font-size:clamp(1.6rem,3.6vw,2.7rem);line-height:1.18;max-width:24ch;margin-top:1rem;">
+          Padel the way it should be — <strong>properly built and always available</strong>.
+        </h2>
+        <p class="lede" style="margin-top:1.4rem;">
+          Four full-size indoor courts built to a proper standard, not retrofitted into a space that
+          wasn't designed for them. Panoramic glass walls, consistent court surfaces and full lighting
+          so evening and weekend play look exactly the same as midweek mornings.
+          Covered from the weather, open from day one.
+        </p>
       </div>
-    </div>
-  </div>
-</div>
+    </section>
 
-<!-- COURT FEATURES -->
-<div class="court-features cut-b reveal">
-  <div class="court-features-inner container">
-    <div>
-      <span class="eyebrow" style="color:rgba(0,40,19,.4)">THE COURTS</span>
-      <h2>Built to play on, not just look at.</h2>
-      <ul class="features-list">
-        <li>Four full-size indoor panoramic courts</li>
-        <li>All-weather — fully enclosed, no rained-off sessions</li>
-        <li>Professional-grade glass walls and court surface</li>
-        <li>Year-round availability, peak and off-peak slots</li>
-        <li>Book 1-hour or 90-minute sessions via Playtomic</li>
-        <li>Suitable for complete beginners to competitive players</li>
-      </ul>
-      <div class="btn-row" style="margin-top:2rem">
-        <a href="https://playtomic.io" target="_blank" class="btn btn-og">Download Playtomic →</a>
+    <!-- ============ SPEC LIST ============ -->
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <span class="eyebrow reveal">What you get</span>
+        <div class="spec-list">
+
+          <div class="spec-item reveal">
+            <div class="spec-label"><span class="num">01</span>Four courts</div>
+            <p>Enough to run multiple sessions, social events and a league simultaneously — not a single court squeezed into a corner. Four full-size courts, properly spaced, with room to play properly.</p>
+          </div>
+
+          <div class="spec-item reveal">
+            <div class="spec-label"><span class="num">02</span>Panoramic glass</div>
+            <p>Full glass walls on every court. Watch from the bar, from the sideline, from wherever. The glass doesn't just look right — it makes the courts feel bigger and keeps the social connection between play and the rest of the club.</p>
+          </div>
+
+          <div class="spec-item reveal">
+            <div class="spec-label"><span class="num">03</span>All-weather, all year</div>
+            <p>Indoor means indoor. No cancellations because it's blowing a gale off the Conwy Estuary, no boggy surfaces, no seasonal closure. Year-round play, regardless of what's happening outside.</p>
+          </div>
+
+          <div class="spec-item reveal">
+            <div class="spec-label"><span class="num">04</span>Evening lighting</div>
+            <p>Fully lit for after-work, weekend evenings and winter afternoons. You're not squinting at a ball against a dark background — consistent lighting across all four courts, all hours.</p>
+          </div>
+
+          <div class="spec-item reveal">
+            <div class="spec-label"><span class="num">05</span>Professional surface</div>
+            <p>The court surface matters. Consistent, purpose-built padel surfaces across all four courts — the same underfoot every time, which makes a real difference when you're learning or competing.</p>
+          </div>
+
+        </div>
       </div>
-    </div>
-    <div class="ph light" data-label="IMG: Court from player perspective — looking down court" style="aspect-ratio:4/3;border-radius:16px"></div>
-  </div>
-</div>
+    </section>
 
-<!-- BOOKING CTA -->
-<div class="booking-strip cut-t reveal">
-  <div class="container">
-    <span class="eyebrow">BOOK A COURT</span>
-    <h2>Courts live<br>October 2026</h2>
-    <p>All bookings via the Playtomic app. Download it now and follow Lucky Shots Padel to be notified the moment courts go live.</p>
-    <div class="btn-row" style="justify-content:center">
-      <a href="https://playtomic.io" target="_blank" class="btn btn-cream">Download Playtomic</a>
-      <a href="members.html" class="btn btn-oc">Early access list →</a>
-    </div>
-  </div>
-</div>
+    <!-- ============ WHO IT'S FOR ============ -->
+    <section class="section" style="background:var(--paper-2);">
+      <div class="wrap">
+        <div class="reveal">
+          <span class="eyebrow">All levels, genuinely</span>
+          <h2 style="font-family:var(--f-head);font-weight:600;font-size:clamp(1.8rem,4vw,2.8rem);margin-top:.7rem;">
+            Whether you've never held a racket or play competitively.
+          </h2>
+        </div>
+        <div class="level-grid">
 
-<div id="footer-placeholder"></div>
+          <div class="level-card reveal">
+            <p class="num">Beginner</p>
+            <h3>New to padel?<br>Start here.</h3>
+            <p>The easiest racket sport to pick up. You don't need experience, fitness or equipment to show up — just a willingness to try. Taster sessions and beginner coaching available from the start.</p>
+          </div>
 
-<script src="nav.js"></script>
+          <div class="level-card reveal">
+            <p class="num">Regular</p>
+            <h3>You play.<br>You want more of it.</h3>
+            <p>Drop in for a pay-and-play session, join a social league, or book with your usual group. Four courts means you'll nearly always find a slot — and there's a bar for after.</p>
+          </div>
+
+          <div class="level-card reveal">
+            <p class="num">Competitive</p>
+            <h3>You take your<br>padel seriously.</h3>
+            <p>Tournament play, coaching, structured leagues and a venue that's actually equipped for competitive padel — not a community hall with a net. More details as we get closer to opening.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BOOKING ============ -->
+    <section class="section">
+      <div class="wrap reveal">
+        <span class="eyebrow">Booking</span>
+        <h2 style="font-family:var(--f-head);font-weight:600;font-size:clamp(1.8rem,4vw,2.8rem);margin-top:.7rem;">
+          Book a court.
+        </h2>
+
+        <div class="booking-panel">
+          <!-- TEASER -->
+          <div class="stage-teaser">
+            <p class="bp-head">Coming soon via Playtomic</p>
+            <h3>Court booking opens ahead of launch.</h3>
+            <p>Courts will be bookable online through Playtomic — the booking platform used by padel clubs worldwide. Join the early-access list to get first booking before we open to the public.</p>
+            <a class="btn btn-primary" href="index.html#join">Join for first booking access</a>
+          </div>
+
+          <!-- APPROVED (courts not yet bookable but location is confirmed) -->
+          <div class="stage-approved">
+            <p class="bp-head">Coming soon via Playtomic</p>
+            <h3>Court booking opens ahead of launch.</h3>
+            <p>Courts at Mochdre Commerce Park, Colwyn Bay will be bookable through Playtomic before opening night. Join the list to get first access.</p>
+            <a class="btn btn-primary" href="index.html#join">Join for first booking access</a>
+          </div>
+
+          <!-- LIVE -->
+          <div class="stage-live">
+            <p class="bp-head">Book online · Playtomic</p>
+            <h3>Four courts. Book your slot.</h3>
+            <p>Courts are live on Playtomic — find a slot, grab three friends and show up. Pay-and-play, no membership needed.</p>
+            <a class="btn btn-primary" href="https://playtomic.io" target="_blank" rel="noopener">Book on Playtomic →</a>
+          </div>
+        </div>
+
+        <!-- Pricing tease -->
+        <p style="margin-top:1.4rem;font-size:.9rem;color:var(--ink-40);">
+          Pricing confirmed ahead of opening. Founding members lock in early rates — <a href="index.html#join" style="color:var(--accent-deep);font-weight:600;">join the list</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ STAGE BLOCK ============ -->
+    <section class="section stage">
+      <div class="wrap reveal">
+        <span class="eyebrow">Where &amp; when</span>
+        <div class="stage-teaser">
+          <h2>Opening October 2026, in North Wales.</h2>
+          <p>Full location details coming — join the list and you'll be first to know.</p>
+        </div>
+        <div class="stage-approved">
+          <h2>Find us at Mochdre Commerce Park, Colwyn Bay.</h2>
+          <p>Four courts open October 2026. Get on the list for first booking access.</p>
+        </div>
+        <div class="stage-live">
+          <h2>We're open. See you on court.</h2>
+          <p>Book via Playtomic and come and find us.</p>
+        </div>
+        <div style="margin-top:1.8rem;">
+          <a class="btn btn-primary" href="index.html#join">Join the early-access list</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ JOIN BAND ============ -->
+    <section class="section join-band">
+      <div class="wrap reveal">
+        <div class="join-band-card">
+          <span class="tag">First booking. Founding rates.</span>
+          <h2>Get in before it opens.</h2>
+          <p>Join the list for first booking access, locked-in founding member rates, and an invite to opening night.</p>
+          <a class="btn btn-cream" href="index.html#join">Join the early-access list →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <site-footer></site-footer>
 </body>
 </html>
