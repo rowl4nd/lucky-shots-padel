@@ -1,121 +1,148 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — Lucky Shots Padel</title>
-  <link rel="canonical" href="https://luckyshots.co.uk/about.html">
-  <meta name="description" content="The story behind Lucky Shots Padel. Find us at Mochdre Commerce Park, Colwyn Bay, North Wales. Opening October 2026.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Yellowtail&family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* ── ABOUT-SPECIFIC STYLES ── */
-
-    .about-hero { background:var(--white); color:var(--green); padding:calc(var(--nav-h) + 4rem) var(--pad) 5rem; }
-    .about-hero-grid { max-width:var(--max-w); margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center; }
-    .about-hero h1 { font-family:var(--fd); font-size:clamp(2.8rem,6.5vw,6.5rem); line-height:.9; margin-bottom:1.75rem; opacity:.9; }
-    .about-hero p  { font-size:1.05rem; line-height:1.85; color:rgba(0,40,19,.6); margin-bottom:1.25rem; }
-    /* Distinctive arched corner image frame */
-    .about-img { aspect-ratio:4/3; border-radius:160px 16px 16px 16px; }
-
-    .find-us { background:var(--green); color:var(--cream); padding:7rem var(--pad); }
-    .find-us-grid { max-width:var(--max-w); margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
-    .find-us h2 { font-family:var(--fd); font-size:clamp(2.3rem,4.5vw,4.5rem); line-height:.95; margin-bottom:2rem; opacity:.92; }
-    .loc-lines { display:flex; flex-direction:column; gap:1.25rem; margin-bottom:2.5rem; }
-    .loc-row   { display:flex; gap:1rem; align-items:flex-start; }
-    .loc-lbl   { font-family:var(--fh); font-size:.7rem; letter-spacing:.18em; color:rgba(255,249,193,.35); padding-top:.15rem; flex-shrink:0; width:60px; }
-    .loc-val   { font-size:.92rem; line-height:1.55; color:rgba(255,249,193,.75); }
-    .map-ph    { aspect-ratio:4/3; border-radius:16px; }
-
-    .contact-bar { background:var(--off-white); color:var(--green); padding:4.5rem var(--pad); }
-    .contact-bar-inner { max-width:var(--max-w); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
-    .contact-bar h3 { font-family:var(--fd); font-size:clamp(1.75rem,3vw,2.75rem); opacity:.9; }
-    .contact-links { display:flex; gap:1.5rem; flex-wrap:wrap; align-items:center; }
-    .contact-link { display:flex; align-items:center; gap:.5rem; font-family:var(--fh); font-size:.85rem; letter-spacing:.06em; color:var(--green); opacity:.6; transition:opacity .2s; }
-    .contact-link:hover { opacity:1; }
-
-    @media (max-width:768px) {
-      .about-hero-grid, .find-us-grid { grid-template-columns:1fr; gap:2.5rem; }
-      .find-us-grid .map-ph { order:-1; }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Lucky Shots Padel | North Wales</title>
+  <meta name="description" content="Lucky Shots Padel — an independent padel club opening in the Conwy Bay area, North Wales. October 2026." />
+  <meta property="og:title" content="About — Lucky Shots Padel" />
+  <meta property="og:description" content="Independent padel club opening Conwy Bay area, North Wales. October 2026." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/favicon-512.png" />
+  <meta name="theme-color" content="#012813" />
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Work+Sans:wght@300;400;500;600&family=Yellowtail&display=swap" rel="stylesheet" />
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="components.js"></script>
 </head>
-<body data-nav="light">
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <site-header></site-header>
+  <main id="main">
 
-<div id="nav-placeholder"></div>
+    <!-- HERO -->
+    <section class="page-hero">
+      <div class="wrap page-hero-inner">
+        <span class="eyebrow">Lucky Shots Padel</span>
+        <h1>About</h1>
+        <p class="tagline">An independent padel club for North Wales.</p>
+      </div>
+    </section>
 
-<!-- HERO -->
-<div class="about-hero cut-b">
-  <div class="about-hero-grid container">
-    <div>
-      <span class="eyebrow" style="color:rgba(0,40,19,.4)">OUR STORY</span>
-      <h1>Built for North Wales.</h1>
-      <div class="divider" style="background:var(--green)"></div>
-      <p>Lucky Shots Padel is being built from scratch in Colwyn Bay — a proper indoor padel facility designed to be a real part of the community.</p>
-      <p>Four courts, a social space worth spending time in, and a coaching programme that starts where you are. We wanted somewhere that felt designed, not just built. Somewhere with local identity. Somewhere as good after the game as it is on the court.</p>
-    </div>
-    <div class="ph about-img light" data-label="IMG: Exterior or area shot — Colwyn Bay / Mochdre, establishing"></div>
-  </div>
-</div>
+    <!-- WHAT -->
+    <section class="section">
+      <div class="wrap reveal">
+        <div class="spec-list">
 
-<!-- FIND US -->
-<div class="find-us cut-t reveal">
-  <div class="find-us-grid container">
-    <div>
-      <span class="eyebrow">FIND US</span>
-      <h2>Colwyn Bay,<br>North Wales.</h2>
-      <div class="loc-lines">
-        <div class="loc-row">
-          <span class="loc-lbl">WHERE</span>
-          <span class="loc-val">Mochdre Commerce Park, Colwyn Bay, North Wales</span>
-        </div>
-        <div class="loc-row">
-          <span class="loc-lbl">ACCESS</span>
-          <span class="loc-val">Junction 20 off the A55 · On-site parking</span>
-        </div>
-        <div class="loc-row">
-          <span class="loc-lbl">OPEN</span>
-          <span class="loc-val">October 2026 · Full address confirmed on planning approval</span>
-        </div>
-        <div class="loc-row">
-          <span class="loc-lbl">EMAIL</span>
-          <span class="loc-val"><a href="mailto:padel@luckyshots.co.uk" style="color:rgba(255,249,193,.75)">padel@luckyshots.co.uk</a></span>
+          <div class="spec-item">
+            <div class="spec-label">What</div>
+            <p>Four indoor panoramic courts, a bar and café, coaching and events — all under one roof. Built for the area, open to everyone.</p>
+          </div>
+
+          <div class="spec-item">
+            <div class="spec-label">When</div>
+            <p>Opening October 2026. Founding membership and early booking available to the list ahead of launch.</p>
+          </div>
+
+          <div class="spec-item">
+            <div class="spec-label">Who</div>
+            <p>Independent. Not a franchise, not a chain. Lucky Shots is built specifically for North Wales — locally run, long term.</p>
+          </div>
+
         </div>
       </div>
-      <a href="members.html" class="btn btn-oc">Join the early access list →</a>
-    </div>
-    <div class="ph map-ph" data-label="IMG: Venue exterior or Mochdre Commerce Park area shot"></div>
-  </div>
-</div>
+    </section>
 
-<!-- CONTACT -->
-<div class="contact-bar reveal">
-  <div class="contact-bar-inner">
-    <h3>Say hello.</h3>
-    <div class="contact-links">
-      <a href="mailto:padel@luckyshots.co.uk" class="contact-link">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-          <polyline points="22,6 12,13 2,6"></polyline>
-        </svg>
-        padel@luckyshots.co.uk
-      </a>
-      <a href="https://www.instagram.com/luckyshotspadel/" target="_blank" rel="noopener" class="contact-link">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-        </svg>
-        @luckyshotspadel
-      </a>
-    </div>
-  </div>
-</div>
+    <!-- WHERE (stage-aware) -->
+    <section class="section" style="background:var(--paper-2);">
+      <div class="wrap reveal">
+        <span class="eyebrow">Find us</span>
 
-<div id="footer-placeholder"></div>
+        <!-- TEASER -->
+        <div class="stage-teaser">
+          <h2 style="font-family:var(--f-head);font-weight:600;font-size:clamp(1.8rem,4vw,2.8rem);margin-top:.7rem;">
+            Conwy Bay area — Conwy, Colwyn Bay and Llandudno.
+          </h2>
+          <p class="lede" style="margin-top:1rem;">
+            We're building centrally enough to serve the whole coastline. Exact address released when we're ready — join the list and you'll be first to know.
+          </p>
+          <div style="margin-top:1.8rem;">
+            <a class="btn btn-primary" href="index.html#join">Join for the location reveal</a>
+          </div>
+        </div>
 
-<script src="nav.js"></script>
+        <!-- APPROVED -->
+        <div class="stage-approved">
+          <h2 style="font-family:var(--f-head);font-weight:600;font-size:clamp(1.8rem,4vw,2.8rem);margin-top:.7rem;">
+            Mochdre Commerce Park, Colwyn Bay, LL28 5HX.
+          </h2>
+          <p class="lede" style="margin-top:1rem;">
+            Off the A55 — accessible from Conwy, Colwyn Bay and Llandudno. Full directions and a map below.
+          </p>
+          <div style="margin-top:1.4rem;display:flex;gap:.8rem;flex-wrap:wrap;">
+            <a class="btn btn-primary" href="https://maps.google.com/?q=Mochdre+Commerce+Park+Colwyn+Bay" target="_blank" rel="noopener">Get directions →</a>
+            <a class="btn btn-ghost" href="index.html#join">Join the list</a>
+          </div>
+        </div>
+
+        <!-- LIVE -->
+        <div class="stage-live">
+          <h2 style="font-family:var(--f-head);font-weight:600;font-size:clamp(1.8rem,4vw,2.8rem);margin-top:.7rem;">
+            Mochdre Commerce Park, Colwyn Bay, LL28 5HX.
+          </h2>
+          <p class="lede" style="margin-top:1rem;">
+            Off the A55 — accessible from Conwy, Colwyn Bay and Llandudno.
+          </p>
+          <div style="margin-top:1.4rem;">
+            <a class="btn btn-primary" href="https://maps.google.com/?q=Mochdre+Commerce+Park+Colwyn+Bay" target="_blank" rel="noopener">Get directions →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section">
+      <div class="wrap reveal">
+        <span class="eyebrow">Get in touch</span>
+        <div class="spec-list" style="margin-top:1.4rem;">
+
+          <div class="spec-item">
+            <div class="spec-label">Email</div>
+            <p><a href="mailto:hello@luckyshots.co.uk" style="color:var(--accent-deep);font-weight:600;">hello@luckyshots.co.uk</a></p>
+          </div>
+
+          <div class="spec-item">
+            <div class="spec-label">Instagram</div>
+            <p><a href="https://instagram.com/luckyshotspadel" target="_blank" rel="noopener" style="color:var(--accent-deep);font-weight:600;">@luckyshotspadel</a></p>
+          </div>
+
+          <div class="spec-item">
+            <div class="spec-label">Corporate &amp; private hire</div>
+            <p>For event enquiries, team days and private hire — <a href="mailto:hello@luckyshots.co.uk" style="color:var(--accent-deep);font-weight:600;">email us directly</a>.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- JOIN BAND -->
+    <section class="section join-band">
+      <div class="wrap reveal">
+        <div class="join-band-card">
+          <span class="tag">Stay in the loop</span>
+          <h2>Join the early-access list.</h2>
+          <p>Location reveal, founding membership and opening-night invite — all through the list.</p>
+          <a class="btn btn-cream" href="index.html#join">Join now →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <site-footer></site-footer>
 </body>
 </html>
