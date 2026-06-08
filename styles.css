@@ -234,6 +234,7 @@ site-header{ display:block; }
 
 /* Social feature panel (the soul — most visual weight) */
 .social-feature{
+  display:block;
   margin-top:2.5rem; background:var(--green); color:var(--cream);
   border-radius:var(--radius-lg); padding:clamp(1.8rem,4vw,3.2rem);
   position:relative; overflow:hidden; box-shadow:var(--shadow);
