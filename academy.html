@@ -1,130 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Academy — Lucky Shots Padel</title>
-  <link rel="canonical" href="https://luckyshots.co.uk/academy.html">
-  <meta name="description" content="Padel coaching for all levels in Colwyn Bay. Adult beginners, improvers, ladies sessions and junior academy. Opening October 2026.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Yellowtail&family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* ── ACADEMY-SPECIFIC STYLES ── */
-
-    .acad-hero { background:var(--white); color:var(--green); padding:calc(var(--nav-h) + 4rem) var(--pad) 5rem; }
-    .acad-hero-grid { max-width:var(--max-w); margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
-    .acad-hero h1 { font-family:var(--fd); font-size:clamp(2.8rem,6.5vw,6.5rem); line-height:.9; margin-bottom:1.5rem; opacity:.9; }
-    .acad-hero p  { font-size:1.05rem; line-height:1.8; color:rgba(0,40,19,.6); }
-
-    .programmes { background:var(--green); color:var(--cream); padding:7rem var(--pad); }
-    .programmes-inner { max-width:var(--max-w); margin:0 auto; }
-    .programmes h2 { font-family:var(--fd); font-size:clamp(2rem,4vw,3.5rem); margin-bottom:3rem; opacity:.92; }
-    .prog-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; }
-    .prog-card { border:1px solid rgba(255,249,193,.12); border-radius:16px; padding:2.25rem; transition:background .3s; }
-    .prog-card:hover { background:rgba(255,249,193,.04); }
-    .prog-tag   { font-family:var(--fh); font-size:.7rem; letter-spacing:.22em; color:rgba(255,249,193,.35); margin-bottom:.5rem; }
-    .prog-title { font-family:var(--fh); font-size:1.6rem; letter-spacing:.04em; margin-bottom:.85rem; }
-    .prog-desc  { font-size:.9rem; line-height:1.7; color:rgba(255,249,193,.55); }
-    .prog-img   { aspect-ratio:16/9; border-radius:8px; margin-top:1.75rem; }
-
-    .coaching-approach { background:var(--off-white); color:var(--green); padding:7rem var(--pad); }
-    .approach-inner { max-width:var(--max-w); margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
-    .approach-inner h2 { font-family:var(--fd); font-size:clamp(2rem,4vw,3.8rem); line-height:.95; margin-bottom:1.5rem; opacity:.9; }
-    .approach-inner p  { font-size:1.05rem; line-height:1.8; color:rgba(0,40,19,.6); margin-bottom:1.25rem; }
-    .approach-img { aspect-ratio:4/3; border-radius:16px; }
-
-    .acad-cta { background:var(--green); color:var(--cream); padding:6rem var(--pad); text-align:center; }
-    .acad-cta h2 { font-family:var(--fd); font-size:clamp(2.5rem,5vw,4.5rem); margin-bottom:1rem; opacity:.92; }
-    .acad-cta p  { font-size:1rem; color:rgba(255,249,193,.6); max-width:460px; margin:0 auto 2.5rem; line-height:1.7; }
-
-    @media (max-width:768px) {
-      .acad-hero-grid, .approach-inner { grid-template-columns:1fr; gap:2.5rem; }
-      .prog-grid { grid-template-columns:1fr; }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Academy — Lucky Shots Padel | Coaching · North Wales</title>
+  <meta name="description" content="Padel coaching for all ages and levels — juniors, adult group sessions, private lessons and holiday camps. Opening North Wales, October 2026." />
+  <meta property="og:title" content="Academy — Lucky Shots Padel" />
+  <meta property="og:description" content="Coaching for all ages and levels. Opening North Wales, October 2026." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/favicon-512.png" />
+  <meta name="theme-color" content="#012813" />
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Work+Sans:wght@300;400;500;600&family=Yellowtail&display=swap" rel="stylesheet" />
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="components.js"></script>
 </head>
-<body data-nav="light">
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <site-header></site-header>
+  <main id="main">
 
-<div id="nav-placeholder"></div>
-
-<!-- HERO -->
-<div class="acad-hero cut-b">
-  <div class="acad-hero-grid container">
-    <div>
-      <span class="eyebrow" style="color:rgba(0,40,19,.4)">03 — ACADEMY</span>
-      <h1>Whatever your level.</h1>
-      <div class="divider" style="background:var(--green)"></div>
-      <p>Whether you've never held a racket or you're ready to compete, the Lucky Shots Academy will have a programme for you. Term-based timetables, structured progression, and a head coach joining the team ahead of opening.</p>
-    </div>
-    <div class="ph light" data-label="IMG: Coaching session in action — coach with group on court" style="aspect-ratio:4/3;border-radius:16px"></div>
-  </div>
-</div>
-
-<!-- PROGRAMMES -->
-<div class="programmes cut-t reveal">
-  <div class="programmes-inner container">
-    <span class="eyebrow">COMING OCTOBER 2026</span>
-    <h2>Programmes for everyone.</h2>
-    <div class="prog-grid">
-      <div class="prog-card reveal d1">
-        <div class="prog-tag">ADULT</div>
-        <div class="prog-title">Beginner Courses</div>
-        <p class="prog-desc">Six-week introduction for complete beginners. Everything you need to get on court with confidence.</p>
-        <div class="ph prog-img" data-label="IMG: Adult beginner group session — relaxed, social atmosphere"></div>
+    <!-- HERO -->
+    <section class="page-hero">
+      <div class="wrap page-hero-inner">
+        <span class="eyebrow">03 · Lucky Shots</span>
+        <h1>Academy</h1>
+        <p class="tagline">Coaching for every age, every level. Weekdays, evenings and weekends.</p>
+        <div class="page-hero-pills">
+          <span class="open-pill"><span class="dot"></span>Opening October 2026</span>
+        </div>
       </div>
-      <div class="prog-card reveal d2">
-        <div class="prog-tag">ADULT</div>
-        <div class="prog-title">Improvers &amp; Competitive</div>
-        <p class="prog-desc">Sessions for players ready to develop their game. Technique, tactics and match play.</p>
-        <div class="ph prog-img" data-label="IMG: Improver session — players practising shots, coach nearby"></div>
-      </div>
-      <div class="prog-card reveal">
-        <div class="prog-tag">LADIES</div>
-        <div class="prog-title">Ladies Sessions</div>
-        <p class="prog-desc">Dedicated formats — beginner-friendly, social, run at times that work. No experience needed.</p>
-        <div class="ph prog-img" data-label="IMG: Ladies group session on court — friendly, social feel"></div>
-      </div>
-      <div class="prog-card reveal d1">
-        <div class="prog-tag">JUNIOR</div>
-        <div class="prog-title">Junior Academy</div>
-        <p class="prog-desc">After-school clubs, holiday camps and term-based junior programmes. Get them started early.</p>
-        <div class="ph prog-img" data-label="IMG: Junior players on court — coach supervising, energetic"></div>
-      </div>
-    </div>
-  </div>
-</div>
+    </section>
 
-<!-- COACHING APPROACH -->
-<div class="coaching-approach cut-b reveal">
-  <div class="approach-inner container">
-    <div>
-      <span class="eyebrow" style="color:rgba(0,40,19,.4)">THE APPROACH</span>
-      <h2>Community first, competition second.</h2>
-      <div class="divider" style="background:var(--green)"></div>
-      <p>The Lucky Shots Academy is built around the idea that coaching should do more than improve technique — it should build a playing community. Saturday mornings, after-school sessions, ladies evenings. Scheduled to fit real life.</p>
-      <p>Our head coach will be confirmed ahead of opening. If you're a coach interested in joining the team, get in touch.</p>
-      <div class="btn-row" style="margin-top:1.5rem">
-        <a href="mailto:padel@luckyshots.co.uk?subject=Coaching%20Enquiry" class="btn btn-og">Coaching enquiry →</a>
+    <!-- PROGRAMMES -->
+    <section class="section">
+      <div class="wrap">
+        <span class="eyebrow reveal">The programmes</span>
+        <div class="prog-grid">
+
+          <div class="prog-card reveal">
+            <span class="lbl">Juniors</span>
+            <h3>Under 16s</h3>
+            <p>From first-timers to competitive juniors. After-school sessions, weekend mornings and a clear development pathway as the club grows.</p>
+            <div class="tags">
+              <span class="tag-chip">After school</span>
+              <span class="tag-chip">Weekend mornings</span>
+              <span class="tag-chip">All ages</span>
+            </div>
+          </div>
+
+          <div class="prog-card reveal">
+            <span class="lbl">Adult group</span>
+            <h3>Beginner to improver</h3>
+            <p>Structured courses for beginners, clinics for improvers and social coaching formats — including Americano sessions — across the week.</p>
+            <div class="tags">
+              <span class="tag-chip">Weekday mornings</span>
+              <span class="tag-chip">Evenings</span>
+              <span class="tag-chip">Weekends</span>
+            </div>
+          </div>
+
+          <div class="prog-card reveal">
+            <span class="lbl">Private coaching</span>
+            <h3>1-to-1 and 2-to-1</h3>
+            <p>Individual or paired sessions with the head coach. Available for all ages and levels, bookable at flexible times across the week.</p>
+            <div class="tags">
+              <span class="tag-chip">All ages</span>
+              <span class="tag-chip">All levels</span>
+              <span class="tag-chip">Flexible timing</span>
+            </div>
+          </div>
+
+          <div class="prog-card reveal">
+            <span class="lbl">Holiday camps</span>
+            <h3>Juniors &amp; adults</h3>
+            <p>Intensive sessions across school holidays — half-day and full-day formats. A proper camp, not just open court time.</p>
+            <div class="tags">
+              <span class="tag-chip">School holidays</span>
+              <span class="tag-chip">All ages</span>
+              <span class="tag-chip">Intensive</span>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </div>
-    <div class="ph light approach-img" data-label="IMG: Coach one-to-one session on court — technique focus"></div>
-  </div>
-</div>
+    </section>
 
-<!-- CTA -->
-<div class="acad-cta cut-t reveal">
-  <div class="container">
-    <span class="eyebrow">TIMETABLE COMING SOON</span>
-    <h2>Interested in coaching?</h2>
-    <p>Join the list and we'll let you know when the full Academy timetable goes live for October.</p>
-    <a href="members.html" class="btn btn-cream">Register your interest →</a>
-  </div>
-</div>
+    <!-- WHEN WE RUN -->
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <span class="eyebrow reveal">When we run</span>
+        <div class="spec-list">
 
-<div id="footer-placeholder"></div>
+          <div class="spec-item reveal">
+            <div class="spec-label"><span class="num">Mon–Fri</span>Mornings</div>
+            <p>Adult group sessions and private coaching — suited to flexible workers and retired players.</p>
+          </div>
 
-<script src="nav.js"></script>
+          <div class="spec-item reveal">
+            <div class="spec-label"><span class="num">Mon–Fri</span>Evenings</div>
+            <p>After-work adult coaching — beginner courses, improver clinics and social formats.</p>
+          </div>
+
+          <div class="spec-item reveal">
+            <div class="spec-label"><span class="num">Saturday</span>Mornings</div>
+            <p>Our flagship coaching slot — junior development and adult group sessions running simultaneously across the four courts.</p>
+          </div>
+
+          <div class="spec-item reveal">
+            <div class="spec-label"><span class="num">Weekend</span>Afternoons</div>
+            <p>Junior sessions, family padel and private coaching.</p>
+          </div>
+
+          <div class="spec-item reveal">
+            <div class="spec-label"><span class="num">School</span>Holidays</div>
+            <p>Holiday camps for juniors and adults — half-day and full-day across the week.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- HEAD COACH -->
+    <section class="section" style="background:var(--paper-2);">
+      <div class="wrap reveal">
+        <div class="booking-panel" style="background:#fff;">
+          <p class="bp-head">Head coach</p>
+          <h3>Appointment confirmed ahead of opening.</h3>
+          <p>Our head coach will be in post ahead of launch. Full coaching timetable, pricing and booking open once they're confirmed. Join the list to be notified first.</p>
+          <a class="btn btn-primary" href="index.html#join">Join the list</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE BLOCK -->
+    <section class="section stage">
+      <div class="wrap reveal">
+        <span class="eyebrow">Where &amp; when</span>
+        <div class="stage-teaser">
+          <h2>Opening October 2026, in North Wales.</h2>
+          <p>Location details coming. Join the list.</p>
+        </div>
+        <div class="stage-approved">
+          <h2>Mochdre Commerce Park, Colwyn Bay.</h2>
+          <p>Academy launches October 2026.</p>
+        </div>
+        <div class="stage-live">
+          <h2>Coaching is live. Book a session.</h2>
+        </div>
+        <div style="margin-top:1.8rem;">
+          <a class="btn btn-primary" href="index.html#join">Join the early-access list</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOIN BAND -->
+    <section class="section join-band">
+      <div class="wrap reveal">
+        <div class="join-band-card">
+          <span class="tag">First to book. Founding rates.</span>
+          <h2>Get notified when coaching opens.</h2>
+          <p>Join the list for early access to the full timetable and founding member rates.</p>
+          <a class="btn btn-cream" href="index.html#join">Join the early-access list →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <site-footer></site-footer>
 </body>
 </html>
