@@ -146,6 +146,8 @@ p{ margin:0; }
 /* Coral flash — header button only */
 .open-pill .dot{ background:var(--accent-bright); box-shadow:0 0 0 4px rgba(72,181,108,.25); }
 
+.btn-primary{ background:var(--accent); color:var(--green); }
+.btn-primary:hover{ background:var(--accent-bright); }
 .btn-cream{ background:var(--cream); color:var(--green); }
 .btn-cream:hover{ background:#fff; }
 .btn-ghost{ border-color:currentColor; color:var(--green); }
@@ -157,6 +159,8 @@ p{ margin:0; }
    5. HEADER (rendered by <site-header> in components.js)
    ============================================================ */
 site-header{ display:block; }
+site-header:not(:defined), site-footer:not(:defined) { display: block; min-height: 74px; background: var(--green); }
+.stage-heading { font-family: var(--f-head); font-weight: 600; font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: .7rem; }
 .hdr{
   position:sticky; top:0; z-index:100;
   background:var(--green);
