@@ -1,4 +1,17 @@
 /* ============================================================
+   TREND SANS ONE — self-hosted (files in /fonts/)
+   Purchased licence via Fontspring. Do not redistribute.
+   ============================================================ */
+@font-face {
+  font-family: 'trend_sansone';
+  src: url('fonts/TrendSans-One-webfont.woff2') format('woff2'),
+       url('fonts/TrendSans-One-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
    LUCKY SHOTS PADEL — shared stylesheet
    Used by every page. Edit design tokens in :root.
    ============================================================ */
@@ -38,6 +51,7 @@
   --clover:       url("assets/logo-mark.png");
 
   /* Type */
+  --f-display:'trend_sansone', "Outfit", system-ui, sans-serif; /* Trend Sans One — labels, card headings, eyebrows */
   --f-script: "Yellowtail", cursive;
   --f-head:   "Outfit", system-ui, sans-serif;
   --f-body:   "Work Sans", system-ui, sans-serif;
@@ -619,3 +633,34 @@ site-footer{ display:block; }
   border:1px solid var(--cream-30); border-radius:999px;
   padding:.25rem .75rem; color:var(--cream);
 }
+
+/* ============================================================
+   TREND SANS ONE — display font application
+   Applied to labels, eyebrows, card headings and spec labels.
+   Everything needing multiple weights stays on Outfit.
+   ============================================================ */
+.eyebrow,
+.spec-item .spec-label,
+.arms-head h2,
+.arm-card .num,
+.arm-card h3,
+.social-feature .tag,
+.pillar-card .lbl,
+.pillar-card h3,
+.prog-card .lbl,
+.prog-card h3,
+.level-card .num,
+.level-card h3,
+.join-copy .tag,
+.join-band-card .tag,
+.booking-panel .bp-head,
+.ftr h4{
+  font-family: var(--f-display);
+  letter-spacing: .06em;
+}
+
+/* Eyebrows keep their tighter tracking */
+.eyebrow{ letter-spacing: .2em; }
+
+/* Arms heading — slightly less tracking than an eyebrow */
+.arms-head h2{ letter-spacing: .03em; }
