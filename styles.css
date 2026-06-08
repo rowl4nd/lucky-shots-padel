@@ -30,6 +30,9 @@
   --cream-60:     rgba(253,244,203,.66);
   --cream-30:     rgba(253,244,203,.28);
 
+  --coral:        #F07055;   /* warm coral — flash accent */
+  --coral-bright: #F2856C;   /* coral hover */
+
   /* Clover/rackets mark (cream, transparent bg) — used for watermarks & masks */
   --clover-cream: url("assets/logo-mark.png");
   --clover:       url("assets/logo-mark.png");
@@ -121,8 +124,16 @@ p{ margin:0; }
   white-space:nowrap;
 }
 .btn:hover{ transform:translateY(-2px); }
-.btn-primary{ background:var(--accent); color:var(--green); }
-.btn-primary:hover{ background:var(--accent-bright); }
+.btn-coral{ background:var(--coral); color:var(--green); }
+.btn-coral:hover{ background:var(--coral-bright); }
+.hdr-nav a.btn-coral{ color:var(--green); }
+.hdr-nav a.btn-coral:hover{ color:var(--green); background:var(--coral-bright); }
+
+/* Coral flash contexts — stage blocks and opening pill dot */
+.stage .btn-primary{ background:var(--coral); color:var(--green); }
+.stage .btn-primary:hover{ background:var(--coral-bright); }
+.open-pill .dot{ background:var(--coral); box-shadow:0 0 0 4px rgba(240,112,85,.28); }
+
 .btn-cream{ background:var(--cream); color:var(--green); }
 .btn-cream:hover{ background:#fff; }
 .btn-ghost{ border-color:currentColor; color:var(--green); }
