@@ -451,8 +451,8 @@ site-footer{ display:block; }
 }
 /* Yellowtail script used in eyebrow brand name */
 .page-hero .eyebrow-script{
-  font-family:var(--f-script); font-weight:400; font-size:6em;
-  text-transform:none; letter-spacing:0; color:var(--cream);
+  font-family:var(--f-script); font-weight:400; font-size:5em;
+  text-transform:none; letter-spacing:0; color:var(--cream-20);
   line-height:1; vertical-align:middle;
 }
 .page-hero .tagline{
