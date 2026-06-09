@@ -174,14 +174,19 @@ site-header:not(:defined), site-footer:not(:defined) { display: block; min-heigh
 .hdr-logo img{ height:44px; width:auto; display:block; }
 .hdr-nav{ display:flex; align-items:center; gap:.35rem; }
 .hdr-nav a{
-  font-family:var(--f-head); font-weight:500; font-size:.93rem;
+  font-family:var(--f-display); font-weight:normal; font-size:.93rem;
+  text-transform:lowercase; letter-spacing:.04em;
   color:var(--cream-60); padding:.5rem .8rem; border-radius:999px;
   transition:color .2s var(--ease), background .2s var(--ease);
+}
+/* CTA button keeps its own type treatment — no lowercase override */
+.hdr-nav a.btn-cream{
+  font-family:var(--f-head); font-weight:600; text-transform:none; letter-spacing:.01em;
 }
 .hdr-nav a:hover{ color:var(--cream); }
 .hdr-nav a[aria-current="page"]{ color:var(--green); background:var(--cream); }
 .hdr-cta{ margin-left:.5rem; }
-.hdr-nav a.btn-cream{ color:var(--green); }
+.hdr-nav a.btn-cream{ font-family:var(--f-head); font-weight:600; text-transform:none; letter-spacing:.01em; color:var(--green); }
 .hdr-nav a.btn-cream:hover{ color:var(--green); }
 
 /* mobile nav */
