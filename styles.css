@@ -447,7 +447,7 @@ site-footer{ display:block; }
 .page-hero-logo {
   width: clamp(180px, 36vw, 380px);
   height: auto;
-  margin: 0 auto 1rem;
+  margin: 0 auto 0;
 }
 .page-hero h1{
   font-family:var(--f-display); font-weight:normal; text-transform:lowercase;
