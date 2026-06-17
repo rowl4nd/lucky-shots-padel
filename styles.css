@@ -444,6 +444,11 @@ site-footer{ display:block; }
 .page-hero-inner{ position:relative; z-index:2; }
 .page-hero .eyebrow{ color:var(--cream-60); justify-content:center; margin-bottom:.8rem; }
 .page-hero .eyebrow::before { display: none; }
+.page-hero-logo {
+  width: clamp(180px, 36vw, 380px);
+  height: auto;
+  margin: 0 auto 1rem;
+}
 .page-hero h1{
   font-family:var(--f-display); font-weight:normal; text-transform:lowercase;
   font-size:clamp(1.6rem,5.5vw,3.5rem); line-height:.95; margin:0 0 .25em; color:var(--cream);
