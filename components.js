@@ -21,7 +21,7 @@ const SITE = {
 
 /* nav definition — order shown in header & footer */
 const NAV = [
-  { label: "Play",    href: "play.html"    },
+  { label: "Padel",    href: "play.html"    },
   { label: "Social",  href: "social.html"  },
   { label: "Academy", href: "academy.html" },
   { label: "Events",  href: "events.html"  },
