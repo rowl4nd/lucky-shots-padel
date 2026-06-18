@@ -242,6 +242,8 @@ site-header:not(:defined), site-footer:not(:defined) { display: block; min-heigh
 .hero .kicker{
   font-family:var(--f-head); font-weight:600; letter-spacing:.24em;
   text-transform:uppercase; font-size:.78rem; color:var(--cream-60);
+  text-align:center;
+  display:block;
 }
 .hero-logo{
   width:clamp(280px, 56vw, 580px); height:auto; margin:1.6rem auto 1.8rem;
