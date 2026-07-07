@@ -47,6 +47,14 @@
   --coral-bright: #BC847D;   /* Brick Dust hover */
   --wine:         #64313E;   /* Burgundy — founding membership / premium */
 
+   /* ---- Per-page stream theme ---- */
+:root{ --arm:#264E36; --arm-ink:#F0EADA; }              /* default (Eden) */
+body[data-arm="play"]    { --arm:#264E36; --arm-ink:#F0EADA; }
+body[data-arm="social"]  { --arm:#B07069; --arm-ink:#F0EADA; }
+body[data-arm="academy"] { --arm:#427D6D; --arm-ink:#F0EADA; }
+body[data-arm="events"]  { --arm:#F4F28D; --arm-ink:#264E36; }
+body[data-arm="members"] { --arm:#64313E; --arm-ink:#F0EADA; }
+
   /* Clover/rackets mark (cream, transparent bg) — used for watermarks & masks */
   --clover-cream: url("assets/logo-mark.png");
   --clover:       url("assets/logo-mark.png");
