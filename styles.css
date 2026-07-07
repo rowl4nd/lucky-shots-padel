@@ -26,25 +26,26 @@
    1. DESIGN TOKENS
    ============================================================ */
 :root{
-  /* Brand colours (sampled from the logo) */
-  --green:        #012813;   /* core brand green */
-  --green-deep:   #001a0c;   /* darker layer / shadow base */
-  --green-soft:   #0c3a20;   /* hover / lifted green */
-  --accent:       #3aa35e;   /* fresh clover green — buttons */
-  --accent-bright:#48b56c;   /* lighter clover — labels/text on green */
-  --accent-deep:  #2c7d49;   /* accent text on cream / hovers */
-  --cream:        #fdf4cb;   /* brand cream */
-  --paper:        #fbf8ec;   /* page background (lifted cream) */
-  --paper-2:      #f3edd7;   /* panel / card on paper */
-  --ink:          #012813;   /* text on light */
-  --ink-60:       rgba(1,40,19,.62);
-  --ink-40:       rgba(1,40,19,.40);
-  --line:         rgba(1,40,19,.14);
-  --cream-60:     rgba(253,244,203,.66);
-  --cream-30:     rgba(253,244,203,.28);
+/* Brand colours (six-colour palette) */
+  --green:        #264E36;   /* Eden — core brand green */
+  --green-deep:   #1B3A28;   /* darkened Eden — gradient / overlay base */
+  --green-soft:   #427D6D;   /* Bottle Green — hover / mid / sage surfaces */
+  --accent:       #427D6D;   /* action accent (see button fork below) */
+  --accent-bright:#F4F28D;   /* Buzzing Bees — labels/highlights on green */
+  --accent-deep:  #2F5D50;   /* deep sage — eyebrow text on cream */
+  --cream:        #F0EADA;   /* Vanilla Ice */
+  --paper:        #F5F1E6;   /* page background (lifted vanilla) */
+  --paper-2:      #E9E1CE;   /* panel / card on paper */
+  --ink:          #264E36;   /* text on light */
+  --ink-60:       rgba(38,78,54,.62);
+  --ink-40:       rgba(38,78,54,.40);
+  --line:         rgba(38,78,54,.14);
+  --cream-60:     rgba(240,234,218,.66);
+  --cream-30:     rgba(240,234,218,.28);
 
-  --coral:        #F07055;   /* warm coral — flash accent */
-  --coral-bright: #F2856C;   /* coral hover */
+  --coral:        #B07069;   /* Brick Dust — warm accent (café/bar) */
+  --coral-bright: #BC847D;   /* Brick Dust hover */
+  --wine:         #64313E;   /* Burgundy — founding membership / premium */
 
   /* Clover/rackets mark (cream, transparent bg) — used for watermarks & masks */
   --clover-cream: url("assets/logo-mark.png");
