@@ -743,3 +743,29 @@ site-footer{ display:block; }
   font-size: clamp(2.4rem,6vw,4rem);
   letter-spacing: .06em;
 }
+
+/* ============================================================
+   PER-PAGE STREAM THEME — full-page override for body[data-arm]
+   ============================================================ */
+body[data-arm] .page-hero,
+body[data-arm] .vibe,
+body[data-arm] .stage,
+body[data-arm] .join-band-card{ background:var(--arm); color:var(--arm-ink); }
+
+body[data-arm] .page-hero h1,
+body[data-arm] .page-hero .open-pill,
+body[data-arm] .vibe blockquote,
+body[data-arm] .stage h2,
+body[data-arm] .join-band-card h2{ color:var(--arm-ink); }
+
+body[data-arm] .page-hero .tagline,
+body[data-arm] .vibe cite,
+body[data-arm] .stage p,
+body[data-arm] .join-band-card p{ color:var(--arm-ink); opacity:.82; }
+
+body[data-arm] .page-hero .open-pill{ border-color:var(--arm-ink); }
+body[data-arm] .stage .eyebrow,
+body[data-arm] .join-band-card .tag{ color:var(--arm-ink); }
+body[data-arm] .stage .eyebrow::before{ background:var(--arm-ink); }
+body[data-arm] .vibe::before{ background:none; }
+body[data-arm] .partners h2{ color:var(--arm-line); }
