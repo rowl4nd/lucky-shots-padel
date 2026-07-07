@@ -309,20 +309,43 @@ site-header:not(:defined), site-footer:not(:defined) { display: block; min-heigh
 .arm-grid{ margin-top:1.4rem; display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(.9rem,2vw,1.4rem); }
 @media (max-width:680px){ .arm-grid{ grid-template-columns:1fr; } }
 .arm-card{
-  background:var(--paper-2); border:1px solid var(--line);
+  background:#264E36; color:var(--cream); border:none;
   border-radius:var(--radius); padding:clamp(1.4rem,3vw,2rem);
-  display:flex; flex-direction:column; gap:.5rem; min-height:200px;
-  transition:transform .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease);
+  display:flex; flex-direction:column; gap:.5rem; min-height:220px;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
 }
-.arm-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow); background:#fff; }
-.arm-card .num{ font-family:var(--f-head); font-weight:700; font-size:.8rem; letter-spacing:.16em; color:var(--accent-deep); }
-.arm-card h3{ font-family:var(--f-head); font-weight:600; font-size:1.35rem; }
-.arm-card p{ color:var(--ink-60); font-size:.97rem; }
+.arm-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow); }
+.arm-card .num{
+  font-family:var(--f-head); font-weight:700; font-size:.74rem;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--cream); opacity:.9;
+}
+.arm-card h3{
+  margin-top:auto; font-family:var(--f-head); font-weight:600;
+  font-size:1.6rem; color:var(--cream);
+}
+.arm-card p{ color:var(--cream); opacity:.82; font-size:.95rem; }
 .arm-card .go{
-  margin-top:auto; font-family:var(--f-head); font-weight:600; font-size:.9rem;
-  color:var(--accent-deep); display:inline-flex; align-items:center; gap:.4rem;
+  margin-top:.6rem; font-family:var(--f-head); font-weight:600; font-size:.9rem;
+  color:var(--cream); display:inline-flex; align-items:center; gap:.4rem;
 }
 .arm-card:hover .go{ gap:.7rem; }
+
+/* one palette colour per stream */
+.arm-social  { background:#B07069; }  /* Brick Dust */
+.arm-academy { background:#427D6D; }  /* Bottle Green */
+.arm-members { background:#64313E; }  /* Burgundy */
+
+.arm-events  { background:#F4F28D; }  /* Buzzing Bees */
+.arm-events .num,
+.arm-events h3,
+.arm-events p,
+.arm-events .go{ color:#264E36; }     /* dark text on yellow */
+.arm-events p{ opacity:.8; }
+.arm-events .num{ opacity:1; }
+
+/* Play feature card → Eden with a yellow eyebrow */
+.arm-feature{ background:#264E36; }
+.arm-feature .tag{ color:#F4F28D; }
 
 /* ============================================================
    9. PARTNERS TEASE
