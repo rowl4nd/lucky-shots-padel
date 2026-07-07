@@ -491,10 +491,15 @@ site-footer{ display:block; }
 .page-hero-inner{ position:relative; z-index:2; }
 .page-hero .eyebrow{ color:var(--cream-60); justify-content:center; margin-bottom:.8rem; }
 .page-hero .eyebrow::before { display: none; }
-.page-hero-logo {
-  width: clamp(180px, 36vw, 380px);
-  height: auto;
-  margin: 0 auto 0;
+.page-hero-logo{
+  display:block;
+  width:clamp(180px,36vw,380px);
+  aspect-ratio:582/272;
+  height:auto;
+  margin:0 auto;
+  background:var(--arm-ink);
+  -webkit-mask:url("assets/lucky_shots_cream.svg") center/contain no-repeat;
+  mask:url("assets/lucky_shots_cream.svg") center/contain no-repeat;
 }
 .page-hero h1{
   font-family:var(--f-display); font-weight:normal; text-transform:lowercase;
