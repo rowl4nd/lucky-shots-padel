@@ -50,7 +50,7 @@ class SiteHeader extends HTMLElement {
       <header class="hdr">
         <div class="wrap hdr-row">
           <a class="hdr-logo" href="index.html" aria-label="Lucky Shots Padel — home">
-            Lucky Shots
+            LuckyShots
           </a>
 
           <button class="hdr-burger" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav">
