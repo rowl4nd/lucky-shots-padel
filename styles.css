@@ -850,6 +850,10 @@ body.page-home{
   display:flex; align-items:center; justify-content:center;
   overflow:hidden;
 }
+.tile-photo{
+  position:absolute; inset:0; z-index:0;
+  width:100%; height:100%; object-fit:cover;
+}
 .bento-feature .tile-media{ aspect-ratio: 5 / 4; background:linear-gradient(135deg, var(--green-deep) 0%, var(--green) 100%); }
 .tile-media::after{
   content:""; position:absolute; right:-8%; bottom:-22%;
