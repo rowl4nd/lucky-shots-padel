@@ -28,7 +28,7 @@
   <script defer src="components.js"></script>
 </head>
 
-<body>
+<body class="page-home">
   <a class="skip" href="#main">Skip to content</a>
 
   <site-header></site-header>
@@ -51,101 +51,177 @@
       </div>
     </section>
 
-<!-- ============ FIVE ARMS ============ -->
-    <section class="section">
+<!-- ============ FIVE ARMS (bento) ============ -->
+    <section class="section arms-modern">
       <div class="wrap">
-        <div class="arms-head reveal">
+        <div class="arms-head-modern reveal">
+          <span class="eyebrow">The whole club</span>
           <h2>One venue, five reasons to come</h2>
         </div>
 
-        <!-- Play = the feature card -->
-        <a class="social-feature arm-feature reveal" href="play.html" aria-label="Explore Play — four indoor panoramic courts">
-          <div class="inner">
-            <span class="tag">01 · the game</span>
-            <h3>Padel</h3>
-            <p>Four indoor panoramic courts. All-weather, year-round, complete beginners
-               through to competitive players — pay and play, no membership needed.</p>
-            <span class="btn btn-ghost-cream more">Pay &amp; play →</span>
-          </div>
-        </a>
+        <div class="arms-bento reveal">
 
-        <!-- the other four -->
-        <div class="arm-grid">
-          <a class="arm-card arm-social reveal" href="social.html">
-            <span class="num">02 · the heart</span>
-            <h3>Social</h3>
-            <p>Good coffee, a proper bar and a community that turns your first visit into a regular fixture.</p>
-            <span class="go">Step inside →</span>
+          <!-- Play = the feature tile -->
+          <a class="bento-card bento-feature" href="play.html" aria-label="Explore Play — four indoor panoramic courts">
+            <div class="tile-media">
+              <span class="tile-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="14" y="5" width="20" height="25" rx="10"/>
+                  <line x1="24" y1="30" x2="24" y2="40"/>
+                  <line x1="17" y1="40" x2="31" y2="40"/>
+                  <circle cx="37" cy="35" r="3" fill="currentColor" stroke="none"/>
+                </svg>
+              </span>
+            </div>
+            <div class="bento-body">
+              <span class="chip">01 · the game</span>
+              <h3>Padel</h3>
+              <p>Four indoor panoramic courts. All-weather, year-round — complete beginners
+                 through to competitive players. Pay and play, no membership needed.</p>
+              <span class="bento-link">Pay &amp; play
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+              </span>
+            </div>
           </a>
-          <a class="arm-card arm-academy reveal" href="academy.html">
-            <span class="num">03 · get better</span>
-            <h3>Academy</h3>
-            <p>Coaching for every level — never held a racket, or ready to compete. Courses, clinics, juniors and camps.</p>
-            <span class="go">Learn &amp; improve →</span>
+
+          <!-- the other four -->
+          <a class="bento-card" href="social.html" aria-label="Explore Social">
+            <div class="tile-media">
+              <span class="tile-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11 18h20v9a10 10 0 0 1-20 0z"/>
+                  <path d="M31 20h4a4 4 0 0 1 0 8h-4"/>
+                  <path d="M16 10c1 2-1 3 0 5"/><path d="M22 10c1 2-1 3 0 5"/>
+                </svg>
+              </span>
+            </div>
+            <div class="bento-body">
+              <span class="chip">02 · the heart</span>
+              <h3>Social</h3>
+              <p>Good coffee, a proper bar and a community that turns a first visit into a regular fixture.</p>
+              <span class="bento-link">Step inside
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+              </span>
+            </div>
           </a>
-          <a class="arm-card arm-events reveal" href="events.html">
-            <span class="num">04 · come together</span>
-            <h3>Events</h3>
-            <p>Corporate team days, club nights, open tournaments and private hire.</p>
-            <span class="go">Get the group in →</span>
+
+          <a class="bento-card" href="academy.html" aria-label="Explore Academy">
+            <div class="tile-media">
+              <span class="tile-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="24" cy="24" r="14"/><circle cx="24" cy="24" r="8"/><circle cx="24" cy="24" r="2" fill="currentColor" stroke="none"/>
+                </svg>
+              </span>
+            </div>
+            <div class="bento-body">
+              <span class="chip">03 · get better</span>
+              <h3>Academy</h3>
+              <p>Coaching for every level — never held a racket, or ready to compete. Courses, clinics, juniors and camps.</p>
+              <span class="bento-link">Learn &amp; improve
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+              </span>
+            </div>
           </a>
-          <a class="arm-card arm-members reveal" href="members.html">
-            <span class="num">05 · be first</span>
-            <h3>Members</h3>
-            <p>Founding membership across the whole club — priority courts, better rates and member-only nights.</p>
-            <span class="go">Join the club →</span>
+
+          <a class="bento-card" href="events.html" aria-label="Explore Events">
+            <div class="tile-media">
+              <span class="tile-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="8" y="10" width="32" height="28" rx="4"/><line x1="8" y1="18" x2="40" y2="18"/>
+                  <line x1="16" y1="6" x2="16" y2="12"/><line x1="32" y1="6" x2="32" y2="12"/>
+                  <path d="M24 22l1.8 3.7 4.1.6-3 2.9.7 4-3.6-1.9-3.6 1.9.7-4-3-2.9 4.1-.6z" fill="currentColor" stroke="none"/>
+                </svg>
+              </span>
+            </div>
+            <div class="bento-body">
+              <span class="chip">04 · come together</span>
+              <h3>Events</h3>
+              <p>Corporate team days, club nights, open tournaments and private hire.</p>
+              <span class="bento-link">Get the group in
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+              </span>
+            </div>
           </a>
+
+          <a class="bento-card" href="members.html" aria-label="Explore Members">
+            <div class="tile-media">
+              <span class="tile-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M8 32l-3-16 9 6 10-14 10 14 9-6-3 16z"/><line x1="8" y1="36" x2="40" y2="36"/>
+                </svg>
+              </span>
+            </div>
+            <div class="bento-body">
+              <span class="chip">05 · be first</span>
+              <h3>Members</h3>
+              <p>Founding membership across the whole club — priority courts, better rates and member-only nights.</p>
+              <span class="bento-link">Join the club
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+              </span>
+            </div>
+          </a>
+
         </div>
       </div>
     </section>
 
     <!-- ============ PARTNERS (teased, unnamed) ============ -->
-    <section class="section partners">
+    <section class="section partner-band">
       <div class="wrap reveal">
         <span class="eyebrow">A distinctly North Wales line-up</span>
         <h2>Brewed, baked &amp; roasted nearby</h2>
         <p>We're putting the bar and café together with people who do it properly — all close to home. Partners revealed soon.</p>
-        <div class="partners-row" aria-hidden="true">
-          <div class="partner-chip"><span></span></div>
-          <div class="partner-chip"><span></span></div>
-          <div class="partner-chip"><span></span></div>
+        <div class="partner-track">
+          <span class="partner-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9h11v5a5.5 5.5 0 0 1-11 0z"/><path d="M16 10h2a2.5 2.5 0 0 1 0 5h-2"/><path d="M8.5 4c.6 1-.6 1.5 0 2.5"/><path d="M12 4c.6 1-.6 1.5 0 2.5"/></svg>
+            Roasted coffee
+          </span>
+          <span class="partner-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8h7l1 11a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2z"/><path d="M15 9h2a2 2 0 0 1 0 4h-2"/><path d="M7 12h7"/></svg>
+            Local brewing
+          </span>
+          <span class="partner-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13c0-4 3.5-7 8-7s8 3 8 7-3.5 4-8 4-8 0-8-4z"/><path d="M8 13.5c1-1 2.5-1.5 4-1.5s3 .5 4 1.5"/></svg>
+            Baked daily
+          </span>
         </div>
       </div>
     </section>
 
     <!-- ============ JOIN / MAILING LIST ============ -->
-    <section class="section join" id="join">
+    <section class="section join-modern" id="join">
       <div class="wrap reveal">
-        <div class="join-card">
-          <div class="join-copy">
+        <div class="join-panel">
+          <div class="join-panel-copy">
             <span class="tag">Founding members</span>
             <h2>Be first through the door</h2>
             <p>Join the early-access list for first booking, locked-in founding rates and an
                invite to launch night. No spam — just the good stuff, now and then.</p>
-          </div>
 
-          <!-- =====================================================
-               MAILCHIMP EMBED FORM
-               Replace the 3 placeholders below with YOUR values from
-               Mailchimp → Audience → Sign-up forms → Embedded forms:
-                 1) the form "action" URL
-                 2) the hidden honeypot field name (b_xxxx_yyyy)
-               Until then the form posts nowhere.
-               ===================================================== -->
-          <form class="mc-form"
-                action="https://luckyshots.us00.list-manage.com/subscribe/post?u=REPLACE_U&amp;id=REPLACE_ID"
-                method="post" target="_blank" novalidate>
-            <div class="mc-field">
-              <label for="mce-EMAIL" class="mc-hp">Email address</label>
-              <input type="email" name="EMAIL" id="mce-EMAIL" placeholder="you@email.com" required />
-              <button type="submit" class="btn btn-primary" name="subscribe">Join the list</button>
-            </div>
-            <!-- honeypot: do not remove -->
-            <div class="mc-hp" aria-hidden="true">
-              <input type="text" name="b_REPLACE_U_REPLACE_ID" tabindex="-1" value="" />
-            </div>
-            <p class="mc-note">We'll only email about Lucky Shots. Unsubscribe any time.</p>
-          </form>
+            <!-- =====================================================
+                 MAILCHIMP EMBED FORM
+                 Replace the 3 placeholders below with YOUR values from
+                 Mailchimp → Audience → Sign-up forms → Embedded forms:
+                   1) the form "action" URL
+                   2) the hidden honeypot field name (b_xxxx_yyyy)
+                 Until then the form posts nowhere.
+                 ===================================================== -->
+            <form class="mc-form"
+                  action="https://luckyshots.us00.list-manage.com/subscribe/post?u=REPLACE_U&amp;id=REPLACE_ID"
+                  method="post" target="_blank" novalidate>
+              <div class="mc-field">
+                <label for="mce-EMAIL" class="mc-hp">Email address</label>
+                <input type="email" name="EMAIL" id="mce-EMAIL" placeholder="you@email.com" required />
+                <button type="submit" class="btn btn-primary" name="subscribe">Join the list</button>
+              </div>
+              <!-- honeypot: do not remove -->
+              <div class="mc-hp" aria-hidden="true">
+                <input type="text" name="b_REPLACE_U_REPLACE_ID" tabindex="-1" value="" />
+              </div>
+              <p class="mc-note">We'll only email about Lucky Shots. Unsubscribe any time.</p>
+            </form>
+          </div>
+          <div class="join-panel-visual" aria-hidden="true"></div>
         </div>
       </div>
     </section>
