@@ -816,12 +816,12 @@ body.page-home{
 .arms-head-modern .eyebrow{
   justify-content:center; color:var(--accent-bright);
   font-family:var(--f-script); font-weight:400; text-transform:none;
-  letter-spacing:0; font-size:clamp(1.6rem,2.6vw,2.1rem);
+  letter-spacing:0; font-size:clamp(2.1rem,3.8vw,2.9rem);
 }
 .arms-head-modern .eyebrow::before{ background:var(--accent-bright); width:1em; height:1em; }
 .arms-head-modern h2{
   font-family:var(--f-display); font-weight:normal; color:var(--cream);
-  font-size:clamp(1.8rem,4.4vw,2.9rem); margin-top:.5rem; letter-spacing:.02em;
+  font-size:clamp(1.4rem,3.2vw,2.1rem); margin-top:.5rem; letter-spacing:.02em;
 }
 
 /* ---- Bento grid ---- */
