@@ -5,7 +5,7 @@
 
 /* contact + social (edit here, applies everywhere) */
 const SITE = {
-  email:     "hello@luckyshots.co.uk",   // <-- confirm / create this inbox
+  email:     "padel@luckyshots.co.uk",   // <-- confirm / create this inbox
   instagram: "https://instagram.com/luckyshotspadel",
   igHandle:  "@luckyshotspadel",
   opening:   "October 2026"
