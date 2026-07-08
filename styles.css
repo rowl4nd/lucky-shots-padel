@@ -847,12 +847,6 @@ body.page-home{
   transition: transform .5s var(--ease), box-shadow .5s var(--ease);
 }
 .bento-card:hover{ transform:translateY(-6px); box-shadow:0 26px 60px -22px rgba(1,26,12,.6); }
-.bento-feature{ background: var(--cream); }
-.bento-feature .bento-body .chip{ color: var(--coral); }
-.bento-feature .bento-body h3{ color: var(--green); }
-.bento-feature .bento-body p{ color: var(--ink); opacity:.72; }
-.bento-feature .bento-link{ color: var(--green); }
-
 /* Members — a first hint of its own burgundy zone */
 .bento-members{ background: var(--wine); }
 .bento-members .tile-media{ background: linear-gradient(135deg, var(--wine) 0%, var(--coral) 130%); }
@@ -865,6 +859,10 @@ body.page-home{
   background: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 100%);
   display:flex; align-items:center; justify-content:center;
   overflow:hidden;
+}
+.tile-photo{
+  position:absolute; inset:0; z-index:0;
+  width:100%; height:100%; object-fit:cover;
 }
 .bento-feature .tile-media{ aspect-ratio: 5 / 4; background:linear-gradient(135deg, var(--green-deep) 0%, var(--green) 100%); }
 .tile-media::after{
