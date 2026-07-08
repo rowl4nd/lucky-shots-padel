@@ -3,14 +3,6 @@
    Loaded by every page (<script defer src="components.js"></script>)
    ============================================================ */
 
-/* ------------------------------------------------------------
-   LAUNCH STAGE SWITCH  — change ONE word to update the whole site.
-     "teaser"   = pre-planning. "Coming October 2026", no location.
-     "approved" = planning granted. Location reveal turns on.
-     "live"     = open. Booking / launched messaging turns on.
-   ------------------------------------------------------------ */
-const STAGE = "teaser";
-
 /* contact + social (edit here, applies everywhere) */
 const SITE = {
   email:     "hello@luckyshots.co.uk",   // <-- confirm / create this inbox
@@ -128,8 +120,6 @@ customElements.define("site-footer", SiteFooter);
    Apply stage + scroll reveal once DOM is ready
    ------------------------------------------------------------ */
 document.addEventListener("DOMContentLoaded", () => {
-  document.body.dataset.stage = STAGE;
-
   // reveal-on-scroll
   const els = document.querySelectorAll(".reveal");
   if (!("IntersectionObserver" in window) ||
