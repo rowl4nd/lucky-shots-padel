@@ -159,6 +159,8 @@ p{ margin:0; }
 .btn-primary:hover{ background:var(--accent-bright); }
 .btn-cream{ background:var(--cream); color:var(--green); }
 .btn-cream:hover{ background:#fff; }
+.btn-hero-cta{ background:var(--green-soft); color:var(--cream); }
+.btn-hero-cta:hover{ background:var(--green); color:var(--cream); }
 .btn-ghost{ border-color:currentColor; color:var(--green); }
 .btn-ghost:hover{ background:var(--green); color:var(--cream); border-color:var(--green); }
 .btn-ghost-cream{ border-color:var(--cream-60); color:var(--cream); }
@@ -262,7 +264,15 @@ site-header:not(:defined), site-footer:not(:defined) { display: block; min-heigh
   display:block;
 }
 .hero-logo{
-  width:clamp(280px, 56vw, 580px); height:auto; margin:1.6rem auto 1.8rem;
+  display:block;
+  width:clamp(280px, 56vw, 580px); aspect-ratio:582/272; height:auto; margin:1.6rem auto 1.8rem;
+  background: var(--accent-bright);
+  -webkit-mask-image:url("assets/lucky_shots_cream.svg");
+  -webkit-mask-repeat:no-repeat; -webkit-mask-position:center; -webkit-mask-size:contain;
+  -webkit-mask-mode:alpha;
+  mask-image:url("assets/lucky_shots_cream.svg");
+  mask-repeat:no-repeat; mask-position:center; mask-size:contain;
+  mask-mode:alpha;
 }
 .hero .tagline{
   font-size:clamp(1.15rem,2vw,1.5rem); max-width:34ch;
