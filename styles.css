@@ -798,7 +798,9 @@ body.page-home{
 
 /* ---- Arms heading ---- */
 .arms-modern{ position:relative; }
-.arms-head-modern{ text-align:center; max-width:44ch; margin-inline:auto; }
+.arms-head-modern{ text-align:center; max-width:60rem; margin-inline:auto; }
+.arms-head-modern h2{ white-space:nowrap; }
+@media (max-width:720px){ .arms-head-modern h2{ white-space:normal; } }
 .arms-head-modern .eyebrow{ justify-content:center; color:var(--accent-bright); }
 .arms-head-modern .eyebrow::before{ background:var(--accent-bright); }
 .arms-head-modern h2{
@@ -838,6 +840,13 @@ body.page-home{
 .bento-feature .bento-body h3{ color: var(--green); }
 .bento-feature .bento-body p{ color: var(--ink); opacity:.72; }
 .bento-feature .bento-link{ color: var(--green); }
+
+/* Members — a first hint of its own burgundy zone */
+.bento-members{ background: var(--wine); }
+.bento-members .tile-media{ background: linear-gradient(135deg, var(--wine) 0%, var(--coral) 130%); }
+.bento-members .bento-body .chip{ color: var(--coral-bright); }
+.bento-members .tile-icon{ background: rgba(240,234,218,.14); }
+.bento-members:hover .tile-icon{ background: rgba(176,112,105,.35); color: var(--cream); }
 
 .tile-media{
   position:relative; aspect-ratio: 16 / 9;
