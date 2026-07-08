@@ -813,11 +813,15 @@ body.page-home{
 .arms-head-modern{ text-align:center; max-width:60rem; margin-inline:auto; }
 .arms-head-modern h2{ white-space:nowrap; }
 @media (max-width:720px){ .arms-head-modern h2{ white-space:normal; } }
-.arms-head-modern .eyebrow{ justify-content:center; color:var(--accent-bright); }
-.arms-head-modern .eyebrow::before{ background:var(--accent-bright); }
+.arms-head-modern .eyebrow{
+  justify-content:center; color:var(--accent-bright);
+  font-family:var(--f-script); font-weight:400; text-transform:none;
+  letter-spacing:0; font-size:clamp(1.6rem,2.6vw,2.1rem);
+}
+.arms-head-modern .eyebrow::before{ background:var(--accent-bright); width:1em; height:1em; }
 .arms-head-modern h2{
-  font-family:var(--f-script); font-weight:400; color:var(--cream);
-  font-size:clamp(2.2rem,5.5vw,3.6rem); margin-top:.5rem; letter-spacing:0;
+  font-family:var(--f-display); font-weight:normal; color:var(--cream);
+  font-size:clamp(1.8rem,4.4vw,2.9rem); margin-top:.5rem; letter-spacing:.02em;
 }
 
 /* ---- Bento grid ---- */
@@ -889,7 +893,8 @@ body.page-home{
 .bento-body{ padding:clamp(1.3rem,2.6vw,1.9rem); display:flex; flex-direction:column; gap:.55rem; flex:1; }
 .bento-body .chip{
   font-family:var(--f-script); font-weight:400; letter-spacing:0;
-  text-transform:none; font-size:clamp(1.15rem,1.6vw,1.35rem); color:var(--accent-bright);
+  text-transform:none; font-size:clamp(1.7rem,2.8vw,2.3rem); color:var(--accent-bright);
+  line-height:1;
 }
 .bento-body h3{ font-family:var(--f-display); font-weight:normal; letter-spacing:.04em; font-size:1.55rem; color:var(--cream); }
 .bento-feature .bento-body h3{ font-size:clamp(1.9rem,3.4vw,2.6rem); }
