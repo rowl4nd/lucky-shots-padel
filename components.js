@@ -18,7 +18,6 @@ const NAV = [
   { label: "Academy", href: "academy.html" },
   { label: "Events",  href: "events.html"  },
   { label: "Members", href: "members.html" },
-  { label: "About",   href: "about.html"   },
 ];
 
 /* which page am I on? (for active nav state) */
@@ -33,10 +32,13 @@ function currentFile(){
 class SiteHeader extends HTMLElement {
   connectedCallback(){
     const here = currentFile();
-    const links = NAV.map(n => {
+    // Members gets its own CTA treatment below, so it's excluded from
+    // the regular link list to avoid appearing twice.
+    const links = NAV.filter(n => n.label !== "Members").map(n => {
       const active = n.href === here ? ' aria-current="page"' : '';
       return `<a href="${n.href}"${active}>${n.label}</a>`;
     }).join("");
+    const membersActive = here === "members.html" ? ' aria-current="page"' : '';
 
     this.innerHTML = `
       <header class="hdr">
@@ -53,7 +55,7 @@ class SiteHeader extends HTMLElement {
 
           <nav class="hdr-nav" id="primary-nav" aria-label="Primary">
             ${links}
-            <a class="btn btn-cream hdr-cta" href="index.html#join">Join the list</a>
+            <a class="btn btn-wine hdr-cta" href="members.html"${membersActive}>Members</a>
           </nav>
         </div>
       </header>`;
