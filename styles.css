@@ -295,7 +295,7 @@ body.has-video-hero .hdr.scrolled{
 .hero-inner{ position:relative; z-index:2; text-align:center; }
 .hero .kicker{
   font-family:var(--f-display); font-weight:normal; letter-spacing:.06em;
-  text-transform:none; font-size:1.05rem; color:var(--cream-60);
+  text-transform:none; font-size:clamp(1.15rem,2vw,1.5rem); color:var(--cream);
   text-align:center;
   display:block;
 }
@@ -303,10 +303,10 @@ body.has-video-hero .hdr.scrolled{
   display:block;
   width:clamp(280px, 56vw, 580px); aspect-ratio:582/272; height:auto; margin:1.6rem auto 1.8rem;
   background: var(--accent-bright);
-  -webkit-mask-image:url("assets/lucky_shots_cream.svg");
+  -webkit-mask-image:url("assets/lucky_shots_clover.svg");
   -webkit-mask-repeat:no-repeat; -webkit-mask-position:center; -webkit-mask-size:contain;
   -webkit-mask-mode:alpha;
-  mask-image:url("assets/lucky_shots_cream.svg");
+  mask-image:url("assets/lucky_shots_clover.svg");
   mask-repeat:no-repeat; mask-position:center; mask-size:contain;
   mask-mode:alpha;
 }
@@ -822,9 +822,12 @@ body[data-arm="members"] .join-band-card .btn-cream:hover{ color: var(--wine); }
    ============================================================ */
 
 /* ---- Arms heading ---- */
-.arms-modern{ position:relative; }
-/* dark-green strip carrying the eyebrow — full-bleed, sits outside .wrap */
-.section-title-strip{ background:var(--green); padding-block:.9rem; text-align:center; }
+.arms-modern{ position:relative; padding-top:clamp(1.2rem,3vw,2rem); }
+.section-title-strip{
+  width:fit-content; margin:0 auto;
+  background:var(--green); border-radius:999px;
+  padding:.65rem 2.2rem;
+}
 .section-title-strip .eyebrow{
   justify-content:center; color:var(--accent-bright); margin:0 auto;
   font-family:var(--f-script); font-weight:400; text-transform:none;
