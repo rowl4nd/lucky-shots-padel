@@ -938,6 +938,30 @@ body[data-arm="members"] .join-band-card .btn-cream:hover{ color: var(--wine); }
   .js .arms-bento .bento-card{ opacity:1; transform:none; transition:none; }
 }
 
+/* ---- Trio bento (3 equal cards — Play page restructure) ---- */
+.trio-bento{
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:clamp(1rem,2vw,1.4rem); margin-top:1rem;
+}
+@media (max-width:880px){ .trio-bento{ grid-template-columns:1fr; } }
+
+/* chip-strip with the clover kept alongside the label */
+.chip-strip.has-clover{ display:flex; align-items:center; gap:.6rem; }
+.chip-clover{
+  width:clamp(1.3rem,2.4vw,1.7rem); height:clamp(1.3rem,2.4vw,1.7rem); flex:0 0 auto;
+  background:var(--accent-bright);
+  -webkit-mask:url("assets/lucky_shots_clover.svg") center/contain no-repeat;
+  mask:url("assets/lucky_shots_clover.svg") center/contain no-repeat;
+}
+
+/* sub-item list inside a bento card (e.g. "Ways to play", "For all levels") */
+.bento-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.9rem; }
+.bento-list strong{
+  display:block; font-family:var(--f-head); font-weight:700;
+  font-size:.98rem; color:var(--cream); margin-bottom:.15em;
+}
+.bento-list span{ color:var(--cream); opacity:.82; font-size:.95rem; line-height:1.55; }
+
 /* ---- Partner band — the cream "lashing" ---- */
 .partner-band{ background:var(--cream); color:var(--ink); text-align:center; }
 .partner-band .eyebrow{ justify-content:center; color:var(--accent-deep); }
