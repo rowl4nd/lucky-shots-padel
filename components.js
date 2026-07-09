@@ -73,6 +73,13 @@ class SiteHeader extends HTMLElement {
         burger.setAttribute("aria-expanded", "false");
       })
     );
+
+    // transparent-over-hero effect (see-through header on the home page
+    // only) — solidify once scrolled past the top
+    const hdr = this.querySelector(".hdr");
+    const updateScrolled = () => hdr.classList.toggle("scrolled", window.scrollY > 40);
+    updateScrolled();
+    window.addEventListener("scroll", updateScrolled, { passive: true });
   }
 }
 customElements.define("site-header", SiteHeader);
