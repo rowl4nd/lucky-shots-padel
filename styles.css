@@ -292,7 +292,7 @@ body.has-video-hero .hdr.scrolled{
   z-index:1; pointer-events:none;
 }
 
-.hero-inner{ position:relative; z-index:2; }
+.hero-inner{ position:relative; z-index:2; text-align:center; }
 .hero .kicker{
   font-family:var(--f-display); font-weight:normal; letter-spacing:.06em;
   text-transform:none; font-size:1.05rem; color:var(--cream-60);
