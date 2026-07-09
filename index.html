@@ -51,10 +51,11 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero">
-  <!-- poster shows instantly; the video (now ~700KB after compression,
-       down from 11MB) loads on all screen sizes, but still respects
+  <!-- no poster: the plain green hero background shows until the video
+       (now small enough to load quickly) is ready, avoiding an image
+       flash before the video takes over. Still respects
        prefers-reduced-motion -->
-  <video class="hero-video" poster="hero.png.PNG" muted loop playsinline preload="auto"></video>
+  <video class="hero-video" muted loop playsinline preload="auto"></video>
   <script>
     (function(){
       var v = document.currentScript.previousElementSibling;
