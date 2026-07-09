@@ -416,7 +416,7 @@ site-footer{ display:block; }
 @media (max-width:780px){ .ftr-top{ grid-template-columns:1fr; gap:2.2rem; } }
 .ftr-logo-mark{
   display:block;
-  width:clamp(150px,16vw,190px); aspect-ratio:582/272; height:auto;
+  height:42px; width:auto; aspect-ratio:582/272;
   margin-bottom:1rem;
   background: var(--accent-bright);
   -webkit-mask-image:url("assets/lucky_shots_cream.svg");
