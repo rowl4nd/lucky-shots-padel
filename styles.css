@@ -929,6 +929,11 @@ body[data-arm="members"] .join-band-card .btn-cream:hover{ color: var(--wine); }
 .bento-feature .bento-body h3{ font-size:clamp(1.9rem,3.4vw,2.6rem); }
 .bento-body p{ color:var(--cream); opacity:.82; font-size:.95rem; line-height:1.58; }
 .bento-feature .bento-body p{ font-size:1rem; max-width:36ch; }
+.bento-body .note{
+  display:inline-flex; align-items:center; gap:.4rem;
+  font-family:var(--f-head); font-weight:600;
+  font-size:.82rem; color:var(--cream); opacity:.65; font-style:italic;
+}
 .bento-link{
   margin-top:auto; padding-top:.7rem;
   display:inline-flex; align-items:center; gap:.4rem;
