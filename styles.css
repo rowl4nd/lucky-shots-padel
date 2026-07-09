@@ -198,15 +198,16 @@ site-header:not(:defined), site-footer:not(:defined) { display: block; min-heigh
   border-bottom:1px solid rgba(253,244,203,.10);
   transition:background-color .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
 }
-/* Home page only: header floats transparently over the hero video, and
-   solidifies once you've scrolled past it (see-header-scroll toggle in
-   components.js). Inner pages keep the normal solid sticky header —
-   their per-arm hero colours don't have the contrast headroom for this. */
-body.page-home .hdr{
+/* Pages with a full-screen video hero: header floats transparently over
+   the video, and solidifies once you've scrolled past it (scroll toggle
+   in components.js). Other inner pages keep the normal solid sticky
+   header — their flat arm-colour heroes don't have the contrast
+   headroom for this. Add class="has-video-hero" to <body> to opt in. */
+body.has-video-hero .hdr{
   position:fixed; left:0; right:0;
   background:transparent; border-bottom-color:transparent;
 }
-body.page-home .hdr.scrolled{
+body.has-video-hero .hdr.scrolled{
   background:var(--green);
   border-bottom-color:rgba(253,244,203,.10);
   box-shadow:0 8px 30px -14px rgba(1,26,12,.5);
@@ -310,8 +311,14 @@ body.page-home .hdr.scrolled{
   mask-mode:alpha;
 }
 .hero .tagline{
+  font-family:var(--f-display); font-weight:normal;
   font-size:clamp(1.15rem,2vw,1.5rem); max-width:34ch;
   margin:1.4rem auto 0; color:var(--cream); line-height:1.4;
+}
+.hero-title{
+  font-family:var(--f-display); font-weight:normal; text-transform:lowercase;
+  font-size:clamp(2.6rem,8vw,5.5rem); line-height:.95; letter-spacing:.02em;
+  color:var(--cream); margin:0;
 }
 .hero .sub{ margin:.9rem auto 0; color:var(--cream-60); max-width:50ch; }
 .hero-cta{ display:flex; flex-wrap:wrap; gap:.8rem; margin-top:2rem; align-items:center; justify-content:center; }
