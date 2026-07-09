@@ -18,10 +18,24 @@
   <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
-  <!-- Fonts: Yellowtail (script) · Outfit (headings) · Work Sans (body) -->
+  <!-- Fonts: Yellowtail (script) · Outfit (headings + body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Work+Sans:wght@300;400;500;600&family=Yellowtail&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Yellowtail&display=swap" rel="stylesheet" />
+
+  <!-- Structured data: helps Google understand what this page is about -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "Lucky Shots Padel",
+    "description": "Four indoor panoramic padel courts, a bar and social hub opening in Colwyn Bay, North Wales, October 2026.",
+    "url": "https://luckyshots.co.uk",
+    "sport": "Padel",
+    "areaServed": "Colwyn Bay, Conwy, North Wales",
+    "sameAs": ["https://instagram.com/luckyshotspadel"]
+  }
+  </script>
 
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="styles.css" />
@@ -37,14 +51,29 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="assets/hero_video.mp4" type="video/mp4">
-  </video>
+  <!-- poster shows instantly; video is only wired up by the script below
+       once we know we're on a wider screen with no reduced-motion pref,
+       so mobile visitors never pay for the video download -->
+  <video class="hero-video" poster="hero.png.PNG" muted loop playsinline preload="none"></video>
+  <script>
+    (function(){
+      var v = document.currentScript.previousElementSibling;
+      var wide = matchMedia('(min-width: 768px)').matches;
+      var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (wide && !reduced) {
+        var src = document.createElement('source');
+        src.src = 'assets/hero_video.mp4';
+        src.type = 'video/mp4';
+        v.appendChild(src);
+        v.preload = 'auto';
+        v.play().catch(function(){});
+      }
+    })();
+  </script>
   <div class="wrap hero-inner">
         <p class="kicker anim d1">north wales premium padel & social hub</p>
         <div class="hero-logo anim d2" role="img" aria-label="Lucky Shots Padel"></div>
-        <p class="sub anim d3"></p>
-        <div class="hero-cta anim d4">
+        <div class="hero-cta anim d3">
           <a class="btn btn-hero-cta" href="#join">Join the early-access list</a>
           <span class="open-pill"><span class="dot"></span>Opening October 2026</span>
         </div>
@@ -181,16 +210,12 @@
                invite to launch night. No spam — just the good stuff, now and then.</p>
 
             <!-- =====================================================
-                 MAILCHIMP EMBED FORM
-                 Replace the 3 placeholders below with YOUR values from
-                 Mailchimp → Audience → Sign-up forms → Embedded forms:
-                   1) the form "action" URL
-                   2) the hidden honeypot field name (b_xxxx_yyyy)
-                 Until then the form posts nowhere.
+                 SUBSCRIBE FORM — posts to a Cloudflare Pages Function
+                 at /api/subscribe, which forwards to Resend. Until that
+                 function exists this fails gracefully with the error
+                 message below (see the "what else to do" notes).
                  ===================================================== -->
-            <form class="mc-form"
-                  action="https://luckyshots.us00.list-manage.com/subscribe/post?u=REPLACE_U&amp;id=REPLACE_ID"
-                  method="post" target="_blank" novalidate>
+            <form class="mc-form" id="subscribe-form" novalidate>
               <div class="mc-field">
                 <label for="mce-EMAIL" class="mc-hp">Email address</label>
                 <input type="email" name="EMAIL" id="mce-EMAIL" placeholder="you@email.com" required />
@@ -198,10 +223,37 @@
               </div>
               <!-- honeypot: do not remove -->
               <div class="mc-hp" aria-hidden="true">
-                <input type="text" name="b_REPLACE_U_REPLACE_ID" tabindex="-1" value="" />
+                <label for="mce-website">Website</label>
+                <input type="text" name="website" id="mce-website" tabindex="-1" autocomplete="off" />
               </div>
               <p class="mc-note">We'll only email about Lucky Shots. Unsubscribe any time.</p>
+              <p class="mc-success-msg">You're on the list — see you in October 🎾</p>
             </form>
+            <script>
+              document.getElementById('subscribe-form').addEventListener('submit', function(e){
+                e.preventDefault();
+                var form = e.target;
+                var button = form.querySelector('button[type="submit"]');
+                var email = form.querySelector('#mce-EMAIL').value;
+                var honeypot = form.querySelector('#mce-website').value;
+                if (honeypot) return; // bot caught by honeypot, silently drop
+                button.disabled = true;
+                button.textContent = 'Joining…';
+                fetch('/api/subscribe', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ email: email })
+                })
+                .then(function(res){ if (!res.ok) throw new Error('request failed'); })
+                .then(function(){ form.classList.add('is-success'); })
+                .catch(function(){
+                  button.disabled = false;
+                  button.textContent = 'Join the list';
+                  form.querySelector('.mc-note').textContent =
+                    "Something went wrong — mind emailing padel@luckyshots.co.uk instead?";
+                });
+              });
+            </script>
           </div>
           <div class="join-panel-visual" aria-hidden="true">
             <img class="tile-photo" src="assets/cards/join.jpg" alt="" loading="lazy" onerror="this.remove()" />
