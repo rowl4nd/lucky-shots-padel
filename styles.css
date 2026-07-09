@@ -786,9 +786,6 @@ body[data-arm] .join-band-card .tag{ color:var(--arm-ink); }
 body[data-arm] .stage .eyebrow::before{ background:var(--arm-ink); }
 body[data-arm] .vibe::before{ background:none; }
 body[data-arm] .partners h2{ color:var(--arm-line); }
-body[data-arm] .partners p{ color:var(--cream-60); }
-body[data-arm] .partner-chip{ border-color:var(--cream-30); }
-body[data-arm] .partner-chip span{ background:var(--cream-60); }
 
 /* ============================================================
    15. MEMBERS PAGE — burgundy + brick dust only, no green/yellow
@@ -818,35 +815,28 @@ body[data-arm="members"] .join-band-card .btn-cream:hover{ color: var(--wine); }
 
 /* ============================================================
    14. HOME PAGE REDESIGN — 2026 refresh
-   Green canvas throughout, yellow + cream as accent "lashings".
-   Scoped to body.page-home / new classes so other pages
-   (still on the old per-page arm colours) are untouched.
-   New pages get their own numbered block like this one as
-   we work through the site, one page at a time.
+   Cream page background throughout (site default). Cards stay
+   bottle green; a dark-green "title strip" carries the yellow
+   section eyebrow / card chip labels. New pages get their own
+   numbered block like this one as we work through the site.
    ============================================================ */
-
-/* the page itself becomes the green canvas */
-body.page-home,
-body.has-green-canvas{
-  background: var(--green-deep);
-  background-image: radial-gradient(rgba(240,234,218,.035) 1px, transparent 1px);
-  background-size: 4px 4px;
-}
 
 /* ---- Arms heading ---- */
 .arms-modern{ position:relative; }
+/* dark-green strip carrying the eyebrow — full-bleed, sits outside .wrap */
+.section-title-strip{ background:var(--green); padding-block:.9rem; text-align:center; }
+.section-title-strip .eyebrow{
+  justify-content:center; color:var(--accent-bright); margin:0 auto;
+  font-family:var(--f-script); font-weight:400; text-transform:none;
+  letter-spacing:0; font-size:clamp(2.4rem,4.4vw,3.3rem); display:inline-flex;
+}
+.section-title-strip .eyebrow::before{ background:var(--accent-bright); width:1em; height:1em; }
 .arms-head-modern{ text-align:center; max-width:60rem; margin-inline:auto; }
 .arms-head-modern h2{ white-space:nowrap; }
 @media (max-width:720px){ .arms-head-modern h2{ white-space:normal; } }
-.arms-head-modern .eyebrow{
-  justify-content:center; color:var(--accent-bright);
-  font-family:var(--f-script); font-weight:400; text-transform:none;
-  letter-spacing:0; font-size:clamp(2.4rem,4.4vw,3.3rem);
-}
-.arms-head-modern .eyebrow::before{ background:var(--accent-bright); width:1em; height:1em; }
 .arms-head-modern h2{
-  font-family:var(--f-display); font-weight:normal; color:var(--cream);
-  font-size:clamp(1.1rem,2.4vw,1.6rem); margin-top:.5rem; letter-spacing:.02em;
+  font-family:var(--f-display); font-weight:normal; color:var(--green);
+  font-size:clamp(1.1rem,2.4vw,1.6rem); margin-top:1.4rem; letter-spacing:.02em;
 }
 
 /* ---- Bento grid ---- */
@@ -876,13 +866,14 @@ body.has-green-canvas{
   transition: transform .5s var(--ease), box-shadow .5s var(--ease);
 }
 .bento-card:hover{ transform:translateY(-6px); box-shadow:0 26px 60px -22px rgba(1,26,12,.6); }
-/* Members — a first hint of its own burgundy zone */
+/* Members — a first hint of its own burgundy zone (no green/yellow) */
 .bento-members{ background: var(--coral); }
 .bento-members .tile-media{ background: linear-gradient(135deg, var(--coral) 0%, var(--wine) 130%); }
-.bento-members .bento-body .chip,
 .bento-members .bento-body h3,
 .bento-members .bento-body p,
 .bento-members .bento-link{ color: var(--wine); }
+.bento-members .chip-strip{ background: var(--wine); }
+.bento-members .chip-strip .chip{ color: var(--cream); }
 
 .tile-media{
   position:relative; aspect-ratio: 16 / 9;
@@ -903,12 +894,16 @@ body.has-green-canvas{
 }
 .bento-card:hover .tile-media::after{ transform:scale(1.1) rotate(5deg); }
 
-.bento-body{ padding:clamp(1.3rem,2.6vw,1.9rem); display:flex; flex-direction:column; gap:.55rem; flex:1; }
-.bento-body .chip{
+/* dark-green strip carrying the card's chip label, between the photo
+   and the bottle-green body */
+.chip-strip{ background:var(--green); padding:.5rem clamp(1.3rem,2.6vw,1.9rem); }
+.chip-strip .chip{
   font-family:var(--f-script); font-weight:400; letter-spacing:0;
-  text-transform:none; font-size:clamp(1.7rem,2.8vw,2.3rem); color:var(--accent-bright);
-  line-height:1;
+  text-transform:none; font-size:clamp(1.5rem,2.4vw,2rem); color:var(--accent-bright);
+  line-height:1; display:block;
 }
+
+.bento-body{ padding:clamp(1.3rem,2.6vw,1.9rem); display:flex; flex-direction:column; gap:.55rem; flex:1; }
 .bento-body h3{ font-family:var(--f-display); font-weight:normal; letter-spacing:.04em; font-size:1.55rem; color:var(--cream); }
 .bento-feature .bento-body h3{ font-size:clamp(1.9rem,3.4vw,2.6rem); }
 .bento-body p{ color:var(--cream); opacity:.82; font-size:.95rem; line-height:1.58; }
@@ -957,6 +952,7 @@ body.has-green-canvas{
 .join-panel{
   display:grid; grid-template-columns:1.05fr .95fr;
   background:var(--cream); color:var(--ink);
+  border:1px solid var(--line);
   border-radius:var(--radius-lg); overflow:hidden;
   box-shadow:var(--shadow);
 }
