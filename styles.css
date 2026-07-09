@@ -211,7 +211,7 @@ site-header:not(:defined), site-footer:not(:defined) { display: block; min-heigh
 .hdr-nav a{
   font-family:var(--f-display); font-weight:normal; font-size:.93rem;
   text-transform:lowercase; letter-spacing:.04em;
-  color:var(--accent-bright); padding:.5rem .8rem; border-radius:999px;
+  color:var(--cream); padding:.5rem .8rem; border-radius:999px;
   transition:color .2s var(--ease), background .2s var(--ease);
 }
 /* CTA button keeps its own type treatment — no lowercase override */
@@ -414,7 +414,16 @@ site-footer{ display:block; }
   padding-block:clamp(3rem,6vw,4.5rem) 2.5rem;
 }
 @media (max-width:780px){ .ftr-top{ grid-template-columns:1fr; gap:2.2rem; } }
-.ftr-logo img{ height:42px; width:auto; margin-bottom:1rem; }
+.ftr-logo-mark{
+  display:block;
+  width:clamp(150px,16vw,190px); aspect-ratio:582/272; height:auto;
+  margin-bottom:1rem;
+  background: var(--accent-bright);
+  -webkit-mask-image:url("assets/lucky_shots_cream.svg");
+  -webkit-mask-repeat:no-repeat; -webkit-mask-position:left center; -webkit-mask-size:contain;
+  mask-image:url("assets/lucky_shots_cream.svg");
+  mask-repeat:no-repeat; mask-position:left center; mask-size:contain;
+}
 .ftr-logo p{ color:var(--cream-60); max-width:34ch; font-size:.95rem; }
 .ftr h4{ font-family:var(--f-head); font-weight:600; font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--accent-bright); margin-bottom:1rem; }
 .ftr-links{ display:flex; flex-direction:column; gap:.6rem; }
@@ -775,12 +784,12 @@ body.page-home{
 .arms-head-modern .eyebrow{
   justify-content:center; color:var(--accent-bright);
   font-family:var(--f-script); font-weight:400; text-transform:none;
-  letter-spacing:0; font-size:clamp(2.1rem,3.8vw,2.9rem);
+  letter-spacing:0; font-size:clamp(2.4rem,4.4vw,3.3rem);
 }
 .arms-head-modern .eyebrow::before{ background:var(--accent-bright); width:1em; height:1em; }
 .arms-head-modern h2{
   font-family:var(--f-display); font-weight:normal; color:var(--cream);
-  font-size:clamp(1.4rem,3.2vw,2.1rem); margin-top:.5rem; letter-spacing:.02em;
+  font-size:clamp(1.1rem,2.4vw,1.6rem); margin-top:.5rem; letter-spacing:.02em;
 }
 
 /* ---- Bento grid ---- */
@@ -814,8 +823,6 @@ body.page-home{
 .bento-members{ background: var(--wine); }
 .bento-members .tile-media{ background: linear-gradient(135deg, var(--wine) 0%, var(--coral) 130%); }
 .bento-members .bento-body .chip{ color: var(--coral-bright); }
-.bento-members .tile-icon{ background: rgba(240,234,218,.14); }
-.bento-members:hover .tile-icon{ background: rgba(176,112,105,.35); color: var(--cream); }
 
 .tile-media{
   position:relative; aspect-ratio: 16 / 9;
@@ -835,19 +842,6 @@ body.page-home{
   transition: transform .7s var(--ease);
 }
 .bento-card:hover .tile-media::after{ transform:scale(1.1) rotate(5deg); }
-
-.tile-icon{
-  position:relative; z-index:2;
-  width:58px; height:58px; border-radius:50%;
-  display:grid; place-items:center;
-  background:rgba(240,234,218,.14);
-  color:var(--cream);
-  transition: transform .45s var(--ease), background .45s var(--ease), color .45s var(--ease);
-}
-.bento-feature .tile-icon{ width:72px; height:72px; }
-.bento-card:hover .tile-icon{ transform:scale(1.08) rotate(-4deg); background:rgba(244,242,141,.24); color:var(--accent-bright); }
-.tile-icon svg{ width:30px; height:30px; }
-.bento-feature .tile-icon svg{ width:38px; height:38px; }
 
 .bento-body{ padding:clamp(1.3rem,2.6vw,1.9rem); display:flex; flex-direction:column; gap:.55rem; flex:1; }
 .bento-body .chip{
