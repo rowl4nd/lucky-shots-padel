@@ -27,9 +27,8 @@
 
     <!-- HERO -->
     <section class="hero">
-      <!-- same video-hero pattern as index: poster shows instantly, video
-           loads for everyone except prefers-reduced-motion users -->
-      <video class="hero-video" poster="assets/cards/play.jpg" muted loop playsinline preload="auto"></video>
+      <!-- no poster: plain green hero background shows until video loads -->
+      <video class="hero-video" muted loop playsinline preload="auto"></video>
       <script>
         (function(){
           var v = document.currentScript.previousElementSibling;
