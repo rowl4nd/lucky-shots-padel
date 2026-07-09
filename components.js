@@ -43,7 +43,9 @@ class SiteHeader extends HTMLElement {
     this.innerHTML = `
       <header class="hdr">
         <div class="wrap hdr-row">
-          <a class="hdr-logo" href="index.html" aria-label="Lucky Shots Padel — home"></a>
+          <a class="hdr-logo" href="index.html" aria-label="Lucky Shots Padel — home">
+            <img src="assets/logo_header.svg" alt="Lucky Shots Padel" />
+          </a>
 
           <button class="hdr-burger" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
