@@ -250,7 +250,9 @@ site-header:not(:defined), site-footer:not(:defined) { display: block; min-heigh
 .hero{
   position:relative; overflow:hidden;
   background:var(--green); color:var(--cream);
-  padding-block:clamp(4rem,10vw,8rem) clamp(5rem,11vw,9rem);
+  min-height:100vh; min-height:100svh; min-height:100dvh;
+  display:flex; align-items:center; justify-content:center;
+  padding-block:clamp(2rem,6vw,4rem);
 }
 .hero::after{ /* large faint clover motif */
   content:""; position:absolute; right:-6%; bottom:-12%;
