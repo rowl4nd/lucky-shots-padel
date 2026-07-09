@@ -761,6 +761,32 @@ body[data-arm] .vibe::before{ background:none; }
 body[data-arm] .partners h2{ color:var(--arm-line); }
 
 /* ============================================================
+   15. MEMBERS PAGE — burgundy + brick dust only, no green/yellow
+   (hero excluded — left on its existing per-arm styling)
+   ============================================================ */
+body[data-arm="members"]{
+  background: var(--coral);
+  background-image: radial-gradient(rgba(100,49,62,.06) 1px, transparent 1px);
+  background-size:4px 4px;
+}
+/* "What's included" cards already resolve to burgundy/cream via
+   .pillar-card's var(--arm)/var(--arm-ink) — no override needed there */
+
+/* Founding-membership pitch card: swap green+yellow for burgundy+cream */
+body[data-arm="members"] .social-feature{ background: var(--wine); }
+body[data-arm="members"] .social-feature::before{
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgba(176,112,105,.35), transparent 60%),
+    radial-gradient(80% 70% at 0% 100%, rgba(240,234,218,.08), transparent 55%);
+}
+body[data-arm="members"] .social-feature .tag{ color: var(--cream); }
+body[data-arm="members"] .btn-ghost-cream:hover{ color: var(--wine); }
+
+/* Join band CTA: cream button, burgundy text instead of green */
+body[data-arm="members"] .join-band-card .btn-cream{ color: var(--wine); }
+body[data-arm="members"] .join-band-card .btn-cream:hover{ color: var(--wine); }
+
+/* ============================================================
    14. HOME PAGE REDESIGN — 2026 refresh
    Green canvas throughout, yellow + cream as accent "lashings".
    Scoped to body.page-home / new classes so other pages
