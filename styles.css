@@ -820,9 +820,12 @@ body.page-home{
 }
 .bento-card:hover{ transform:translateY(-6px); box-shadow:0 26px 60px -22px rgba(1,26,12,.6); }
 /* Members — a first hint of its own burgundy zone */
-.bento-members{ background: var(--wine); }
-.bento-members .tile-media{ background: linear-gradient(135deg, var(--wine) 0%, var(--coral) 130%); }
-.bento-members .bento-body .chip{ color: var(--coral-bright); }
+.bento-members{ background: var(--coral); }
+.bento-members .tile-media{ background: linear-gradient(135deg, var(--coral) 0%, var(--wine) 130%); }
+.bento-members .bento-body .chip,
+.bento-members .bento-body h3,
+.bento-members .bento-body p,
+.bento-members .bento-link{ color: var(--wine); }
 
 .tile-media{
   position:relative; aspect-ratio: 16 / 9;
