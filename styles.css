@@ -317,6 +317,12 @@ body.has-video-hero .hdr.scrolled{
   -webkit-mask:url("assets/lucky_shots_clover.svg") center/contain no-repeat;
   mask:url("assets/lucky_shots_clover.svg") center/contain no-repeat;
 }
+.hero-slogan{
+  font-family:var(--f-script); font-weight:400;
+  font-size:clamp(.85rem,4.2vw,2.6rem); color:var(--accent-bright);
+  white-space:nowrap; text-align:center;
+  margin:0 auto 1rem;
+}
 .hero .tagline{
   font-family:var(--f-display); font-weight:normal;
   font-size:clamp(1.15rem,2vw,1.5rem); max-width:34ch;
