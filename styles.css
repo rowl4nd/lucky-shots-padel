@@ -310,6 +310,13 @@ body.has-video-hero .hdr.scrolled{
   mask-repeat:no-repeat; mask-position:center; mask-size:contain;
   mask-mode:alpha;
 }
+.hero-clover{
+  display:block;
+  width:clamp(48px,7vw,80px); aspect-ratio:1/1; margin:0 auto 1.1rem;
+  background:var(--accent-bright);
+  -webkit-mask:url("assets/lucky_shots_clover.svg") center/contain no-repeat;
+  mask:url("assets/lucky_shots_clover.svg") center/contain no-repeat;
+}
 .hero .tagline{
   font-family:var(--f-display); font-weight:normal;
   font-size:clamp(1.15rem,2vw,1.5rem); max-width:34ch;
@@ -545,23 +552,23 @@ site-footer{ display:block; }
 }
 @media(max-width:800px){ .pillar-grid{ grid-template-columns:1fr; } }
 .pillar-card{
-  background:var(--arm); border:none;
+  background:var(--green-soft); border:none;
   border-radius:var(--radius);
   padding:clamp(1.5rem,3vw,2.2rem);
 }
 .pillar-card .lbl{
    font-family:var(--f-head); font-weight:700; 
-   font-size:.76rem; letter-spacing:.2em; color:var(--arm-ink); opacity:.85; text-transform:uppercase; 
+   font-size:.76rem; letter-spacing:.2em; color:var(--cream); opacity:.85; text-transform:uppercase; 
 }
 .pillar-card h3{
   font-family:var(--f-script); font-weight:400;
-  font-size:clamp(1.9rem,3.5vw,2.6rem); margin:.15em 0 .4em; color:var(--arm-ink);
+  font-size:clamp(1.9rem,3.5vw,2.6rem); margin:.15em 0 .4em; color:var(--cream);
 }
-.pillar-card p{ color:var(--arm-ink); opacity:.85; font-size:.97rem; line-height:1.65; }
+.pillar-card p{ color:var(--cream); opacity:.85; font-size:.97rem; line-height:1.65; }
 .pillar-card .note{
   display:inline-flex; align-items:center; gap:.4rem;
   margin-top:1.2rem; font-family:var(--f-head); font-weight:600;
-  font-size:.82rem; color:var(--arm-ink); opacity:.7; font-style:italic;
+  font-size:.82rem; color:var(--cream); opacity:.7; font-style:italic;
 }
 
 /* ---- Vibe / typographic statement panel ---- */
@@ -646,7 +653,7 @@ site-footer{ display:block; }
 }
 @media(max-width:780px){ .level-grid{ grid-template-columns:1fr; } }
 .level-card{
-  background:var(--green); color:var(--cream);
+  background:var(--green-soft); color:var(--cream);
   border-radius:var(--radius); padding:clamp(1.4rem,3vw,2rem);
   position:relative; overflow:hidden;
 }
@@ -689,7 +696,7 @@ site-footer{ display:block; }
 }
 @media(max-width:640px){ .prog-grid{ grid-template-columns:1fr; } }
 .prog-card{
-  background:var(--green); color:var(--cream);
+  background:var(--green-soft); color:var(--cream);
   border-radius:var(--radius); padding:clamp(1.5rem,3vw,2.2rem);
   position:relative; overflow:hidden;
 }
@@ -796,8 +803,9 @@ body[data-arm="members"]{
   background-image: radial-gradient(rgba(100,49,62,.06) 1px, transparent 1px);
   background-size:4px 4px;
 }
-/* "What's included" cards already resolve to burgundy/cream via
-   .pillar-card's var(--arm)/var(--arm-ink) — no override needed there */
+/* Cards elsewhere now default to bottle green (see pillar-card rule) —
+   Members keeps its own burgundy identity, so it needs an explicit override. */
+body[data-arm="members"] .pillar-card{ background: var(--wine); }
 
 /* Founding-membership pitch card: swap green+yellow for burgundy+cream */
 body[data-arm="members"] .social-feature{ background: var(--wine); }
