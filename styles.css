@@ -301,7 +301,7 @@ body.has-video-hero .hdr.scrolled{
 }
 .hero-logo{
   display:block;
-  width:clamp(280px, 56vw, 580px); aspect-ratio:582/272; height:auto; margin:1.6rem auto 1.8rem;
+  width:clamp(280px, 56vw, 580px); aspect-ratio:582/272; height:auto; margin:1.6rem auto .8rem;
   background: var(--accent-bright);
   -webkit-mask-image:url("assets/lucky_shots_clover.svg");
   -webkit-mask-repeat:no-repeat; -webkit-mask-position:center; -webkit-mask-size:contain;
@@ -319,7 +319,7 @@ body.has-video-hero .hdr.scrolled{
 }
 .hero-slogan{
   font-family:var(--f-script); font-weight:400;
-  font-size:clamp(.85rem,4.2vw,2.6rem); color:var(--accent-bright);
+  font-size:clamp(1.05rem,5vw,2.6rem); color:var(--accent-bright);
   white-space:nowrap; text-align:center;
   margin:0 auto 1rem;
 }
