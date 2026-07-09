@@ -217,9 +217,14 @@ body.page-home .hdr.scrolled{
 }
 .hdr-logo{
             display:block;
-            height:clamp(1.9rem,2.6vw,2.5rem);
+            height:clamp(2.4rem,3.6vw,3.4rem);
+            width:clamp(170px,16vw,240px);
+            background:var(--accent-bright);
+            -webkit-mask-image:url("assets/logo_header.svg");
+            -webkit-mask-repeat:no-repeat; -webkit-mask-position:left center; -webkit-mask-size:contain;
+            mask-image:url("assets/logo_header.svg");
+            mask-repeat:no-repeat; mask-position:left center; mask-size:contain;
           }
-.hdr-logo img{ height:100%; width:auto; display:block; }
 .hdr-nav{ display:flex; align-items:center; gap:.35rem; }
 .hdr-nav a{
   font-family:var(--f-display); font-weight:normal; font-size:.93rem;
