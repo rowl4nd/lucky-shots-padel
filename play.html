@@ -36,7 +36,7 @@
           var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
           if (!reduced) {
             var src = document.createElement('source');
-            src.src = 'assets/hero_video.mp4';
+            src.src = 'assets/hero_video_play.mp4';
             src.type = 'video/mp4';
             v.appendChild(src);
             v.play().catch(function(){});
