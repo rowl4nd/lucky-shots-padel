@@ -312,7 +312,7 @@ body.has-video-hero .hdr.scrolled{
 }
 .hero-clover{
   display:block;
-  width:clamp(48px,7vw,80px); aspect-ratio:1/1; margin:0 auto 1.1rem;
+  width:clamp(130px,26vw,270px); aspect-ratio:1/1; margin:0 auto 1.1rem;
   background:var(--accent-bright);
   -webkit-mask:url("assets/lucky_shots_clover.svg") center/contain no-repeat;
   mask:url("assets/lucky_shots_clover.svg") center/contain no-repeat;
