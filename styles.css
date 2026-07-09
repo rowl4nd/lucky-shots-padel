@@ -196,6 +196,20 @@ site-header:not(:defined), site-footer:not(:defined) { display: block; min-heigh
   background:var(--green);
   color:var(--cream);
   border-bottom:1px solid rgba(253,244,203,.10);
+  transition:background-color .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
+}
+/* Home page only: header floats transparently over the hero video, and
+   solidifies once you've scrolled past it (see-header-scroll toggle in
+   components.js). Inner pages keep the normal solid sticky header —
+   their per-arm hero colours don't have the contrast headroom for this. */
+body.page-home .hdr{
+  position:fixed; left:0; right:0;
+  background:transparent; border-bottom-color:transparent;
+}
+body.page-home .hdr.scrolled{
+  background:var(--green);
+  border-bottom-color:rgba(253,244,203,.10);
+  box-shadow:0 8px 30px -14px rgba(1,26,12,.5);
 }
 .hdr-row{
   display:flex; align-items:center; justify-content:space-between;
