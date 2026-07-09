@@ -786,6 +786,9 @@ body[data-arm] .join-band-card .tag{ color:var(--arm-ink); }
 body[data-arm] .stage .eyebrow::before{ background:var(--arm-ink); }
 body[data-arm] .vibe::before{ background:none; }
 body[data-arm] .partners h2{ color:var(--arm-line); }
+body[data-arm] .partners p{ color:var(--cream-60); }
+body[data-arm] .partner-chip{ border-color:var(--cream-30); }
+body[data-arm] .partner-chip span{ background:var(--cream-60); }
 
 /* ============================================================
    15. MEMBERS PAGE — burgundy + brick dust only, no green/yellow
@@ -823,7 +826,8 @@ body[data-arm="members"] .join-band-card .btn-cream:hover{ color: var(--wine); }
    ============================================================ */
 
 /* the page itself becomes the green canvas */
-body.page-home{
+body.page-home,
+body.has-green-canvas{
   background: var(--green-deep);
   background-image: radial-gradient(rgba(240,234,218,.035) 1px, transparent 1px);
   background-size: 4px 4px;
