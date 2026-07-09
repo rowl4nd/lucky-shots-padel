@@ -53,7 +53,7 @@ class SiteHeader extends HTMLElement {
 
           <nav class="hdr-nav" id="primary-nav" aria-label="Primary">
             ${links}
-            <a class="btn btn-coral hdr-cta" href="index.html#join">Join the list</a>
+            <a class="btn btn-cream hdr-cta" href="index.html#join">Join the list</a>
           </nav>
         </div>
       </header>`;
