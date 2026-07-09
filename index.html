@@ -51,27 +51,25 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero">
-  <!-- poster shows instantly; video is only wired up by the script below
-       once we know we're on a wider screen with no reduced-motion pref,
-       so mobile visitors never pay for the video download -->
-  <video class="hero-video" poster="hero.png.PNG" muted loop playsinline preload="none"></video>
+  <!-- poster shows instantly; the video (now ~700KB after compression,
+       down from 11MB) loads on all screen sizes, but still respects
+       prefers-reduced-motion -->
+  <video class="hero-video" poster="hero.png.PNG" muted loop playsinline preload="auto"></video>
   <script>
     (function(){
       var v = document.currentScript.previousElementSibling;
-      var wide = matchMedia('(min-width: 768px)').matches;
       var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (wide && !reduced) {
+      if (!reduced) {
         var src = document.createElement('source');
         src.src = 'assets/hero_video.mp4';
         src.type = 'video/mp4';
         v.appendChild(src);
-        v.preload = 'auto';
         v.play().catch(function(){});
       }
     })();
   </script>
   <div class="wrap hero-inner">
-        <p class="kicker anim d1">north wales' premium padel & social hub</p>
+        <p class="kicker anim d1">north wales premium padel & social hub</p>
         <div class="hero-logo anim d2" role="img" aria-label="Lucky Shots Padel"></div>
         <div class="hero-cta anim d3">
           <a class="btn btn-hero-cta" href="#join">Join the early-access list</a>
@@ -186,7 +184,7 @@
               </span>
             </div>
             <div class="bento-body">
-              <span class="chip">05 - Get More</span>
+              <span class="chip">05 - Be First</span>
               <h3>Members</h3>
               <p>Founding membership across the whole club — priority courts, better rates and member-only nights.</p>
               <span class="bento-link">Join the club
