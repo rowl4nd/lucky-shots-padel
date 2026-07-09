@@ -173,6 +173,11 @@ p{ margin:0; }
 .btn-primary:hover{ background:var(--green-soft); color:#fff; }
 .btn-cream{ background:var(--cream); color:var(--green); }
 .btn-cream:hover{ background:#fff; }
+.btn-wine{ background:var(--wine); color:var(--cream); }
+.btn-wine:hover{ background:#7a3f4d; color:var(--accent-bright); }
+.hdr-nav a.btn-wine{ color:var(--cream); }
+.hdr-nav a.btn-wine:hover{ color:var(--accent-bright); }
+.hdr-nav a.btn-wine[aria-current="page"]{ background:var(--cream); color:var(--wine); }
 .btn-hero-cta{ background:var(--green-soft); color:var(--cream); }
 .btn-hero-cta:hover{ background:var(--green); color:var(--cream); }
 .btn-ghost{ border-color:currentColor; color:var(--green); }
