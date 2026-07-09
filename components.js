@@ -88,7 +88,7 @@ class SiteFooter extends HTMLElement {
       <footer class="ftr">
         <div class="wrap ftr-top">
           <div class="ftr-logo">
-            <img src="assets/logo-cream.png" alt="Lucky Shots Padel" />
+            <span class="ftr-logo-mark" role="img" aria-label="Lucky Shots Padel"></span>
             <p>North Wales' new home for padel — four indoor courts, a proper bar, and a place worth staying. Opening ${SITE.opening}.</p>
           </div>
           <div>
