@@ -18,8 +18,9 @@
 
 /* ---- Fonts (Google Fonts) ----
    Yellowtail  -> display script (brand wordmark / big moments)
-   Outfit      -> headings, labels, buttons
-   Work Sans   -> body copy
+   Outfit      -> headings, labels, buttons AND body copy (300/400/600/700)
+   Work Sans has been dropped — Outfit reads cleanly at body sizes too,
+   and it halves the font-loading weight of every page.
    The <link> lives in each page's <head>.                      */
 
 /* ============================================================
@@ -43,17 +44,19 @@
   --cream-60:     rgba(240,234,218,.66);
   --cream-30:     rgba(240,234,218,.28);
 
-  --coral:        #B07069;   /* Brick Dust — warm accent (café/bar) */
+  --coral:        #B07069;   /* Brick Dust — reserved for the Social arm only */
   --coral-bright: #BC847D;   /* Brick Dust hover */
-  --wine:         #64313E;   /* Burgundy — founding membership / premium */
+  --wine:         #64313E;   /* Burgundy — founding membership / premium, Members arm only */
 
-  /* ---- Per-page stream theme ---- */
-:root{ --arm:#264E36; --arm-ink:#F0EADA; --arm-line:#264E36; }   /* default: Eden */
-body[data-arm="play"]    { --arm:#264E36; --arm-ink:#F0EADA; --arm-line:#264E36; }
-body[data-arm="social"]  { --arm:#B07069; --arm-ink:#F0EADA; --arm-line:#B07069; }
-body[data-arm="academy"] { --arm:#427D6D; --arm-ink:#F0EADA; --arm-line:#427D6D; }
-body[data-arm="events"]  { --arm:#F4F28D; --arm-ink:#264E36; --arm-line:#264E36; }  /* yellow fill, Eden accent */
-body[data-arm="members"] { --arm:#64313E; --arm-ink:#F0EADA; --arm-line:#64313E; }
+  /* Default arm theme (Eden). Real per-page overrides now live OUTSIDE
+     this :root block (see section 1b) — they were accidentally nested
+     in here before, which meant they never applied: nesting a second
+     :root{...} inside a :root{...} compiles to a ":root :root" selector
+     that matches nothing, so pages with no body[data-arm] (i.e. index)
+     had --arm-line etc. completely undefined. */
+  --arm:      #264E36;
+  --arm-ink:  #F0EADA;
+  --arm-line: #264E36;
 
   /* Clover/rackets mark (cream, transparent bg) — used for watermarks & masks */
   --clover-cream: url("assets/logo-mark.png");
@@ -63,7 +66,7 @@ body[data-arm="members"] { --arm:#64313E; --arm-ink:#F0EADA; --arm-line:#64313E;
   --f-display:'trend_sansone', "Outfit", system-ui, sans-serif; /* Trend Sans One — labels, card headings, eyebrows */
   --f-script: "Yellowtail", cursive;
   --f-head:   "Outfit", system-ui, sans-serif;
-  --f-body:   "Work Sans", system-ui, sans-serif;
+  --f-body:   "Outfit", system-ui, sans-serif;
 
   /* Spacing / shape */
   --wrap: 1180px;
@@ -73,6 +76,17 @@ body[data-arm="members"] { --arm:#64313E; --arm-ink:#F0EADA; --arm-line:#64313E;
   --shadow: 0 18px 50px -20px rgba(1,26,12,.45);
   --ease: cubic-bezier(.22,.61,.36,1);
 }
+
+/* ---- 1b. Per-page stream theme (correctly outside :root) ---- */
+body[data-arm="play"]    { --arm:#264E36; --arm-ink:#F0EADA; --arm-line:#264E36; }
+body[data-arm="social"]  { --arm:#B07069; --arm-ink:#F0EADA; --arm-line:#B07069; }
+body[data-arm="academy"] { --arm:#427D6D; --arm-ink:#F0EADA; --arm-line:#427D6D; }
+body[data-arm="events"]  { --arm:#F4F28D; --arm-ink:#264E36; --arm-line:#264E36; }  /* yellow fill, Eden accent */
+body[data-arm="members"] { --arm:#64313E; --arm-ink:#F0EADA; --arm-line:#64313E; }
+
+/* Smooth cross-fade between pages (supported in Chrome/Edge/Safari,
+   no-ops gracefully in Firefox) */
+@view-transition{ navigation: auto; }
 
 /* ============================================================
    2. RESET / BASE
@@ -127,7 +141,7 @@ p{ margin:0; }
 }
 .eyebrow::before{
   content:""; width:1.4em; height:1.4em; flex:0 0 auto;
-  background:var(--arm-line)
+  background:var(--arm-line);
   -webkit-mask:var(--clover) center/contain no-repeat;
   mask:var(--clover) center/contain no-repeat;
 }
@@ -147,16 +161,16 @@ p{ margin:0; }
   white-space:nowrap;
 }
 .btn:hover{ transform:translateY(-2px); }
-.btn-coral{ background:var(--coral); color:var(--green); }
-.btn-coral:hover{ background:var(--coral-bright); }
-.hdr-nav a.btn-coral{ color:var(--green); }
-.hdr-nav a.btn-coral:hover{ color:var(--green); background:var(--coral-bright); }
+/* NOTE: brick dust (coral) is the Social arm's identity colour only —
+   it doesn't appear on buttons/CTAs site-wide any more. The header CTA
+   and the join-panel form button now use .btn-cream / .btn-primary,
+   keeping green as the dominant colour and yellow/cream doing the
+   text-and-accent work the palette is meant for. */
 
-/* Coral flash — header button only */
 .open-pill .dot{ background:var(--accent-bright); box-shadow:0 0 0 4px rgba(72,181,108,.25); }
 
-.btn-primary{ background:var(--accent); color:var(--green); }
-.btn-primary:hover{ background:var(--accent-bright); }
+.btn-primary{ background:var(--green); color:var(--accent-bright); }
+.btn-primary:hover{ background:var(--green-soft); color:#fff; }
 .btn-cream{ background:var(--cream); color:var(--green); }
 .btn-cream:hover{ background:#fff; }
 .btn-hero-cta{ background:var(--green-soft); color:var(--cream); }
@@ -202,10 +216,6 @@ site-header:not(:defined), site-footer:not(:defined) { display: block; min-heigh
 .hdr-nav a:hover{ color:#fff; }
 .hdr-nav a[aria-current="page"]{ color:var(--green); background:var(--cream); }
 .hdr-cta{ margin-left:.5rem; }
-.hdr-nav a.btn-coral{ color:var(--cream); }
-.hdr-nav a.btn-coral:hover{ color:var(--cream); background:var(--coral-bright); }
-.hdr-nav a.btn-cream{ font-family:var(--f-head); font-weight:600; text-transform:none; letter-spacing:.01em; color:var(--cream); }
-.hdr-nav a.btn-cream:hover{ color:var(--cream); }
 
 /* mobile nav */
 .hdr-burger{
@@ -330,48 +340,6 @@ site-header:not(:defined), site-footer:not(:defined) { display: block; min-heigh
 .social-feature p{ color:var(--cream); opacity:.86; font-size:clamp(1rem,1.5vw,1.15rem); }
 .social-feature .more{ margin-top:1.6rem; }
 
-/* other four arms grid */
-.arm-grid{ margin-top:1.4rem; display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(.9rem,2vw,1.4rem); }
-@media (max-width:680px){ .arm-grid{ grid-template-columns:1fr; } }
-.arm-card{
-  background:#264E36; color:var(--cream); border:none;
-  border-radius:var(--radius); padding:clamp(1.4rem,3vw,2rem);
-  display:flex; flex-direction:column; gap:.5rem; min-height:220px;
-  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
-}
-.arm-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow); }
-.arm-card .num{
-  font-family:var(--f-head); font-weight:700; font-size:.74rem;
-  letter-spacing:.16em; text-transform:uppercase; color:var(--cream); opacity:.9;
-}
-.arm-card h3{
-  margin-top:auto; font-family:var(--f-head); font-weight:600;
-  font-size:1.6rem; color:var(--cream);
-}
-.arm-card p{ color:var(--cream); opacity:.82; font-size:.95rem; }
-.arm-card .go{
-  margin-top:.6rem; font-family:var(--f-head); font-weight:600; font-size:.9rem;
-  color:var(--cream); display:inline-flex; align-items:center; gap:.4rem;
-}
-.arm-card:hover .go{ gap:.7rem; }
-
-/* one palette colour per stream */
-.arm-social  { background:#B07069; }  /* Brick Dust */
-.arm-academy { background:#427D6D; }  /* Bottle Green */
-.arm-members { background:#64313E; }  /* Burgundy */
-
-.arm-events  { background:#F4F28D; }  /* Buzzing Bees */
-.arm-events .num,
-.arm-events h3,
-.arm-events p,
-.arm-events .go{ color:#264E36; }     /* dark text on yellow */
-.arm-events p{ opacity:.8; }
-.arm-events .num{ opacity:1; }
-
-/* Play feature card → Eden with a yellow eyebrow */
-.arm-feature{ background:#264E36; }
-.arm-feature .tag{ color:#F4F28D; }
-
 /* ============================================================
    9. PARTNERS TEASE
    ============================================================ */
@@ -410,24 +378,8 @@ body[data-stage="live"] .stage-approved{ display:revert; }
 /* ============================================================
    11. JOIN / MAILING LIST
    ============================================================ */
-.join{ background:var(--paper-2); }
-.join-card{
-  background:var(--green); color:var(--cream); border-radius:var(--radius-lg);
-  padding:clamp(2rem,5vw,3.6rem); position:relative; overflow:hidden; box-shadow:var(--shadow);
-  display:grid; grid-template-columns:1.1fr 1fr; gap:clamp(1.5rem,4vw,3rem); align-items:center;
-}
-@media (max-width:820px){ .join-card{ grid-template-columns:1fr; } }
-.join-card::after{
-  content:""; position:absolute; left:-6%; bottom:-30%;
-  width:min(34vw,320px); aspect-ratio:266/295;
-  background:var(--clover-cream) center/contain no-repeat; opacity:.06;
-}
-.join-copy{ position:relative; z-index:2; }
-.join-copy .tag{ font-family:var(--f-head); font-weight:600; letter-spacing:.2em; text-transform:uppercase; font-size:.74rem; color:var(--accent-bright); }
-.join-copy h2{ font-family:var(--f-script); font-weight:400; font-size:clamp(2.2rem,6vw,3.4rem); margin:.15em 0 .4em; }
-.join-copy p{ color:var(--cream); opacity:.85; max-width:38ch; }
-
-/* Mailchimp form */
+/* Mailing-list form — now posts to a Cloudflare Pages Function
+   (/api/subscribe) that forwards to Resend, instead of Mailchimp */
 .mc-form{ position:relative; z-index:2; }
 .mc-field{ display:flex; gap:.6rem; flex-wrap:wrap; }
 .mc-form input[type=email]{
@@ -440,6 +392,10 @@ body[data-stage="live"] .stage-approved{ display:revert; }
 .mc-form input[type=email]:focus{ outline:none; border-color:var(--accent); }
 .mc-form .btn{ flex:0 0 auto; }
 .mc-note{ font-size:.8rem; color:var(--cream-60); margin-top:.9rem; }
+.mc-form.is-success .mc-field,
+.mc-form.is-success .mc-note{ display:none; }
+.mc-success-msg{ display:none; font-family:var(--f-head); font-weight:600; }
+.mc-form.is-success .mc-success-msg{ display:block; }
 /* honeypot (anti-bot) — keep off-screen */
 .mc-hp{ position:absolute; left:-5000px; }
 
@@ -731,8 +687,6 @@ site-footer{ display:block; }
    ============================================================ */
 .eyebrow,
 .spec-item .spec-label,
-.arm-card .num,
-.arm-card h3,
 .social-feature .tag,
 .pillar-card .lbl,
 .pillar-card h3,
@@ -973,6 +927,6 @@ body.page-home{
   background:#fff; border:1.5px solid var(--line); color:var(--green);
 }
 .join-panel .mc-form input[type=email]::placeholder{ color:var(--ink-40); }
-.join-panel .mc-form .btn-primary{ background:var(--coral); color:#fff; }
-.join-panel .mc-form .btn-primary:hover{ background:var(--coral-bright); }
+/* .btn-primary's default green/yellow treatment already reads well on
+   this cream panel — no coral override needed */
 .join-panel .mc-note{ color:var(--ink-40); }
