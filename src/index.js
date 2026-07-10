@@ -137,7 +137,7 @@ function welcomeHtml() {
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;">
 
     <tr><td align="center" style="padding:0 0 24px;">
-      <img src="${SITE}/img/logo_header.png" alt="Lucky Shots Padel" width="180" style="display:block;border:0;max-width:180px;height:auto;">
+      <img src="${SITE}/assets/logo-green.png" alt="Lucky Shots Padel" width="220" style="display:block;border:0;max-width:220px;height:auto;">
     </td></tr>
 
     <tr><td style="background:${EDEN};border-radius:20px;padding:36px 32px;">
