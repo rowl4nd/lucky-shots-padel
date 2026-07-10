@@ -1,0 +1,16 @@
+# Files here are NOT uploaded as public static assets.
+# Everything in the repo root is otherwise served, because assets.directory = "."
+
+src
+node_modules
+functions
+.git
+.github
+.gitignore
+.assetsignore
+wrangler.jsonc
+wrangler.toml
+package.json
+package-lock.json
+README.md
+*.md
