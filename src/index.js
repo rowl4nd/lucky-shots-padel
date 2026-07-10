@@ -67,19 +67,15 @@ async function handleSubscribe(request, env) {
 
   // 1. Add to audience. Non-fatal if it fails (e.g. already subscribed) —
   //    we still want them to get the welcome email.
-  if (env.RESEND_AUDIENCE_ID) {
-    try {
-      await fetch(
-        `https://api.resend.com/audiences/${env.RESEND_AUDIENCE_ID}/contacts`,
-        {
-          method: 'POST',
-          headers: auth,
-          body: JSON.stringify({ email, unsubscribed: false }),
-        }
-      );
-    } catch (err) {
-      console.error('audience add failed', err);
-    }
+try {
+    const c = await fetch('https://api.resend.com/contacts', {
+      method: 'POST',
+      headers: auth,
+      body: JSON.stringify({ email, unsubscribed: false }),
+    });
+    if (!c.ok) console.error('contact add failed', c.status, await c.text());
+  } catch (err) {
+    console.error('contact add threw', err);
   }
 
   // 2. Send the welcome email.
