@@ -1,15 +1,12 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "lucky-shots-padel",
-  "main": "src/index.js",
-  "compatibility_date": "2025-09-27",
+  "compatibility_date": "2026-07-10",
   "observability": {
     "enabled": true
   },
   "assets": {
-    "directory": ".",
-    "binding": "ASSETS",
-    "not_found_handling": "404-page"
+    "directory": "."
   },
   "compatibility_flags": [
     "nodejs_compat"
