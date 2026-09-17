@@ -8,7 +8,7 @@ const SITE = {
   email:     "padel@luckyshots.co.uk",   // <-- confirm / create this inbox
   instagram: "https://instagram.com/luckyshotspadel",
   igHandle:  "@luckyshotspadel",
-  opening:   "October 2026"
+  opening:   "this Winter"
 };
 
 /* nav definition — order shown in header & footer */
