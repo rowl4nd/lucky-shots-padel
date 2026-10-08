@@ -8,7 +8,11 @@ const SITE = {
   email:     "padel@luckyshots.co.uk",   // <-- confirm / create this inbox
   instagram: "https://instagram.com/luckyshotspadel",
   igHandle:  "@luckyshotspadel",
-  opening:   "in 2027"
+  opening:   "in 2027",
+  // DECISION DAY SWITCH: change "teaser" to "approved" only once the planning
+  // decision notice is in hand. This reveals the address, directions and the
+  // planning-approved banner. Do not change it before then.
+  stage:     "teaser"
 };
 
 /* nav definition — order shown in header & footer */
@@ -41,6 +45,9 @@ class SiteHeader extends HTMLElement {
     const membersActive = here === "members.html" ? ' aria-current="page"' : '';
 
     this.innerHTML = `
+      <div class="stage-banner" role="region" aria-label="Announcement">
+        <p><strong>Planning approved.</strong> Lucky Shots is coming to Mochdre. <a href="index.html#join">Join the founding members list &rarr;</a></p>
+      </div>
       <header class="hdr">
         <div class="wrap hdr-row">
           <a class="hdr-logo" href="index.html" aria-label="Lucky Shots Padel — home"></a>
@@ -127,6 +134,8 @@ customElements.define("site-footer", SiteFooter);
    Apply stage + scroll reveal once DOM is ready
    ------------------------------------------------------------ */
 document.addEventListener("DOMContentLoaded", () => {
+  // stage (teaser | approved | live) drives .stage-* blocks and the banner
+  document.body.dataset.stage = SITE.stage;
   // reveal-on-scroll
   const els = document.querySelectorAll(".reveal");
   if (!("IntersectionObserver" in window) ||

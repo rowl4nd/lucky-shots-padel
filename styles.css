@@ -1036,3 +1036,10 @@ body[data-arm="members"] .join-band-card .btn-cream:hover{ color: var(--wine); }
 /* .btn-primary's default green/yellow treatment already reads well on
    this cream panel — no coral override needed */
 .join-panel .mc-note{ color:var(--ink-40); }
+
+/* ---- Decision-day banner: hidden in "teaser", shown once body[data-stage] is approved/live ---- */
+.stage-banner{ display:none; background:#002813; color:#F7F38E; text-align:center; padding:.7rem 1rem; font-size:.95rem; line-height:1.4; }
+.stage-banner p{ margin:0; }
+.stage-banner a{ color:#F7F38E; text-decoration:underline; font-weight:600; }
+body[data-stage="approved"] .stage-banner,
+body[data-stage="live"] .stage-banner{ display:block; }
