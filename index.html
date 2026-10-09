@@ -3,33 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lucky Shots Padel — North Wales · Opening in 2027</title>
-  <meta name="description" content="Lucky Shots Padel — four indoor panoramic courts, a proper bar and a place worth staying. North Wales' new home for padel. Coming soon. Join the early-access list." />
+  <title>Lucky Shots Padel | North Wales' new home for padel · Opening 2027</title>
+  <meta name="description" content="Lucky Shots Padel: four indoor padel courts, a proper social space and a club built for North Wales. Opening early 2027. Join the founding members list." />
 
-  <!-- Social share -->
-  <meta property="og:title" content="Lucky Shots Padel — North Wales" />
-  <meta property="og:description" content="Four indoor courts, a proper bar, and a place worth staying. Coming soon." />
+  <meta property="og:title" content="Lucky Shots Padel | North Wales" />
+  <meta property="og:description" content="Four indoor padel courts, a proper social space and a club built for North Wales. Opening early 2027." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/favicon-512.png" />
-  <meta name="theme-color" content="#012813" />
+  <meta name="theme-color" content="#002813" />
 
-  <!-- Favicons -->
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
-  <!-- Fonts: Yellowtail (script) · Outfit (headings + body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Yellowtail&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&family=Yellowtail&display=swap" rel="stylesheet" />
 
-  <!-- Structured data: helps Google understand what this page is about -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SportsActivityLocation",
     "name": "Lucky Shots Padel",
-    "description": "Four indoor panoramic padel courts, a bar and social hub coming soon to North Wales.",
+    "description": "Four indoor padel courts, a bar and social space coming to North Wales in 2027.",
     "url": "https://luckyshots.co.uk",
     "sport": "Padel",
     "areaServed": "Colwyn Bay, Conwy, North Wales",
@@ -44,188 +40,134 @@
 
 <body class="page-home has-video-hero">
   <a class="skip" href="#main">Skip to content</a>
-
   <site-header></site-header>
 
   <main id="main">
 
-    <!-- ============ HERO ============ -->
+    <!-- ============ HERO (carousel slide 1) ============ -->
     <section class="hero">
-  <!-- no poster: the plain green hero background shows until the video
-       (now small enough to load quickly) is ready, avoiding an image
-       flash before the video takes over. Still respects
-       prefers-reduced-motion -->
-  <video class="hero-video" muted loop playsinline preload="auto"></video>
-  <script>
-    (function(){
-      var v = document.currentScript.previousElementSibling;
-      var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (!reduced) {
-        var src = document.createElement('source');
-        src.src = 'assets/hero_video.mp4';
-        src.type = 'video/mp4';
-        v.appendChild(src);
-        v.play().catch(function(){});
-      }
-    })();
-  </script>
-  <div class="wrap hero-inner">
-        <div class="hero-logo anim d1" role="img" aria-label="Lucky Shots Padel"></div>
-        <p class="kicker anim d2">north wales' premium padel & social hub</p>
-        <div class="hero-cta anim d3">
-          <a class="btn btn-hero-cta" href="#join">Join the early-access list</a>
-          <span class="open-pill"><span class="dot"></span>Coming soon</span>
+      <video class="hero-video" muted loop playsinline preload="auto" aria-hidden="true"></video>
+      <script>
+        (function(){
+          var v = document.currentScript.previousElementSibling;
+          if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            var s = document.createElement('source'); s.src = 'assets/hero_video.mp4'; s.type = 'video/mp4';
+            v.appendChild(s); v.play().catch(function(){});
+          }
+        })();
+      </script>
+      <div class="wrap hero-inner">
+        <span class="chip anim d1">
+          <span class="stage-teaser">Opening early 2027</span>
+          <span class="stage-approved">&#10003;&nbsp; Planning approved</span>
+        </span>
+        <h1 class="display anim d2">
+          <span class="stage-teaser"><span class="script script-xl">North Wales'</span>new home<br>of padel.</span>
+          <span class="stage-approved"><span class="script script-xl">It's</span>happening.</span>
+        </h1>
+        <div class="hero-foot anim d3">
+          <div>
+            <p class="lead">Four indoor padel courts, a proper social space and a club built for North Wales.</p>
+            <div class="btn-row">
+              <a class="btn btn-yellow" href="#join">Join the founding members list</a>
+              <a class="btn btn-line" href="#club">Explore the club</a>
+            </div>
+          </div>
+          <span class="scroll-cue" aria-hidden="true">SCROLL &darr;</span>
         </div>
       </div>
     </section>
 
-<!-- ============ FIVE ARMS (bento) ============ -->
-    <section class="section arms-modern">
+    <!-- ============ WHAT'S COMING (carousel slide 3) ============ -->
+    <section class="band band-yellow band-tight">
+      <div class="wrap reveal">
+        <span class="eyebrow">What's coming</span>
+        <span class="rule"></span>
+        <div class="statement">
+          <p class="mid">Four indoor<br>padel courts.</p>
+          <p class="mid">A proper<br>social space.</p>
+          <p class="mid">Built for<br><span class="script">North Wales.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ONE VENUE, 5 REASONS ============ -->
+    <section class="band band-green" id="club">
       <div class="wrap">
-        <div class="arms-head-modern reveal">
-          <p class="arms-slogan">Play · Stay · Improve · Compete · Belong</p>
-          <h2>One venue, 5 reasons to come</h2>
+        <div class="reveal">
+          <span class="eyebrow">The club</span>
+          <span class="rule"></span>
+          <h2 class="display">One venue.<span class="script script-lg">5 reasons to come.</span></h2>
         </div>
 
-        <div class="arms-bento reveal">
-
-          <!-- Play = the feature tile -->
-          <a class="bento-card bento-feature" href="play.html" aria-label="Explore Play — four indoor panoramic courts">
-            <div class="tile-media">
-              <img class="tile-photo" src="assets/cards/play.jpg" alt="Padel at Lucky Shots" loading="lazy" onerror="this.remove()" />
-            </div>
-            <div class="chip-strip has-clover"><span class="chip-clover" aria-hidden="true"></span><span class="chip">Play</span></div>
-            <div class="bento-body">
+        <div class="bento reveal">
+          <a class="card card-feature" href="play.html">
+            <div class="card-media"><img src="assets/cards/play.jpg" alt="Padel rackets and balls on court" loading="lazy" onerror="this.remove()" /></div>
+            <div class="card-body">
+              <span class="count">01 / 05</span>
               <h3>Padel</h3>
               <p>Four indoor panoramic doubles courts. Guaranteed play whatever the weather, whatever the time. Pay and play, no membership needed.</p>
-              <span class="bento-link">Pay &amp; play
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
-              </span>
+              <span class="card-link">Pay and play</span>
             </div>
           </a>
 
-          <!-- the other four -->
-          <a class="bento-card" href="social.html" aria-label="Explore Social">
-            <div class="tile-media">
-              <img class="tile-photo" src="assets/cards/social.jpg" alt="The bar and café at Lucky Shots" loading="lazy" onerror="this.remove()" />
-            </div>
-            <div class="chip-strip has-clover"><span class="chip-clover" aria-hidden="true"></span><span class="chip">Stay</span></div>
-            <div class="bento-body">
+          <a class="card" href="social.html">
+            <div class="card-media"><img src="assets/cards/social.jpg" alt="Friends at the bar" loading="lazy" onerror="this.remove()" /></div>
+            <div class="card-body">
+              <span class="count">02 / 05</span>
               <h3>Social</h3>
-              <p>Padel is the reason you come, the social & community is the reason you'll stay. Locally produced food and drinks, always on offer.</p>
-              <span class="bento-link">Step inside
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
-              </span>
+              <p>Padel is why you come. The bar, the coffee and the people are why you stay.</p>
+              <span class="card-link">Step inside</span>
             </div>
           </a>
 
-          <a class="bento-card" href="academy.html" aria-label="Explore Academy">
-            <div class="tile-media">
-              <img class="tile-photo" src="assets/cards/academy.jpg" alt="Coaching at Lucky Shots Academy" loading="lazy" onerror="this.remove()" />
-            </div>
-            <div class="chip-strip has-clover"><span class="chip-clover" aria-hidden="true"></span><span class="chip">Improve</span></div>
-            <div class="bento-body">
+          <a class="card" href="academy.html">
+            <div class="card-media"><img src="assets/cards/academy.jpg" alt="Padel coaching session" loading="lazy" onerror="this.remove()" /></div>
+            <div class="card-body">
+              <span class="count">03 / 05</span>
               <h3>Academy</h3>
-              <p>Structured coaching, run weekly, for every age and every level — whether you've never played or you're ready to compete. Group sessions and 1 to 1's will be available with our new head coach.</p>
-              <span class="bento-link">Learn &amp; improve
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
-              </span>
+              <p>Weekly coaching for every age and level, from first rally to first tournament.</p>
+              <span class="card-link">Learn and improve</span>
             </div>
           </a>
 
-          <a class="bento-card" href="events.html" aria-label="Explore Events">
-            <div class="tile-media">
-              <img class="tile-photo" src="assets/cards/events.jpg" alt="Events and club nights at Lucky Shots" loading="lazy" onerror="this.remove()" />
-            </div>
-            <div class="chip-strip has-clover"><span class="chip-clover" aria-hidden="true"></span><span class="chip">Compete</span></div>
-            <div class="bento-body">
+          <a class="card" href="events.html">
+            <div class="card-media"><img src="assets/cards/events.jpg" alt="Players at a club night" loading="lazy" onerror="this.remove()" /></div>
+            <div class="card-body">
+              <span class="count">04 / 05</span>
               <h3>Events</h3>
-              <p>Corporate team days, club nights, open tournaments and private hire.</p>
-              <span class="bento-link">Get the group in
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
-              </span>
+              <p>Team days, club nights, open tournaments and private hire.</p>
+              <span class="card-link">Get the group in</span>
             </div>
           </a>
 
-          <a class="bento-card bento-members" href="members.html" aria-label="Explore Members">
-            <div class="tile-media">
-              <img class="tile-photo" src="assets/cards/members.jpg" alt="Founding membership at Lucky Shots" loading="lazy" onerror="this.remove()" />
-            </div>
-            <div class="chip-strip has-clover"><span class="chip-clover" aria-hidden="true"></span><span class="chip">Belong</span></div>
-            <div class="bento-body">
+          <a class="card" href="members.html">
+            <div class="card-media"><img src="assets/cards/members.jpg" alt="Lucky Shots membership" loading="lazy" onerror="this.remove()" /></div>
+            <div class="card-body">
+              <span class="count">05 / 05</span>
               <h3>Members</h3>
-              <p>Membership across the whole club - priority courts, better rates and guaranteed spots at our popular club nights.</p>
-              <span class="bento-link">Join the club
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
-              </span>
+              <p>Priority courts, better rates and a guaranteed spot at the best nights.</p>
+              <span class="card-link">Join the club</span>
             </div>
           </a>
-
         </div>
       </div>
     </section>
 
-    <!-- ============ STAY UPDATED / MAILING LIST ============ -->
-    <section class="section join-modern" id="join">
-      <div class="wrap reveal">
-        <div class="join-panel">
-          <div class="join-panel-copy">
-            <span class="tag">Stay updated</span>
-            <h2>Don't miss a beat</h2>
-            <p>Sign up to follow our build progress, opening updates and founding membership offers — straight to your inbox. No spam, just the milestones that matter.</p>
-
-            <!-- =====================================================
-                 SUBSCRIBE FORM — posts to a Cloudflare Pages Function
-                 at /api/subscribe, which forwards to Resend. Until that
-                 function exists this fails gracefully with the error
-                 message below (see the "what else to do" notes).
-                 ===================================================== -->
-            <form class="mc-form" id="subscribe-form" novalidate>
-              <div class="mc-field">
-                <label for="mce-EMAIL" class="mc-hp">Email address</label>
-                <input type="email" name="EMAIL" id="mce-EMAIL" placeholder="you@email.com" required />
-                <button type="submit" class="btn btn-primary" name="subscribe">Join the list</button>
-              </div>
-              <!-- honeypot: do not remove -->
-              <div class="mc-hp" aria-hidden="true">
-                <label for="mce-website">Website</label>
-                <input type="text" name="website" id="mce-website" tabindex="-1" autocomplete="off" />
-              </div>
-              <p class="mc-note">We'll only email about Lucky Shots. Unsubscribe any time.</p>
-              <p class="mc-success-msg">You're on the list — we'll be in touch 🎾</p>
-            </form>
-            <script>
-              document.getElementById('subscribe-form').addEventListener('submit', function(e){
-                e.preventDefault();
-                var form = e.target;
-                var button = form.querySelector('button[type="submit"]');
-                var email = form.querySelector('#mce-EMAIL').value;
-                var honeypot = form.querySelector('#mce-website').value;
-                if (honeypot) return; // bot caught by honeypot, silently drop
-                button.disabled = true;
-                button.textContent = 'Joining…';
-                fetch('/api/subscribe', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ email: email })
-                })
-                .then(function(res){ if (!res.ok) throw new Error('request failed'); })
-                .then(function(){ form.classList.add('is-success'); })
-                .catch(function(){
-                  button.disabled = false;
-                  button.textContent = 'Join the list';
-                  form.querySelector('.mc-note').textContent =
-                    "Something went wrong — mind emailing padel@luckyshots.co.uk instead?";
-                });
-              });
-            </script>
-          </div>
-          <div class="join-panel-visual" aria-hidden="true">
-            <img class="tile-photo" src="assets/cards/join.jpg" alt="" loading="lazy" onerror="this.remove()" />
-          </div>
+    <!-- ============ WHAT'S NEXT (carousel slide 4) ============ -->
+    <section class="band band-green band-tight">
+      <div class="wrap reveal feature">
+        <div>
+          <span class="eyebrow">What's next</span>
+          <span class="rule"></span>
+          <h2 class="headline">The keys.<br>Then the build.</h2>
         </div>
+        <p class="lead">We'll show you every step of it, the good days and the messy ones. Follow along on Instagram at <a href="https://instagram.com/luckyshotspadel" target="_blank" rel="noopener" style="color:var(--y);font-weight:600;text-decoration:underline;text-underline-offset:4px">@luckyshotspadel</a>.</p>
       </div>
     </section>
+
+    <!-- ============ JOIN (carousel slides 5 and 6) ============ -->
+    <site-join></site-join>
 
   </main>
 

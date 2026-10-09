@@ -3,132 +3,102 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Play — Lucky Shots Padel | Courts, Leagues &amp; Social Play · North Wales</title>
-  <meta name="description" content="Four indoor panoramic courts — pay and play, social leagues, Americanos and open tournaments. Opening Soon." />
-  <meta property="og:title" content="Play — Lucky Shots Padel" />
-  <meta property="og:description" content="Pay and play, social leagues, Americanos and tournaments. Opening Soon." />
+  <title>Padel | Lucky Shots Padel · Courts, leagues and social play in North Wales</title>
+  <meta name="description" content="Four indoor padel courts in North Wales. Pay and play, social leagues, Americanos and open tournaments. Opening early 2027." />
+  <meta property="og:title" content="Padel | Lucky Shots Padel" />
+  <meta property="og:description" content="Pay and play, social leagues, Americanos and tournaments. Opening early 2027." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/favicon-512.png" />
-  <meta name="theme-color" content="#012813" />
+  <meta name="theme-color" content="#002813" />
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Yellowtail&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&family=Yellowtail&display=swap" rel="stylesheet" />
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="components.js"></script>
 </head>
-<body data-arm="play" class="has-video-hero">
+
+<body class="has-video-hero">
   <a class="skip" href="#main">Skip to content</a>
   <site-header></site-header>
+
   <main id="main">
 
-    <!-- HERO -->
+    <!-- ============ HERO ============ -->
     <section class="hero">
-      <!-- no poster: plain green hero background shows until video loads -->
-      <video class="hero-video" muted loop playsinline preload="auto"></video>
+      <video class="hero-video" muted loop playsinline preload="auto" aria-hidden="true"></video>
       <script>
         (function(){
           var v = document.currentScript.previousElementSibling;
-          var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-          if (!reduced) {
-            var src = document.createElement('source');
-            src.src = 'assets/hero_video_play.mp4';
-            src.type = 'video/mp4';
-            v.appendChild(src);
-            v.play().catch(function(){});
+          if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            var s = document.createElement('source'); s.src = 'assets/hero_video_play.mp4'; s.type = 'video/mp4';
+            v.appendChild(s); v.play().catch(function(){});
           }
         })();
       </script>
       <div class="wrap hero-inner">
-        <span class="hero-clover" aria-hidden="true"></span>
-        <h1 class="hero-title">Padel</h1>
-        <p class="tagline">Four indoor courts. Pay and play, social leagues, Americanos and open tournaments.</p>
-        <div class="hero-cta">
-          <span class="open-pill"><span class="dot"></span>Coming soon</span>
+        <span class="chip anim d1">Opening early 2027</span>
+        <h1 class="display anim d2"><span class="script script-xl">Let's play</span>padel.</h1>
+        <div class="hero-foot anim d3">
+          <p class="lead">Four indoor courts. Pay and play, social leagues, Americanos and open tournaments.</p>
+          <span class="scroll-cue" aria-hidden="true">SCROLL &darr;</span>
         </div>
       </div>
     </section>
-
-    <!-- THE GAME (3-card restructure) -->
-    <section class="section arms-modern">
+    <section class="band band-yellow band-tight">
+      <div class="wrap reveal">
+        <span class="eyebrow">The game</span>
+        <span class="rule"></span>
+        <h2 class="headline">The easiest racket sport to pick up.<br>The hardest one to put down.</h2>
+      </div>
+    </section>
+    <section class="band band-green">
       <div class="wrap">
-        <div class="trio-bento reveal">
-
-          <!-- CARD 1: FOR ALL LEVELS -->
-          <div class="bento-card">
-            <div class="tile-media">
-              <img class="tile-photo" src="assets/cards/play-all-levels.jpg" alt="Padel players of all levels at Lucky Shots" loading="lazy" onerror="this.remove()" />
-            </div>
-            <div class="chip-strip has-clover">
-              <span class="chip-clover" aria-hidden="true"></span>
-              <span class="chip">For all levels</span>
-            </div>
-            <div class="bento-body">
-              <ul class="bento-list">
-                <li><strong>Beginners</strong><span>Never played? The easiest racket sport to pick up — taster sessions and beginner coaching from day one.</span></li>
-                <li><strong>Regulars</strong><span>Drop in, join a league, play a social. A bar for after.</span></li>
-                <li><strong>Competitive</strong><span>Open tournaments, structured leagues and courts built for proper play.</span></li>
-              </ul>
+        <div class="reveal">
+          <span class="eyebrow">On court</span>
+          <span class="rule"></span>
+          <h2 class="headline">Your game, <span class="script">your way.</span></h2>
+        </div>
+        <div class="card-grid reveal">
+          <div class="card">
+            <div class="card-body">
+              <span class="count">01 / 04</span>
+              <h3>For all levels</h3>
+              <ul><li><strong>Beginners</strong><span>Never played? Taster sessions and beginner coaching from day one.</span></li><li><strong>Regulars</strong><span>Drop in, join a league, play a social. The bar is there for after.</span></li><li><strong>Competitive</strong><span>Open tournaments, structured leagues and courts built for proper play.</span></li></ul>
             </div>
           </div>
-
-          <!-- CARD 2: WAYS TO PLAY -->
-          <div class="bento-card">
-            <div class="tile-media">
-              <img class="tile-photo" src="assets/cards/play-ways-to-play.jpg" alt="Different ways to play at Lucky Shots" loading="lazy" onerror="this.remove()" />
-            </div>
-            <div class="chip-strip has-clover">
-              <span class="chip-clover" aria-hidden="true"></span>
-              <span class="chip">Ways to play</span>
-            </div>
-            <div class="bento-body">
-              <ul class="bento-list">
-                <li><strong>Pay &amp; play</strong><span>Book a court and turn up. No membership needed — just you, three friends and a court.</span></li>
-                <li><strong>Social groups</strong><span>Casual, regular sessions for meeting other players and keeping padel part of your week.</span></li>
-                <li><strong>Friendly leagues</strong><span>Structured weekly leagues, all levels, competitive and casual.</span></li>
-                <li><strong>Competitive tournaments</strong><span>Open tournaments and club competitions for those who want the sharp end.</span></li>
-              </ul>
+          <div class="card">
+            <div class="card-body">
+              <span class="count">02 / 04</span>
+              <h3>Ways to play</h3>
+              <ul><li><strong>Pay and play</strong><span>Book a court and turn up. No membership needed, just you, three friends and a court.</span></li><li><strong>Social groups</strong><span>Regular, relaxed sessions for meeting other players.</span></li><li><strong>Friendly leagues</strong><span>Weekly leagues for every level, competitive and casual.</span></li><li><strong>Tournaments</strong><span>Open tournaments and club competitions for the sharp end.</span></li></ul>
             </div>
           </div>
-
-          <!-- CARD 3: THE COURTS -->
-          <div class="bento-card">
-            <div class="tile-media">
-              <img class="tile-photo" src="assets/cards/play.jpg" alt="Indoor padel courts at Lucky Shots" loading="lazy" onerror="this.remove()" />
-            </div>
-            <div class="chip-strip has-clover">
-              <span class="chip-clover" aria-hidden="true"></span>
-              <span class="chip">The courts</span>
-            </div>
-            <div class="bento-body">
-              <h3>4 doubles courts</h3>
-              <p>Four doubles courts. Panoramic glass, professional lighting and high-quality turf. Premium indoor courts for year-round play.</p>
+          <div class="card">
+            <div class="card-body">
+              <span class="count">03 / 04</span>
+              <h3>The courts</h3>
+              <p>Four indoor courts with panoramic glass, professional lighting and quality turf. Year-round play, whatever the weather.</p>
             </div>
           </div>
-
-          <!-- CARD 4: HOW TO BOOK -->
-          <div class="bento-card">
-            <div class="tile-media">
-              <img class="tile-photo" src="assets/cards/play-how-to-book.jpg" alt="Booking a court at Lucky Shots" loading="lazy" onerror="this.remove()" />
-            </div>
-            <div class="chip-strip has-clover">
-              <span class="chip-clover" aria-hidden="true"></span>
-              <span class="chip">How to book</span>
-            </div>
-            <div class="bento-body">
-              <h3>Book via Playtomic</h3>
-              <p>Pay-and-play, no membership needed. Book online via Playtomic, live before we open — with founding member rates for early sign-ups.</p>
+          <div class="card">
+            <div class="card-body">
+              <span class="count">04 / 04</span>
+              <h3>How to book</h3>
+              <p>Book online through Playtomic. Booking opens before we do, and founding members get first pick of the courts.</p>
             </div>
           </div>
-
         </div>
       </div>
     </section>
+    <!-- ============ JOIN ============ -->
+    <site-join heading="on court." text="Join the founding members list and be first to book when courts open. Build updates and opening news, straight to your inbox."></site-join>
 
   </main>
+
   <site-footer></site-footer>
 </body>
 </html>

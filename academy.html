@@ -3,152 +3,105 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Academy — Lucky Shots Padel | Coaching · North Wales</title>
-  <meta name="description" content="Padel coaching for all ages and levels — juniors, adult group sessions, private lessons and holiday camps. Opening soon in North Wales." />
-  <meta property="og:title" content="Academy — Lucky Shots Padel" />
-  <meta property="og:description" content="Coaching for all ages and levels. Opening Soon in North Wales." />
+  <title>Academy | Lucky Shots Padel · Padel coaching in North Wales</title>
+  <meta name="description" content="Padel coaching for every age and level at Lucky Shots Padel: adult groups, juniors and private lessons. Opening early 2027." />
+  <meta property="og:title" content="Academy | Lucky Shots Padel" />
+  <meta property="og:description" content="Coaching for every age, every level. Opening early 2027." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/favicon-512.png" />
-  <meta name="theme-color" content="#012813" />
+  <meta name="theme-color" content="#002813" />
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Work+Sans:wght@300;400;500;600&family=Yellowtail&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&family=Yellowtail&display=swap" rel="stylesheet" />
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="components.js"></script>
 </head>
-<body data-arm="academy" class="has-video-hero">
+
+<body class="has-video-hero">
   <a class="skip" href="#main">Skip to content</a>
   <site-header></site-header>
+
   <main id="main">
 
-    <!-- HERO -->
+    <!-- ============ HERO ============ -->
     <section class="hero">
-      <!-- no poster: plain green hero background shows until video loads -->
-      <video class="hero-video" muted loop playsinline preload="auto"></video>
+      <video class="hero-video" muted loop playsinline preload="auto" aria-hidden="true"></video>
       <script>
         (function(){
           var v = document.currentScript.previousElementSibling;
-          var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-          if (!reduced) {
-            var src = document.createElement('source');
-            src.src = 'assets/hero_video_academy.mp4';
-            src.type = 'video/mp4';
-            v.appendChild(src);
-            v.play().catch(function(){});
+          if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            var s = document.createElement('source'); s.src = 'assets/hero_video_academy.mp4'; s.type = 'video/mp4';
+            v.appendChild(s); v.play().catch(function(){});
           }
         })();
       </script>
       <div class="wrap hero-inner">
-        <span class="hero-clover" aria-hidden="true"></span>
-        <h1 class="hero-title">Academy</h1>
-        <p class="tagline">Coaching for every age, every level. Weekdays, evenings and weekends.</p>
-        <div class="hero-cta">
-          <span class="open-pill"><span class="dot"></span>Coming soon</span>
+        <span class="chip anim d1">Opening early 2027</span>
+        <h1 class="display anim d2"><span class="script script-xl">Get</span>better.</h1>
+        <div class="hero-foot anim d3">
+          <p class="lead">Coaching for every age and every level. Weekdays, evenings and weekends.</p>
+          <span class="scroll-cue" aria-hidden="true">SCROLL &darr;</span>
         </div>
       </div>
     </section>
-
-    <!-- THE ACADEMY (bento) -->
-    <section class="section arms-modern">
-      <div class="wrap">
-        <div class="trio-bento reveal">
-
-          <!-- CARD 1: ADULT GROUPs -->
-          <div class="bento-card">
-            <div class="tile-media">
-              <img class="tile-photo" src="assets/cards/academy.jpg" alt="Adult group padel coaching at Lucky Shots" loading="lazy" onerror="this.remove()" />
-            </div>
-            <div class="chip-strip has-clover">
-              <span class="chip-clover" aria-hidden="true"></span>
-              <span class="chip">Adult Group</span>
-            </div>
-            <div class="bento-body">
-              <h3>Beginner to improver</h3>
-              <p>Structured courses for beginners, clinics for improvers and social coaching formats — including Americano matchplay — across the week.</p>
-              <div class="tags">
-                <span class="tag-chip">Weekday mornings</span>
-                <span class="tag-chip">Evenings</span>
-                <span class="tag-chip">Weekends</span>
-              </div>
-            </div>
-          </div>
-          
-          <!-- CARD 2: JUNIOR GROUPS -->
-          <div class="bento-card">
-            <div class="tile-media">
-              <img class="tile-photo" src="assets/cards/academy-juniors.jpg" alt="Junior padel coaching at Lucky Shots" loading="lazy" onerror="this.remove()" />
-            </div>
-            <div class="chip-strip has-clover">
-              <span class="chip-clover" aria-hidden="true"></span>
-              <span class="chip">Juniors</span>
-            </div>
-            <div class="bento-body">
-              <h3>Under 16s</h3>
-              <p>Fun sessions for first-timers & furutre stars. After-school sessions, weekend mornings and a clear development pathway.</p>
-              <div class="tags">
-                <span class="tag-chip">After school</span>
-                <span class="tag-chip">Weekend mornings</span>
-                <span class="tag-chip">All ages</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- CARD 3: PRIVATE COACHING -->
-          <div class="bento-card">
-            <div class="tile-media">
-              <img class="tile-photo" src="assets/cards/academy-private.jpg" alt="Private padel coaching at Lucky Shots" loading="lazy" onerror="this.remove()" />
-            </div>
-            <div class="chip-strip has-clover">
-              <span class="chip-clover" aria-hidden="true"></span>
-              <span class="chip">Private Coaching</span>
-            </div>
-            <div class="bento-body">
-              <h3>1-to-1 and 2-to-1</h3>
-              <p>Individual or paired sessions with the head coach. Available for all ages and levels, bookable at flexible times across the week.</p>
-              <div class="tags">
-                <span class="tag-chip">All ages</span>
-                <span class="tag-chip">All levels</span>
-                <span class="tag-chip">Flexible timing</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- CARD 4: HEAD COACH -->
-          <div class="bento-card">
-            <div class="tile-media">
-              <img class="tile-photo" src="assets/cards/academy-coach.jpg" alt="The head coach at Lucky Shots" loading="lazy" onerror="this.remove()" />
-            </div>
-            <div class="chip-strip has-clover">
-              <span class="chip-clover" aria-hidden="true"></span>
-              <span class="chip">The Head Coach</span>
-            </div>
-            <div class="bento-body">
-              <h3>Appointment confirmed ahead of opening</h3>
-              <p>Full coaching timetable, pricing and bookings open once they're confirmed. Watch this space...</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- JOIN BAND -->
-    <section class="section join-band">
+    <section class="band band-yellow band-tight">
       <div class="wrap reveal">
-        <div class="join-band-card">
-          <span class="tag">First to book. Founding rates.</span>
-          <h2>Get notified when coaching opens.</h2>
-          <p>Join the list for early access to the full timetable and founding member rates.</p>
-          <a class="btn btn-cream" href="index.html#join">Join the early-access list →</a>
+        <span class="eyebrow">The academy</span>
+        <span class="rule"></span>
+        <h2 class="headline">From first rally<br><span class="script">to first tournament.</span></h2>
+      </div>
+    </section>
+    <section class="band band-green">
+      <div class="wrap">
+        <div class="reveal">
+          <span class="eyebrow">Coaching</span>
+          <span class="rule"></span>
+          <h2 class="headline">Every age. <span class="script">Every level.</span></h2>
+        </div>
+        <div class="card-grid reveal">
+          <div class="card">
+            <div class="card-body">
+              <span class="count">01 / 04</span>
+              <h3>Adult groups</h3>
+              <p>Courses for beginners, clinics for improvers and social coaching formats, including Americano matchplay, across the week.</p>
+              <div class="tags"><span>Weekday mornings</span><span>Evenings</span><span>Weekends</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <span class="count">02 / 04</span>
+              <h3>Juniors</h3>
+              <p>Fun sessions for first-timers and future stars. After school, weekend mornings and a clear pathway to keep improving.</p>
+              <div class="tags"><span>Under 16s</span><span>After school</span><span>Weekend mornings</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <span class="count">03 / 04</span>
+              <h3>Private coaching</h3>
+              <p>One-to-one or paired sessions with the head coach, for all ages and levels, at flexible times across the week.</p>
+              <div class="tags"><span>1 to 1</span><span>2 to 1</span><span>Flexible timing</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <span class="count">04 / 04</span>
+              <h3>The head coach</h3>
+              <p>Announced before we open, along with the full timetable, prices and bookings. Watch this space.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+    <!-- ============ JOIN ============ -->
+    <site-join script="Be first" heading="on the timetable." text="Join the founding members list for early access to the coaching timetable and founding member rates."></site-join>
 
   </main>
+
   <site-footer></site-footer>
 </body>
 </html>
