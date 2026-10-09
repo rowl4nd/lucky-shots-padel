@@ -3,128 +3,109 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Social — Lucky Shots Padel | Bar, Coffee &amp; Club · North Wales</title>
-  <meta name="description" content="Bar, coffee and somewhere to stay after the last point. The heart of Lucky Shots Padel, opening North Wales soon." />
-  <meta property="og:title" content="Social — Lucky Shots Padel" />
-  <meta property="og:description" content="Bar, coffee and a place to linger. Coming soon." />
+  <title>Social | Lucky Shots Padel · Bar, coffee and food in North Wales</title>
+  <meta name="description" content="The bar, coffee and kitchen at Lucky Shots Padel. Somewhere to stay after the last point. Opening early 2027." />
+  <meta property="og:title" content="Social | Lucky Shots Padel" />
+  <meta property="og:description" content="Bar, coffee and a place to stay after the last point. Opening early 2027." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/favicon-512.png" />
-  <meta name="theme-color" content="#012813" />
+  <meta name="theme-color" content="#002813" />
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Yellowtail&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&family=Yellowtail&display=swap" rel="stylesheet" />
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="components.js"></script>
 </head>
-<body data-arm="social" class="has-video-hero">
+
+<body class="has-video-hero">
   <a class="skip" href="#main">Skip to content</a>
   <site-header></site-header>
+
   <main id="main">
 
-    <!-- HERO -->
+    <!-- ============ HERO ============ -->
     <section class="hero">
-      <!-- no poster: plain green hero background shows until video loads -->
-      <video class="hero-video" muted loop playsinline preload="auto"></video>
+      <video class="hero-video" muted loop playsinline preload="auto" aria-hidden="true"></video>
       <script>
         (function(){
           var v = document.currentScript.previousElementSibling;
-          var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-          if (!reduced) {
-            var src = document.createElement('source');
-            src.src = 'assets/hero_video_social.mp4';
-            src.type = 'video/mp4';
-            v.appendChild(src);
-            v.play().catch(function(){});
+          if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            var s = document.createElement('source'); s.src = 'assets/hero_video_social.mp4'; s.type = 'video/mp4';
+            v.appendChild(s); v.play().catch(function(){});
           }
         })();
       </script>
       <div class="wrap hero-inner">
-        <span class="hero-clover" aria-hidden="true"></span>
-        <h1 class="hero-title">Social</h1>
-        <p class="tagline">Bar, coffee and a place to stay after the last point.</p>
-        <div class="hero-cta">
-          <span class="open-pill"><span class="dot"></span>Opening in 2027</span>
+        <span class="chip anim d1">Opening early 2027</span>
+        <h1 class="display anim d2"><span class="script script-xl">Stay for</span>the social.</h1>
+        <div class="hero-foot anim d3">
+          <p class="lead">Bar, coffee and a place to stay after the last point.</p>
+          <span class="scroll-cue" aria-hidden="true">SCROLL &darr;</span>
         </div>
       </div>
     </section>
-
-    <!-- THE SOCIAL SIDE (bento) -->
-    <section class="section arms-modern">
+    <section class="band band-yellow band-tight">
+      <div class="wrap reveal">
+        <span class="eyebrow">The clubhouse</span>
+        <span class="rule"></span>
+        <h2 class="headline">Padel is why you come.<br><span class="script">The rest is why you stay.</span></h2>
+      </div>
+    </section>
+    <section class="band band-green">
       <div class="wrap">
-        <div class="trio-bento reveal">
-
-          <!-- CARD 1: FRESH & FUELLED -->
-          <div class="bento-card">
-            <div class="tile-media">
-              <img class="tile-photo" src="assets/cards/social-drinks.jpg" alt="Fresh juice and coffee at Lucky Shots" loading="lazy" onerror="this.remove()" />
-            </div>
-            <div class="chip-strip has-clover">
-              <span class="chip-clover" aria-hidden="true"></span>
-              <span class="chip">Fresh &amp; Fuelled</span>
-            </div>
-            <div class="bento-body">
-              <h3>Juices, smoothies &amp; coffee</h3>
-              <p>Cold-pressed juices and fruit smoothies alongside single-origin coffee from a North Wales roaster. The first stop before you play, and the easiest reason to come back after.</p>
+        <div class="reveal">
+          <span class="eyebrow">Food and drink</span>
+          <span class="rule"></span>
+          <h2 class="headline">Fresh, local, <span class="script">uncomplicated.</span></h2>
+        </div>
+        <div class="card-grid reveal">
+          <div class="card">
+            <div class="card-media"><img src="assets/cards/social-drinks.jpg" alt="Fresh juice and coffee" loading="lazy" onerror="this.remove()" /></div>
+            <div class="card-body">
+              <span class="count">01 / 04</span>
+              <h3>Fresh and fuelled</h3>
+              <p>Cold-pressed juices and smoothies alongside coffee from a North Wales roaster. The first stop before you play, and the easiest reason to come back after.</p>
               <span class="note">Partner revealed soon</span>
             </div>
           </div>
-
-          <!-- CARD 2: THE BAR -->
-          <div class="bento-card">
-            <div class="tile-media">
-              <img class="tile-photo" src="assets/cards/social-bar.jpg" alt="The bar at Lucky Shots" loading="lazy" onerror="this.remove()" />
-            </div>
-            <div class="chip-strip has-clover">
-              <span class="chip-clover" aria-hidden="true"></span>
-              <span class="chip">The Bar</span>
-            </div>
-            <div class="bento-body">
-              <h3>Local beer, wine &amp; spirits</h3>
-              <p>Local craft beer, a short wine list and spirits worth ordering — for whenever the game calls for it.</p>
+          <div class="card">
+            <div class="card-media"><img src="assets/cards/social-bar.jpg" alt="The bar" loading="lazy" onerror="this.remove()" /></div>
+            <div class="card-body">
+              <span class="count">02 / 04</span>
+              <h3>The bar</h3>
+              <p>Local craft beer, a short wine list and spirits worth ordering, for whenever the game calls for it.</p>
               <span class="note">Partner revealed soon</span>
             </div>
           </div>
-
-          <!-- CARD 3: THE KITCHEN -->
-          <div class="bento-card">
-            <div class="tile-media">
-              <img class="tile-photo" src="assets/cards/social-kitchen.jpg" alt="Fresh food at Lucky Shots" loading="lazy" onerror="this.remove()" />
-            </div>
-            <div class="chip-strip has-clover">
-              <span class="chip-clover" aria-hidden="true"></span>
-              <span class="chip">The Kitchen</span>
-            </div>
-            <div class="bento-body">
-              <h3>Baked fresh, daily</h3>
-              <p>Fresh-baked, local, uncomplicated. A proper pastry with your coffee, a decent lunch after your match.</p>
+          <div class="card">
+            <div class="card-media"><img src="assets/cards/social-kitchen.jpg" alt="Fresh food" loading="lazy" onerror="this.remove()" /></div>
+            <div class="card-body">
+              <span class="count">03 / 04</span>
+              <h3>The kitchen</h3>
+              <p>Fresh-baked and local. A proper pastry with your coffee, a decent lunch after your match.</p>
               <span class="note">Partner revealed soon</span>
             </div>
           </div>
-
-          <!-- CARD 4: STAY AWHILE -->
-          <div class="bento-card">
-            <div class="tile-media">
-              <img class="tile-photo" src="assets/cards/social-stay.jpg" alt="The lounge and social space at Lucky Shots" loading="lazy" onerror="this.remove()" />
-            </div>
-            <div class="chip-strip has-clover">
-              <span class="chip-clover" aria-hidden="true"></span>
-              <span class="chip">Stay Awhile</span>
-            </div>
-            <div class="bento-body">
-              <h3>Somewhere to stay a while</h3>
-              <p>Sofas by the glass, wifi that works and a view of every court. Come for the padel, stay for the rest of the afternoon.</p>
+          <div class="card">
+            <div class="card-media"><img src="assets/cards/social-stay.jpg" alt="The lounge" loading="lazy" onerror="this.remove()" /></div>
+            <div class="card-body">
+              <span class="count">04 / 04</span>
+              <h3>Stay a while</h3>
+              <p>Sofas by the glass, wifi that works and a view of every court. Come for the padel, stay for the afternoon.</p>
             </div>
           </div>
-
         </div>
       </div>
     </section>
+    <!-- ============ JOIN ============ -->
+    <site-join script="First" heading="round on us?" text="Join the founding members list for opening news, launch nights and founding member offers."></site-join>
 
   </main>
+
   <site-footer></site-footer>
 </body>
 </html>
