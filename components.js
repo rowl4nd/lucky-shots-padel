@@ -117,7 +117,7 @@ class SiteJoin extends HTMLElement {
                 <input type="text" name="website" id="${uid}-website" tabindex="-1" autocomplete="off" />
               </div>
               <p class="mc-note">We'll only email about Lucky Shots. Unsubscribe any time.</p>
-              <p class="mc-success-msg" role="status">You're on the list. We'll be in touch 🎾</p>
+              <p class="mc-success-msg" role="status">Diolch! You're on the list. We'll be in touch 🎾</p>
             </form>
           </div>
         </div>
@@ -159,7 +159,7 @@ class SiteFooter extends HTMLElement {
         <div class="wrap ftr-top">
           <div class="ftr-logo">
             <span class="ftr-logo-mark" role="img" aria-label="Lucky Shots Padel"></span>
-            <p>North Wales' new home for padel. Four indoor courts, a proper social space and a club built for the area. Opening ${SITE.opening}.</p>
+            <p>Padel, how it's supposed to be. Four indoor courts, a proper bar and a calm place to be, built for North Wales. One club for all. Opening ${SITE.opening}.</p>
           </div>
           <div>
             <h4>Explore</h4>
