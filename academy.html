@@ -9,13 +9,13 @@
   <meta property="og:description" content="Coaching for every age, every level. Opening early 2027." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/favicon-512.png" />
-  <meta name="theme-color" content="#002813" />
+  <meta name="theme-color" content="#0E1D17" />
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&family=Yellowtail&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Yellowtail&display=swap" rel="stylesheet" />
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="components.js"></script>
@@ -29,38 +29,29 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero">
-      <video class="hero-video" muted loop playsinline preload="auto" aria-hidden="true"></video>
-      <script>
-        (function(){
-          var v = document.currentScript.previousElementSibling;
-          if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            var s = document.createElement('source'); s.src = 'assets/hero_video_academy.mp4'; s.type = 'video/mp4';
-            v.appendChild(s); v.play().catch(function(){});
-          }
-        })();
-      </script>
+      <video class="hero-video" muted loop playsinline preload="none" poster="assets/posters/hero_video_academy.jpg" data-src="assets/hero_video_academy.mp4" aria-hidden="true"></video>
       <div class="wrap hero-inner">
         <span class="chip anim d1">Opening early 2027</span>
         <h1 class="display anim d2"><span class="script script-xl">Get</span>better.</h1>
         <div class="hero-foot anim d3">
-          <p class="lead">Coaching for every age and every level. Weekdays, evenings and weekends.</p>
+          <p class="lead">Coaching for every age and every level, midweek and on Saturday mornings.</p>
           <span class="scroll-cue" aria-hidden="true">SCROLL &darr;</span>
         </div>
       </div>
     </section>
-    <section class="band band-yellow band-tight">
+    <section class="band band-mist band-tight">
       <div class="wrap reveal">
         <span class="eyebrow">The academy</span>
         <span class="rule"></span>
-        <h2 class="headline">From first rally<br><span class="script">to first tournament.</span></h2>
+        <h2 class="headline">From first rally<br>to first tournament.</h2>
       </div>
     </section>
-    <section class="band band-green">
+    <section class="band band-dark">
       <div class="wrap">
         <div class="reveal">
           <span class="eyebrow">Coaching</span>
           <span class="rule"></span>
-          <h2 class="headline">Every age. <span class="script">Every level.</span></h2>
+          <h2 class="headline">Every age. Every level.</h2>
         </div>
         <div class="card-grid reveal">
           <div class="card">
@@ -68,7 +59,7 @@
               <span class="count">01 / 04</span>
               <h3>Adult groups</h3>
               <p>Courses for beginners, clinics for improvers and social coaching formats, including Americano matchplay, across the week.</p>
-              <div class="tags"><span>Weekday mornings</span><span>Evenings</span><span>Weekends</span></div>
+              <div class="tags"><span>Midweek daytime</span><span>Saturday mornings</span></div>
             </div>
           </div>
           <div class="card">
@@ -83,8 +74,8 @@
             <div class="card-body">
               <span class="count">03 / 04</span>
               <h3>Private coaching</h3>
-              <p>One-to-one or paired sessions with the head coach, for all ages and levels, at flexible times across the week.</p>
-              <div class="tags"><span>1 to 1</span><span>2 to 1</span><span>Flexible timing</span></div>
+              <p>One-to-one or paired sessions with the head coach, for all ages and levels, on coaching days.</p>
+              <div class="tags"><span>1 to 1</span><span>2 to 1</span><span>Coaching days</span></div>
             </div>
           </div>
           <div class="card">
@@ -95,6 +86,17 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+    <section class="band band-deep">
+      <div class="wrap reveal">
+        <span class="eyebrow">A week at the club</span>
+        <span class="rule"></span>
+        <h2 class="headline">Coaching days,<br>club days.</h2>
+        <p class="lead" style="margin-top:1.2rem">Coaching runs on dedicated days so every session gets the head coach at their best. Around it, the club keeps the courts busy all week.</p>
+        <div class="week"><div class="day"><h3>Mon</h3><div class="slots"><div class="slot"><b>Pay and play</b><small>All day</small></div><div class="slot"><b>Friendly league</b><small>Evening</small></div></div></div><div class="day"><h3>Tue</h3><div class="slots"><div class="slot"><b>Coffee and padel</b><small>Morning</small></div><div class="slot"><b>Pay and play</b><small>Evening</small></div></div></div><div class="day"><h3>Wed</h3><div class="slots"><div class="slot coach"><b>Adult courses</b><small>Morning</small></div><div class="slot coach"><b>Private lessons</b><small>Midday</small></div><div class="slot coach"><b>Juniors</b><small>After school</small></div></div></div><div class="day"><h3>Thu</h3><div class="slots"><div class="slot"><b>Pay and play</b><small>Daytime</small></div><div class="slot"><b>Americano night</b><small>Evening</small></div></div></div><div class="day"><h3>Fri</h3><div class="slots"><div class="slot"><b>Pay and play</b><small>All day</small></div><div class="slot"><b>Social play</b><small>Evening</small></div></div></div><div class="day"><h3>Sat</h3><div class="slots"><div class="slot coach"><b>Juniors</b><small>Morning</small></div><div class="slot coach"><b>Improvers clinic</b><small>Morning</small></div><div class="slot"><b>Pay and play</b><small>Afternoon</small></div></div></div><div class="day"><h3>Sun</h3><div class="slots"><div class="slot"><b>Pay and play</b><small>All day</small></div><div class="slot"><b>Club social</b><small>Afternoon</small></div></div></div></div>
+        <div class="week-key"><span class="k-coach">Coach-led</span><span>Club sessions</span></div>
+        <p class="small-print">A sample week. The full timetable, times and prices are announced before we open.</p>
       </div>
     </section>
     <!-- ============ JOIN ============ -->
