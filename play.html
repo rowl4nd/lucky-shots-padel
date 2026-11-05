@@ -9,13 +9,13 @@
   <meta property="og:description" content="Pay and play, social leagues, Americanos and tournaments. Opening early 2027." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/favicon-512.png" />
-  <meta name="theme-color" content="#002813" />
+  <meta name="theme-color" content="#0E1D17" />
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&family=Yellowtail&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Yellowtail&display=swap" rel="stylesheet" />
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="components.js"></script>
@@ -29,16 +29,7 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero">
-      <video class="hero-video" muted loop playsinline preload="auto" aria-hidden="true"></video>
-      <script>
-        (function(){
-          var v = document.currentScript.previousElementSibling;
-          if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            var s = document.createElement('source'); s.src = 'assets/hero_video_play.mp4'; s.type = 'video/mp4';
-            v.appendChild(s); v.play().catch(function(){});
-          }
-        })();
-      </script>
+      <video class="hero-video" muted loop playsinline preload="none" poster="assets/posters/hero_video_play.jpg" data-src="assets/hero_video_play.mp4" aria-hidden="true"></video>
       <div class="wrap hero-inner">
         <span class="chip anim d1">Opening early 2027</span>
         <h1 class="display anim d2"><span class="script script-xl">Let's play</span>padel.</h1>
@@ -48,19 +39,54 @@
         </div>
       </div>
     </section>
-    <section class="band band-yellow band-tight">
+    <section class="band band-mist">
       <div class="wrap reveal">
         <span class="eyebrow">The game</span>
         <span class="rule"></span>
         <h2 class="headline">The easiest racket sport to pick up.<br>The hardest one to put down.</h2>
+        <div class="court">
+          <svg viewBox="0 0 640 360" role="img" aria-labelledby="court-t court-d" fill="none" stroke="currentColor" stroke-linecap="round">
+            <title id="court-t">Padel court from above</title>
+            <desc id="court-d">A 20 by 10 metre court with glass back walls, glass corners and mesh along the middle of each side, a net across the centre and service boxes either side.</desc>
+            <!-- court floor 20m x 10m, scale 28px per metre -->
+            <rect x="40" y="40" width="560" height="280" stroke-width="2" opacity=".35"/>
+            <!-- back walls: glass -->
+            <line class="glass" x1="40" y1="40" x2="40" y2="320"/>
+            <line class="glass" x1="600" y1="40" x2="600" y2="320"/>
+            <!-- side walls: 4m glass at each corner, mesh in the middle -->
+            <line class="glass" x1="40" y1="40" x2="152" y2="40"/>
+            <line class="glass" x1="488" y1="40" x2="600" y2="40"/>
+            <line class="glass" x1="40" y1="320" x2="152" y2="320"/>
+            <line class="glass" x1="488" y1="320" x2="600" y2="320"/>
+            <line class="mesh" x1="162" y1="40" x2="478" y2="40"/>
+            <line class="mesh" x1="162" y1="320" x2="478" y2="320"/>
+            <!-- net -->
+            <line x1="320" y1="34" x2="320" y2="326" stroke-width="4"/>
+            <!-- service lines 6.95m from the net, centre lines -->
+            <line x1="125.4" y1="40" x2="125.4" y2="320" stroke-width="2"/>
+            <line x1="514.6" y1="40" x2="514.6" y2="320" stroke-width="2"/>
+            <line x1="125.4" y1="180" x2="514.6" y2="180" stroke-width="2"/>
+            <!-- labels -->
+            <text x="40" y="24" stroke="none">GLASS</text>
+            <text x="270" y="24" stroke="none">MESH</text>
+            <text x="300" y="350" stroke="none">NET</text>
+            <text x="532" y="350" stroke="none">20 X 10M</text>
+          </svg>
+          <ol class="facts">
+            <li><span class="count">01</span><div><strong>Always doubles</strong><p>Two a side on a compact, walled court, so everyone is always in the rally.</p></div></li>
+            <li><span class="count">02</span><div><strong>The walls are in play</strong><p>Let the ball bounce, then play it off the glass. It is where the best points happen.</p></div></li>
+            <li><span class="count">03</span><div><strong>Underarm serve</strong><p>Bounce it, serve below the waist, land it diagonally. No booming serves to learn first.</p></div></li>
+            <li><span class="count">04</span><div><strong>Tennis scoring</strong><p>Fifteen, thirty, forty, game. If you know tennis, you already know the score.</p></div></li>
+          </ol>
+        </div>
       </div>
     </section>
-    <section class="band band-green">
+    <section class="band band-dark">
       <div class="wrap">
         <div class="reveal">
           <span class="eyebrow">On court</span>
           <span class="rule"></span>
-          <h2 class="headline">Your game, <span class="script">your way.</span></h2>
+          <h2 class="headline">Your game, your way.</h2>
         </div>
         <div class="card-grid reveal">
           <div class="card">

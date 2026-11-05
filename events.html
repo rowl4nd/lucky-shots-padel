@@ -9,13 +9,13 @@
   <meta property="og:description" content="Team days, club nights, tournaments and private hire. Opening early 2027." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/favicon-512.png" />
-  <meta name="theme-color" content="#002813" />
+  <meta name="theme-color" content="#0E1D17" />
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&family=Yellowtail&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Yellowtail&display=swap" rel="stylesheet" />
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="components.js"></script>
@@ -35,25 +35,37 @@
         <p class="lead">Corporate days, club nights, open tournaments and private hire.</p>
       </div>
     </section>
-    <section class="band band-yellow">
-      <div class="wrap feature reveal">
+    <section class="band band-mist">
+      <div class="wrap planner reveal">
         <div>
           <span class="eyebrow">Corporate and private hire</span>
           <span class="rule"></span>
-          <h2 class="headline">Your courts.<br><span class="script">Your format.</span></h2>
+          <h2 class="headline">Your courts.<br>Your format.</h2>
+          <p class="lead" style="margin-top:1.2rem">Exclusive use of one to four courts for team days, client entertaining and private events, with the bar and food sorted. Tell us the shape of it and we'll build the format around you.</p>
         </div>
-        <div>
-          <p class="lead">Exclusive use of one to four courts for team days, client entertaining and private events, with the bar and food sorted. We'll build the format around you: a tournament, a coached session or a social Americano.</p>
-          <div class="btn-row"><a class="btn btn-green" data-email href="mailto:padel@luckyshots.co.uk">Tell us what you're planning</a></div>
-        </div>
+        <form class="planner-form" novalidate>
+          <fieldset><legend>What's the occasion?</legend><div class="pills"><label class="pill"><input type="radio" name="type" value="Team day" /><span>Team day</span></label><label class="pill"><input type="radio" name="type" value="Client event" /><span>Client event</span></label><label class="pill"><input type="radio" name="type" value="Birthday" /><span>Birthday</span></label><label class="pill"><input type="radio" name="type" value="Stag or hen" /><span>Stag or hen</span></label><label class="pill"><input type="radio" name="type" value="Something else" /><span>Something else</span></label></div></fieldset>
+          <fieldset><legend>How many courts?</legend><div class="pills"><label class="pill"><input type="radio" name="courts" value="1 court" /><span>1 court</span></label><label class="pill"><input type="radio" name="courts" value="2 courts" /><span>2 courts</span></label><label class="pill"><input type="radio" name="courts" value="3 courts" /><span>3 courts</span></label><label class="pill"><input type="radio" name="courts" value="All 4 courts" /><span>All 4 courts</span></label></div></fieldset>
+          <fieldset><legend>Format</legend><div class="pills"><label class="pill"><input type="radio" name="format" value="A tournament" /><span>A tournament</span></label><label class="pill"><input type="radio" name="format" value="A coached session" /><span>A coached session</span></label><label class="pill"><input type="radio" name="format" value="A social Americano" /><span>A social Americano</span></label><label class="pill"><input type="radio" name="format" value="Not sure yet" /><span>Not sure yet</span></label></div></fieldset>
+          <fieldset><legend>Extras</legend><div class="pills"><label class="pill"><input type="checkbox" name="extras" value="Food" /><span>Food</span></label><label class="pill"><input type="checkbox" name="extras" value="A bar tab" /><span>A bar tab</span></label></div></fieldset>
+          <fieldset><legend>Group size and timing</legend>
+            <div class="mc-row mc-form" style="margin:0">
+              <label class="sr-only" for="ev-size">Group size</label><input type="text" id="ev-size" name="size" inputmode="numeric" placeholder="Roughly how many people" />
+              <label class="sr-only" for="ev-when">Date or timing</label><input type="text" id="ev-when" name="when" placeholder="Date or month" />
+            </div>
+          </fieldset>
+          <p class="planner-summary" aria-live="polite"></p>
+          <div><button type="submit" class="btn btn-ink">Email us your enquiry</button></div>
+          <p class="small-print" style="margin-top:0">Opens an email to <a class="inline-link" data-email href="mailto:padel@luckyshots.co.uk"></a> with your answers filled in.</p>
+        </form>
       </div>
     </section>
-    <section class="band band-green">
+    <section class="band band-dark">
       <div class="wrap">
         <div class="reveal">
           <span class="eyebrow">At the club</span>
           <span class="rule"></span>
-          <h2 class="headline">Something on, <span class="script">every month.</span></h2>
+          <h2 class="headline">Something on, every month.</h2>
         </div>
         <div class="card-grid three reveal">
           <div class="card">
@@ -83,13 +95,13 @@
         </div>
       </div>
     </section>
-    <section class="band band-green band-tight center">
+    <section class="band band-dark band-tight center">
       <div class="wrap reveal">
         <span class="eyebrow">Where and when</span>
         <span class="rule"></span>
         <div class="stage-teaser"><h2 class="headline">Opening early 2027,<br>in North Wales.</h2></div>
-        <div class="stage-approved"><h2 class="headline">Mochdre Commerce Park,<br>Colwyn Bay.</h2></div>
-        <p class="lead">Events programme launches with the club. Email <a data-email href="mailto:padel@luckyshots.co.uk" style="color:var(--y);font-weight:600;text-decoration:underline;text-underline-offset:4px"></a> to get a date in early.</p>
+        <div class="stage-approved"><h2 class="headline"><span data-address>Colwyn Bay</span>.</h2></div>
+        <p class="lead" style="margin-top:1.2rem">Events programme launches with the club. Email <a class="inline-link" data-email href="mailto:padel@luckyshots.co.uk"></a> to get a date in early.</p>
       </div>
     </section>
     <!-- ============ JOIN ============ -->

@@ -9,13 +9,13 @@
   <meta property="og:description" content="Bar, coffee and a place to stay after the last point. Opening early 2027." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/favicon-512.png" />
-  <meta name="theme-color" content="#002813" />
+  <meta name="theme-color" content="#0E1D17" />
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&family=Yellowtail&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Yellowtail&display=swap" rel="stylesheet" />
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="components.js"></script>
@@ -29,16 +29,7 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero">
-      <video class="hero-video" muted loop playsinline preload="auto" aria-hidden="true"></video>
-      <script>
-        (function(){
-          var v = document.currentScript.previousElementSibling;
-          if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            var s = document.createElement('source'); s.src = 'assets/hero_video_social.mp4'; s.type = 'video/mp4';
-            v.appendChild(s); v.play().catch(function(){});
-          }
-        })();
-      </script>
+      <video class="hero-video" muted loop playsinline preload="none" poster="assets/posters/hero_video_social.jpg" data-src="assets/hero_video_social.mp4" aria-hidden="true"></video>
       <div class="wrap hero-inner">
         <span class="chip anim d1">Opening early 2027</span>
         <h1 class="display anim d2"><span class="script script-xl">Stay for</span>the social.</h1>
@@ -48,19 +39,19 @@
         </div>
       </div>
     </section>
-    <section class="band band-yellow band-tight">
+    <section class="band band-mist band-tight">
       <div class="wrap reveal">
         <span class="eyebrow">The clubhouse</span>
         <span class="rule"></span>
         <h2 class="headline">Padel is why you come.<br><span class="script">The rest is why you stay.</span></h2>
       </div>
     </section>
-    <section class="band band-green">
+    <section class="band band-dark">
       <div class="wrap">
         <div class="reveal">
           <span class="eyebrow">Food and drink</span>
           <span class="rule"></span>
-          <h2 class="headline">Fresh, local, <span class="script">uncomplicated.</span></h2>
+          <h2 class="headline">Fresh, local, uncomplicated.</h2>
         </div>
         <div class="card-grid reveal">
           <div class="card">
@@ -99,6 +90,24 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+    <section class="band band-mist">
+      <div class="wrap reveal">
+        <span class="eyebrow">A day at the club</span>
+        <span class="rule"></span>
+        <h2 class="headline">First coffee<br>to last orders.</h2>
+        <div class="dayline">
+          <div><span class="when">Early</span><h3>Coffee and court</h3><p>Good coffee and a fresh juice before an early game, or instead of one.</p></div>
+          <div><span class="when">Midday</span><h3>Lunch after the match</h3><p>Fresh-baked and local, with a table that looks over the courts.</p></div>
+          <div><span class="when">After work</span><h3>Evening padel</h3><p>The busiest courts of the day, and the best atmosphere in the building.</p></div>
+          <div><span class="when">Late</span><h3>The bar</h3><p>Local craft beer and a short wine list, open late on club nights.</p></div>
+        </div>
+        <div class="hours" aria-label="Planned opening hours">
+          <span><b>Mon to Fri</b>07:00 to 23:00</span>
+          <span><b>Sat and Sun</b>08:00 to 22:00</span>
+        </div>
+        <p class="small-print">Planned opening hours, confirmed before we open.</p>
       </div>
     </section>
     <!-- ============ JOIN ============ -->
