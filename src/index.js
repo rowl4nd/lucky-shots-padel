@@ -75,20 +75,38 @@ const resendHeaders = (env) => ({
 // Sets the contact's global subscribed state in Resend. If the contact does not exist
 // yet (404) it is created with the same state, so an unsubscribe is always recorded
 // and a new sign-up is always added. Returns true on success.
-async function setSubscribed(env, email, subscribed) {
-  const body = JSON.stringify({ unsubscribed: !subscribed });
-  try {
+//
+// extra (sign-ups only): { firstName, interests }. First name uses Resend's built-in
+// field. Interests are saved to a custom contact property called "interests" (text),
+// which must be created once in Resend (Audience > Properties). Until it exists,
+// Resend rejects the property, so we retry without it and the sign-up still works.
+async function setSubscribed(env, email, subscribed, extra = {}) {
+  const fields = { unsubscribed: !subscribed };
+  if (extra.firstName) fields.first_name = extra.firstName;
+  const props = extra.interests && extra.interests.length ? { interests: extra.interests.join(', ') } : null;
+
+  const write = async (withProps) => {
+    const body = { ...fields, ...(withProps && props ? { properties: props } : {}) };
     let res = await fetch(`https://api.resend.com/contacts/${encodeURIComponent(email)}`, {
       method: 'PATCH',
       headers: resendHeaders(env),
-      body,
+      body: JSON.stringify(body),
     });
     if (res.status === 404) {
       res = await fetch('https://api.resend.com/contacts', {
         method: 'POST',
         headers: resendHeaders(env),
-        body: JSON.stringify({ email, unsubscribed: !subscribed }),
+        body: JSON.stringify({ email, ...body }),
       });
+    }
+    return res;
+  };
+
+  try {
+    let res = await write(true);
+    if (!res.ok && props) {
+      console.error('contact update with interests failed, retrying without', res.status, await res.text());
+      res = await write(false);
     }
     if (!res.ok) console.error('contact update failed', res.status, await res.text());
     return res.ok;
@@ -174,18 +192,25 @@ async function handleSubscribe(request, env) {
     return json(400, { error: 'That email address doesn’t look right.' });
   }
 
+  // Optional extras from the form. Interests are limited to the known options.
+  const firstName = String(payload.firstName || '').replace(/[<>]/g, '').trim().replace(/\s+/g, ' ').slice(0, 60);
+  const allowed = ['playing', 'coaching', 'juniors', 'events', 'membership'];
+  const interests = (Array.isArray(payload.interests) ? payload.interests : [])
+    .map((i) => String(i).toLowerCase())
+    .filter((i, n, all) => allowed.includes(i) && all.indexOf(i) === n);
+
   // 1. Add to the list, or switch them back on if they had unsubscribed before
   //    (signing up again is a fresh opt-in). Non-fatal if it fails: we still
   //    want them to get the welcome email.
-  await setSubscribed(env, email, true);
+  await setSubscribed(env, email, true, { firstName, interests });
 
   // 2. Send the welcome email, with a personal signed unsubscribe link.
   const unsubUrl = SITE + (await unsubscribePath(env, email));
   const sent = await sendEmail(env, {
     to: email,
     subject: 'Thanks for your interest in Lucky Shots Padel',
-    html: welcomeHtml(unsubUrl),
-    text: welcomeText(unsubUrl),
+    html: welcomeHtml(unsubUrl, firstName),
+    text: welcomeText(unsubUrl, firstName),
     headers: {
       // RFC 8058 one-click: mail apps POST to the https URL, which unsubscribes straight away.
       'List-Unsubscribe': `<${unsubUrl}>, <mailto:${REPLY_TO}?subject=Unsubscribe>`,
@@ -423,7 +448,7 @@ function sitePage(status, main, headOnly = false, title = 'Unsubscribe') {
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&family=Yellowtail&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Yellowtail&display=swap" rel="stylesheet" />
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="/styles.css" />
   <script defer src="/components.js"></script>
@@ -499,14 +524,16 @@ function errorPage() {
 }
 
 /* ---------- email templates ---------- */
-// Brand guide, 9 Oct 2026: two colours only (dark green + pale yellow), white for
-// body copy on green. Outfit for type. Trend Sans One is a licensed font and is
-// deliberately NOT embedded in email, so labels use Outfit 600 in wide-spaced caps.
-// Images used here live in /assets: logo-yellow.png and script-list.png.
+// Brand palette, 19 Nov 2026: Dark Green base, Forest Slate footer, Off-White for the
+// reading band, Pale Yellow as accent only (never on Off-White). Outfit for type.
+// Trend Sans One is a licensed font and is deliberately NOT embedded in email, so labels
+// use Outfit 600 in wide-spaced caps. Images: /assets/logo-social-yellow-offwhite.png and
+// /assets/script-list.png (the lime files stay for emails already sent).
 
 const GREEN = '#002813';
+const SLATE = '#0E1D17';
+const OFFWHITE = '#F6F3EC';
 const YELLOW = '#F7F38E';
-const WHITE = '#FFFFFF';
 const FONT = "'Outfit','Helvetica Neue',Helvetica,Arial,sans-serif";
 
 // Shared layout for every email: green band (logo, label, rule, headline with the
@@ -530,13 +557,13 @@ function emailShell({ title, preheader, eyebrow, headlineTop, subhead, paragraph
 <body style="margin:0;padding:0;background:${GREEN};">
 <div style="display:none;max-height:0;overflow:hidden;opacity:0;">${preheader}</div>
 
-<!-- Band 1: green. Logo, eyebrow, rule, headline with script accent -->
+<!-- Band 1: Dark Green. Logo, eyebrow, rule, headline with script accent -->
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${GREEN}" style="background:${GREEN};">
 <tr><td align="center" style="padding:40px 24px 48px;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:520px;">
 
     <tr><td align="left" style="padding:0 0 44px;">
-      <img src="${SITE}/assets/logo-yellow.png" alt="Lucky Shots Padel" width="220" style="display:block;border:0;width:220px;max-width:100%;height:auto;">
+      <img src="${SITE}/assets/logo-social-yellow-offwhite.png" alt="Lucky Shots Padel and Social Club" width="300" style="display:block;border:0;width:300px;max-width:100%;height:auto;">
     </td></tr>
 
     <tr><td align="left" style="padding:0 0 14px;font-family:${FONT};font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:${YELLOW};">
@@ -550,15 +577,15 @@ function emailShell({ title, preheader, eyebrow, headlineTop, subhead, paragraph
     </td></tr>
 
     <tr><td align="left" style="padding:0;">
-      <h1 style="margin:0;font-family:${FONT};font-size:48px;line-height:1;font-weight:800;letter-spacing:-.025em;text-transform:uppercase;color:${YELLOW};">${headlineTop}<br><img src="${SITE}/assets/script-list.png" alt="list." width="170" style="display:inline-block;border:0;width:170px;max-width:60%;height:auto;margin:-6px 0 0 -8px;"></h1>
+      <h1 style="margin:0;font-family:${FONT};font-size:48px;line-height:1;font-weight:800;letter-spacing:-.025em;text-transform:uppercase;color:${OFFWHITE};">${headlineTop}<br><img src="${SITE}/assets/script-list.png" alt="list." width="170" style="display:inline-block;border:0;width:170px;max-width:60%;height:auto;margin:-6px 0 0 -8px;"></h1>
     </td></tr>
 
   </table>
 </td></tr>
 </table>
 
-<!-- Band 2: yellow. Copy and button -->
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${YELLOW}" style="background:${YELLOW};">
+<!-- Band 2: Off-White. Copy and button -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${OFFWHITE}" style="background:${OFFWHITE};">
 <tr><td align="center" style="padding:44px 24px 52px;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:520px;">
 
@@ -585,14 +612,14 @@ ${paragraphs.map(para).join('')}
 </td></tr>
 </table>
 
-<!-- Band 3: green. Footer -->
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${GREEN}" style="background:${GREEN};">
+<!-- Band 3: Forest Slate. Footer -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${SLATE}" style="background:${SLATE};">
 <tr><td align="center" style="padding:32px 24px 40px;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:520px;">
-    <tr><td align="left" style="padding:0 0 6px;font-family:${FONT};font-size:12px;line-height:1.6;font-weight:300;color:${WHITE};">
+    <tr><td align="left" style="padding:0 0 6px;font-family:${FONT};font-size:12px;line-height:1.6;font-weight:300;color:${OFFWHITE};">
       Lucky Shots Padel &middot; <a href="${SITE}" style="color:${YELLOW};text-decoration:underline;">luckyshots.co.uk</a>
     </td></tr>
-    <tr><td align="left" style="font-family:${FONT};font-size:12px;line-height:1.6;font-weight:300;color:${WHITE};">
+    <tr><td align="left" style="font-family:${FONT};font-size:12px;line-height:1.6;font-weight:300;color:${OFFWHITE};">
       ${footerLines}
     </td></tr>
   </table>
@@ -603,13 +630,13 @@ ${paragraphs.map(para).join('')}
 </html>`;
 }
 
-function welcomeHtml(unsubUrl) {
+function welcomeHtml(unsubUrl, firstName = '') {
   return emailShell({
     title: 'Thanks for your interest in Lucky Shots Padel',
     preheader: 'We can&rsquo;t wait to meet you. Here&rsquo;s what happens next.',
     eyebrow: 'Thank you for your interest',
     headlineTop: 'You&rsquo;re on the',
-    subhead: 'We can&rsquo;t wait to meet you.',
+    subhead: firstName ? `We can&rsquo;t wait to meet you, ${escapeHtml(firstName)}.` : 'We can&rsquo;t wait to meet you.',
     paragraphs: [
       'In the meantime, we&rsquo;ll send you updates on our build progress, our opening dates, and founding membership offers.',
     ],
@@ -620,10 +647,10 @@ function welcomeHtml(unsubUrl) {
   });
 }
 
-function welcomeText(unsubUrl) {
+function welcomeText(unsubUrl, firstName = '') {
   return `Thank you for your interest in Lucky Shots Padel.
 
-We can't wait to meet you.
+We can't wait to meet you${firstName ? ', ' + firstName : ''}.
 
 In the meantime, we'll send you updates on our build progress, our opening dates, and founding membership offers.
 
