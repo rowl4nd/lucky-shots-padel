@@ -11,7 +11,8 @@
 //   GET  /interest        membership question buttons in our emails: shows a thank-you page,
 //                         which then records the answer with a POST (see below)
 //   POST /interest        saves the answer on the contact in Resend (property
-//                         "membership_interest") and emails padel@luckyshots.co.uk
+//                         "membership_interest") and emails padel@luckyshots.co.uk.
+//                         First answer wins: a contact who has already answered is not changed.
 // Everything else goes back to ASSETS so the normal 404 page still works.
 //
 // Secrets/vars (Settings > Variables and secrets, after first deploy):
@@ -286,6 +287,16 @@ async function handleInterest(request, env) {
 
   const label = INTEREST[choice];
 
+  // 0. First answer wins. If this contact has already answered, keep their first
+  //    answer, don't overwrite it and don't send another notification.
+  const existing = await getInterest(env, email);
+  if (existing) {
+    if ((request.headers.get('accept') || '').includes('text/html')) {
+      return sitePage(200, interestDonePage(existing, true), false, 'Thanks');
+    }
+    return json(200, { ok: true, already: existing });
+  }
+
   // 1. Save on the contact. PATCH only: this never adds anyone to the list.
   let saved = false;
   try {
@@ -315,11 +326,30 @@ async function handleInterest(request, env) {
   return json(200, { ok: true });
 }
 
-function interestDonePage(label) {
+// Reads the contact's saved answer, if any. Returns '' when there is none or the
+// lookup fails (a failed lookup must not block a genuine first answer).
+async function getInterest(env, email) {
+  try {
+    const res = await fetch(`https://api.resend.com/contacts/${encodeURIComponent(email)}`, {
+      headers: resendHeaders(env),
+    });
+    if (!res.ok) return '';
+    const c = await res.json();
+    let v = c && c.properties ? c.properties.membership_interest : undefined;
+    if (v && typeof v === 'object') v = v.value;
+    return typeof v === 'string' && v.trim() ? v.trim() : '';
+  } catch (err) {
+    console.error('interest lookup threw', err);
+    return '';
+  }
+}
+
+function interestDonePage(label, already = false) {
+  const said = already ? 'You&rsquo;ve already told us you&rsquo;d go for' : 'You told us you&rsquo;d go for';
   return `        <span class="eyebrow">Membership</span>
         <span class="rule"></span>
         <h1 class="display"><span class="script script-xl">Thank you.</span>Noted.</h1>
-        <p class="lead">You told us you&rsquo;d go for <strong>${escapeHtml(label)}</strong>. Founding Memberships are coming soon, and you&rsquo;ll hear first.</p>
+        <p class="lead">${said} <strong>${escapeHtml(label)}</strong>. Founding Memberships are coming soon, and you&rsquo;ll hear first.</p>
         <div class="btn-row">
           <a class="btn btn-yellow" href="/">Visit the website</a>
         </div>`;
@@ -327,13 +357,6 @@ function interestDonePage(label) {
 
 function interestPage(choice, email) {
   const label = INTEREST[choice];
-  const others = Object.keys(INTEREST)
-    .filter((k) => k !== choice)
-    .map(
-      (k) =>
-        `<a class="btn btn-line" href="/interest?m=${k}&amp;e=${encodeURIComponent(email)}">${k === 'payg' ? 'I&rsquo;ll just pay and play' : `I&rsquo;d go for the ${escapeHtml(INTEREST[k])}`}</a>`
-    )
-    .join('\n            ');
   const data = JSON.stringify({ m: choice, e: email }).replace(/</g, '\\u003c');
   return `        <span class="eyebrow">Membership</span>
         <span class="rule"></span>
@@ -344,18 +367,23 @@ function interestPage(choice, email) {
             <div class="btn-row"><button class="btn btn-yellow" type="submit">Confirm my answer</button></div>
           </form>
         </noscript>
-        <p class="lead">Changed your mind?</p>
-        <div class="btn-row">
-            ${others}
-        </div>
         <div class="btn-row">
           <a class="btn btn-yellow" href="/">Visit the website</a>
         </div>
         <script>
           (function () {
             var d = ${data};
+            function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return '&#' + c.charCodeAt(0) + ';'; }); }
             function send() {
               fetch('/interest?m=' + encodeURIComponent(d.m) + '&e=' + encodeURIComponent(d.e), { method: 'POST' })
+                .then(function (r) { return r.json(); })
+                .then(function (j) {
+                  if (j && j.already) {
+                    document.getElementById('interest-status').innerHTML =
+                      'You&rsquo;ve already told us you&rsquo;d go for <strong>' + esc(j.already) +
+                      '</strong>. Founding Memberships are coming soon, and you&rsquo;ll hear first.';
+                  }
+                })
                 .catch(function () {});
             }
             // Wait until the page is actually being looked at, so link scanners don't count.
