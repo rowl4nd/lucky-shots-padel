@@ -236,7 +236,7 @@ class SiteFooter extends HTMLElement {
         <div class="wrap ftr-top">
           <div class="ftr-logo">
             <span class="ftr-logo-mark" role="img" aria-label="Lucky Shots Padel"></span>
-            <p>Padel, how it's supposed to be. Four indoor courts, a proper social space and one club for all, opening ${SITE.opening}.</p>
+            <p>North Wales' padel destination. Four indoor courts, a proper social space and one club for all, opening ${SITE.opening}.</p>
             <span class="ftr-croeso" lang="cy">Croeso.</span>
           </div>
           <div>
