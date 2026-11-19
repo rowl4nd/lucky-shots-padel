@@ -14,18 +14,12 @@ const SITE = {
   opening:   "early 2027",
   town:      "Colwyn Bay",
 
-  // DECISION DAY SWITCH: change "teaser" to "approved" only once the planning
-  // decision notice is in hand. This shows the planning-approved banner, the
-  // "It's happening" headlines and the address below. Do not change it before then.
-  stage:     "teaser",
+  // Stage: "teaser" (before planning), "approved" (planning granted, now) or
+  // "live" (open). "approved" shows the "It's happening" headlines and the address.
+  stage:     "approved",
 
-  // The address is deliberately NOT in this repo until planning is approved
-  // (the repo is public, so anything written here can be read by anyone).
-  // On decision day, fill both in at the same time as changing the stage:
-  //   address:   "the street address, Colwyn Bay"
-  //   mapsQuery: "the address as you would type it into Google Maps"
-  address:   "",
-  mapsQuery: ""
+  address:   "Mochdre Commerce Park, Colwyn Bay",
+  mapsQuery: "Unit 1A Mochdre Commerce Park, Colwyn Bay"
 };
 
 /* founding membership offer: shown in every sign-up block and on the members page.
@@ -43,8 +37,8 @@ const FOUNDING = {
    status: "done", "now" or "next". Keep notes free of location detail. */
 const PROGRESS = [
   { title: "The venue",  status: "done", note: "Found, measured and agreed." },
-  { title: "Planning",   status: "now",  note: "With the council now." },
-  { title: "The courts", status: "next", note: "Ordered the moment planning lands." },
+  { title: "Planning",   status: "done", note: "Approved." },
+  { title: "The courts", status: "now",  note: "Ordered." },
   { title: "The build",  status: "next", note: "Courts, bar and clubhouse fit-out." },
   { title: "Opening",    status: "next", note: "Early 2027. List first." }
 ];
@@ -78,9 +72,6 @@ class SiteHeader extends HTMLElement {
     }).join("");
 
     this.innerHTML = `
-      <div class="stage-banner" role="region" aria-label="Announcement">
-        <p><strong>Planning approved.</strong> Lucky Shots is coming to ${esc(SITE.town)}. <a href="index.html#join">Join the founding members list &rarr;</a></p>
-      </div>
       <header class="hdr">
         <div class="wrap hdr-row">
           <a class="hdr-logo" href="index.html" aria-label="Lucky Shots Padel home"></a>
@@ -365,11 +356,8 @@ function initStickyCta(){
    Stage, address, email links and scroll reveal once the DOM is ready
    ------------------------------------------------------------ */
 document.addEventListener("DOMContentLoaded", () => {
-  // stage (teaser | approved | live) drives .stage-* blocks and the banner
+  // stage (teaser | approved | live) drives the .stage-* blocks
   document.body.dataset.stage = SITE.stage;
-  const banner = document.querySelector(".stage-banner");
-  const setBannerH = () => { if (banner) document.body.style.setProperty("--banner-h", banner.offsetHeight + "px"); };
-  setBannerH(); window.addEventListener("resize", setBannerH);
 
   // address and directions only exist once SITE.address is filled in
   if (SITE.stage !== "teaser" && SITE.address){

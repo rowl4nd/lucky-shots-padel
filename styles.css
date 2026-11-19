@@ -195,13 +195,6 @@ body.has-video-hero .hdr.scrolled{ background:var(--ink); border-bottom-color:va
   .hdr-nav a[aria-current="page"]{ box-shadow:none; text-decoration:underline; text-underline-offset:6px; }
 }
 
-/* decision-day banner: hidden until SITE.stage is "approved" */
-.stage-banner{ display:none; background:var(--offwhite); color:var(--ink); text-align:center; font-size:.98rem; padding:.7rem var(--gutter); position:relative; z-index:101; }
-.stage-banner p{ margin:0; }
-.stage-banner strong{ font-weight:800; text-transform:uppercase; letter-spacing:.02em; }
-.stage-banner a{ font-weight:600; text-decoration:underline; text-underline-offset:3px; margin-left:.35rem; white-space:nowrap; }
-body[data-stage="approved"] .stage-banner, body[data-stage="live"] .stage-banner{ display:block; }
-
 /* stage-aware blocks: teaser (now) / approved (decision day) / live (open) */
 .stage-approved, .stage-live{ display:none !important; }
 body[data-stage="approved"] .stage-teaser, body[data-stage="live"] .stage-teaser{ display:none !important; }
@@ -533,11 +526,6 @@ a.card:hover .card-link::after{ transform:translateX(5px); }
   .js .reveal, .hero .anim{ opacity:1; transform:none; transition:none; animation:none; }
 }
 
-/* decision-day banner sits above the floating header on video-hero pages */
-body.has-video-hero[data-stage="approved"] .stage-banner,
-body.has-video-hero[data-stage="live"] .stage-banner{ position:fixed; top:0; left:0; right:0; }
-body.has-video-hero[data-stage="approved"] .hdr,
-body.has-video-hero[data-stage="live"] .hdr{ top:var(--banner-h,44px); }
 
 /* facts list on dark bands (members) */
 .band-dark .facts strong{ color:var(--offwhite); }
