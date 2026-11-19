@@ -8,6 +8,10 @@
 //   GET  /unsubscribe     signed link from our emails: shows a confirm page (changes nothing)
 //   POST /unsubscribe     confirm button, or a mail app's one-click unsubscribe: removes the
 //                         contact from the Resend list and emails a confirmation
+//   GET  /interest        membership question buttons in our emails: shows a thank-you page,
+//                         which then records the answer with a POST (see below)
+//   POST /interest        saves the answer on the contact in Resend (property
+//                         "membership_interest") and emails padel@luckyshots.co.uk
 // Everything else goes back to ASSETS so the normal 404 page still works.
 //
 // Secrets/vars (Settings > Variables and secrets, after first deploy):
@@ -37,6 +41,10 @@ export default {
 
     if (url.pathname === '/unsubscribe') {
       return handleUnsubscribe(request, env);
+    }
+
+    if (url.pathname === '/interest') {
+      return handleInterest(request, env);
     }
 
     // Not an API route -> static assets (and their 404 handling).
@@ -245,9 +253,134 @@ async function handleUnsubscribe(request, env) {
     : sitePage(200, donePage(email, confirmed));
 }
 
+/* ---------- /interest (membership question in emails) ---------- */
+
+// The answers a button can send. The key goes in the link (?m=lucky), the label is
+// what gets saved in Resend and shown on the page.
+const INTEREST = {
+  lucky: 'Lucky Club',
+  daytime: 'Daytime Club',
+  payg: 'Pay and play',
+};
+
+// GET never records anything: email security scanners open every link in an email
+// before the person does, and would otherwise "vote" for all three. The page records
+// the answer with a POST from the browser once a real person is looking at it.
+async function handleInterest(request, env) {
+  const method = request.method;
+  const url = new URL(request.url);
+  const choice = (url.searchParams.get('m') || '').trim().toLowerCase();
+  const email = (url.searchParams.get('e') || '').trim().toLowerCase();
+  const valid = Object.prototype.hasOwnProperty.call(INTEREST, choice) && looksLikeEmail(email);
+
+  if (method === 'GET' || method === 'HEAD') {
+    if (!valid) return sitePage(400, interestInvalidPage(), method === 'HEAD', 'Thanks');
+    return sitePage(200, interestPage(choice, email), method === 'HEAD', 'Thanks');
+  }
+
+  if (method !== 'POST') {
+    return new Response('Method not allowed.', { status: 405, headers: { allow: 'GET, HEAD, POST' } });
+  }
+  if (!valid) return json(400, { error: 'Bad request.' });
+  if (!env.RESEND_API_KEY) return json(500, { error: 'Not configured.' });
+
+  const label = INTEREST[choice];
+
+  // 1. Save on the contact. PATCH only: this never adds anyone to the list.
+  let saved = false;
+  try {
+    const res = await fetch(`https://api.resend.com/contacts/${encodeURIComponent(email)}`, {
+      method: 'PATCH',
+      headers: resendHeaders(env),
+      body: JSON.stringify({ properties: { membership_interest: label } }),
+    });
+    saved = res.ok;
+    if (!res.ok) console.error('interest save failed', res.status, await res.text());
+  } catch (err) {
+    console.error('interest save threw', err);
+  }
+
+  // 2. Let us know, so answers show up in the inbox as they come in.
+  await sendEmail(env, {
+    to: REPLY_TO,
+    subject: `Membership interest: ${label}`,
+    html: `<p><strong>${escapeHtml(label)}</strong> from ${escapeHtml(email)}</p><p>${saved ? 'Saved on the contact in Resend.' : 'Not saved in Resend (contact not found or property missing). Logged here only.'}</p>`,
+    text: `${label} from ${email}\n${saved ? 'Saved on the contact in Resend.' : 'Not saved in Resend (contact not found or property missing). Logged here only.'}`,
+  });
+
+  // The no-JavaScript confirm button is a normal form post: show the page, not JSON.
+  if ((request.headers.get('accept') || '').includes('text/html')) {
+    return sitePage(200, interestDonePage(label), false, 'Thanks');
+  }
+  return json(200, { ok: true });
+}
+
+function interestDonePage(label) {
+  return `        <span class="eyebrow">Membership</span>
+        <span class="rule"></span>
+        <h1 class="display"><span class="script script-xl">Thank you.</span>Noted.</h1>
+        <p class="lead">You told us you&rsquo;d go for <strong>${escapeHtml(label)}</strong>. Founding Memberships are coming soon, and you&rsquo;ll hear first.</p>
+        <div class="btn-row">
+          <a class="btn btn-yellow" href="/">Visit the website</a>
+        </div>`;
+}
+
+function interestPage(choice, email) {
+  const label = INTEREST[choice];
+  const others = Object.keys(INTEREST)
+    .filter((k) => k !== choice)
+    .map(
+      (k) =>
+        `<a class="btn btn-line" href="/interest?m=${k}&amp;e=${encodeURIComponent(email)}">${k === 'payg' ? 'I&rsquo;ll just pay and play' : `I&rsquo;d go for the ${escapeHtml(INTEREST[k])}`}</a>`
+    )
+    .join('\n            ');
+  const data = JSON.stringify({ m: choice, e: email }).replace(/</g, '\\u003c');
+  return `        <span class="eyebrow">Membership</span>
+        <span class="rule"></span>
+        <h1 class="display"><span class="script script-xl">Thank you.</span>Noted.</h1>
+        <p class="lead" id="interest-status">You told us you&rsquo;d go for <strong>${escapeHtml(label)}</strong>. Founding Memberships are coming soon, and you&rsquo;ll hear first.</p>
+        <noscript>
+          <form method="post" action="/interest?m=${choice}&amp;e=${encodeURIComponent(email)}">
+            <div class="btn-row"><button class="btn btn-yellow" type="submit">Confirm my answer</button></div>
+          </form>
+        </noscript>
+        <p class="lead">Changed your mind?</p>
+        <div class="btn-row">
+            ${others}
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-yellow" href="/">Visit the website</a>
+        </div>
+        <script>
+          (function () {
+            var d = ${data};
+            function send() {
+              fetch('/interest?m=' + encodeURIComponent(d.m) + '&e=' + encodeURIComponent(d.e), { method: 'POST' })
+                .catch(function () {});
+            }
+            // Wait until the page is actually being looked at, so link scanners don't count.
+            function go() { setTimeout(send, 800); }
+            if (document.visibilityState === 'visible') go();
+            else document.addEventListener('visibilitychange', function once() {
+              if (document.visibilityState === 'visible') { document.removeEventListener('visibilitychange', once); go(); }
+            });
+          })();
+        </script>`;
+}
+
+function interestInvalidPage() {
+  return `        <span class="eyebrow">Membership</span>
+        <span class="rule"></span>
+        <h1 class="display"><span class="script script-xl">Hmm.</span>That link doesn&rsquo;t work.</h1>
+        <p class="lead">It may have been cut short in your email app. Just reply to our email with the membership you&rsquo;d go for, or email <a href="mailto:${REPLY_TO}?subject=Membership%20interest">${REPLY_TO}</a>.</p>
+        <div class="btn-row">
+          <a class="btn btn-yellow" href="/">Back to the site</a>
+        </div>`;
+}
+
 /* ---------- unsubscribe pages (use the site's own styles and header/footer) ---------- */
 
-function sitePage(status, main, headOnly = false) {
+function sitePage(status, main, headOnly = false, title = 'Unsubscribe') {
   const html = `<!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -255,7 +388,7 @@ function sitePage(status, main, headOnly = false) {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex" />
   <meta name="referrer" content="no-referrer" />
-  <title>Unsubscribe | Lucky Shots Padel</title>
+  <title>${title} | Lucky Shots Padel</title>
   <meta name="theme-color" content="#002813" />
   <link rel="icon" href="/assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32" />
