@@ -15,7 +15,7 @@ const SITE = {
   town:      "Colwyn Bay",
 
   // Stage: "teaser" (before planning), "approved" (planning granted, now) or
-  // "live" (open). "approved" shows the "It's happening" headlines and the address.
+  // "live" (open). "approved" shows the address and Get directions.
   stage:     "approved",
 
   address:   "Mochdre Commerce Park, Colwyn Bay",
