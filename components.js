@@ -18,8 +18,8 @@ const SITE = {
   // "live" (open). "approved" shows the address and Get directions.
   stage:     "approved",
 
-  address:   "Mochdre Commerce Park, Colwyn Bay",
-  mapsQuery: "Unit 1A Mochdre Commerce Park, Colwyn Bay"
+  address:   "Mochdre Commerce Parc, Colwyn Bay",
+  mapsQuery: "Lucky Shots Padel, Unit 1A, Mochdre Commerce Parc, Mochdre, Colwyn Bay LL28 5HX"
 };
 
 /* founding membership offer: shown in every sign-up block and on the members page.
